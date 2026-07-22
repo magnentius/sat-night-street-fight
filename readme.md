@@ -2,57 +2,33 @@
 
 > *"Be water, my friend. Empty your mind. Be formless, shapeless..."* — Bruce Lee
 
-**Saturday Night Street Fight** is a gritty, high-friction, tactical tabletop RPG of street-level brawls, martial arts, and urban survival. Inspired by the neon-drenched, steam-vented decay of **1970s New York City**, the game pits specialized fighters against local gang turf wars, corrupt enforcers, and transit-line gauntlets.
+**Saturday Night Street Fight** is a gritty, high-friction, tactical tabletop RPG of street-level brawls, martial arts, and urban survival. Set in the neon-drenched, steam-vented decay of **1970s New York City**, the game pits specialized fighters against local gang turf wars, corrupt enforcers, and subway transit gauntlets.
 
 ---
 
-## What Makes This Game Different?
+## Why Play This Game? (Unique Selling Points)
 
-### 1. The Combat Actions Triangle (No Turn Initiative)
-Combat is resolved through simultaneous rounds where both fighters declare their moves secretly and reveal them at once:
-*   **Strike beats Throw** ($\text{Strike} > \text{Throw}$)
-*   **Block beats Strike** ($\text{Block} > \text{Strike}$)
-*   **Throw beats Block** ($\text{Throw} > \text{Block}$)
+### 👊 For Players: High-Stakes Tactical Martial Arts
 
-Winning the RPS triangle grants you **Advantage** ($3\text{d}10$, keep the two highest), but a high-rolling underdog can still overcome the odds. Fights are resolved in a single, contested roll-off. **Only the winner executes their action**—the loser is completely interrupted!
-
-### 2. Direct Attribute Damage (No Abstract Hitpoints)
-Forget arbitrary hitpoint pools or abstract healing reserves. When you are hit, you take direct damage to your four core **Attributes**:
-*   **Timing**: Perception and reaction speed (damaged by Head strikes).
-*   **Posture**: Balance and structural leverage (damaged by Body strikes and Throws).
-*   **Footwork**: Agility and evasive stance (damaged by Leg kicks and Sweeps).
-*   **Stamina**: Cardiorespiratory wind and recovery (damaged by Body/Wind blows).
-
-As your attributes take damage, your action rolls degrade in real-time, representing exhaustion and cumulative physical trauma. **If any attribute is reduced to 0, you suffer an immediate TKO/KO.**
-
-### 3. Career-Threatening Scarring & Recovery
-If you escape a fight with at least 1 point in all attributes, your minor bruises heal overnight. But if you are TKO'd (any attribute hits 0), you enter **Severe Recovery**:
-*   Attributes heal at a slow rate of **$+1$ point per week of strict medical rest**.
-*   At the end of recovery, you must pass a **Posture Check (DC 12)**. Failure results in **Permanent Scarring** (a permanent $-1$ reduction to your attribute cap) representing blown ACLs, chronic brain fog, misaligned ribs, or spinal stiffness.
-
-### 4. Roguelike Subway Station Crawling
-The Game Master's campaign guide includes a procedural **Subway Line Generator**. Players ride the rails through underground transit networks, choosing between high-hazard express lines or slow, safer local lines. 
-*   **Every Station Exits onto a Block**: Generating a new street layout with landmarks (pawn shops, dive bars, alleyways) and urban hazards (slippery oil slicks, low-visibility broken streetlights, steam vents).
-*   **Subway Encounters**: Platform toll-takers, gang ambushes, or syndicate enforcers waiting to protect their turf.
+*   **No Turn Waiting — Simultaneous Stance Mind Games**:
+    Combat uses a simultaneous blind-reveal card system (**Strike beats Throw, Block beats Strike, Throw beats Block**). You secret-commit your stance at the same time as your opponent. Win the counter match to gain **Advantage** ($3\text{d}10$) and interrupt your opponent's move before it even lands!
+*   **Direct Attribute Damage (Feel Every Hit)**:
+    Forget abstract hitpoints. Attacks deal direct damage to your four core physical **Attributes** (**Timing**, **Posture**, **Footwork**, **Stamina**). As you take head strikes, body blows, and leg sweeps, your combat rolls degrade in real-time. If any attribute hits 0, you suffer an immediate TKO!
+*   **Roleplay-Driven Character Growth (XP Keys)**:
+    Fighters don't level up by killing monsters for flat XP—you earn XP by acting out your brawler motivations (**XP Keys**). Earn XP by defending dojo pride, protecting your turf, honoring street codes, or holding grudges. Trigger dramatic **Buyoffs** when your character evolves to claim a +3 XP bonus and choose a new key!
+*   **Authentic Martial Arts Mastery**:
+    Specialize in Boxing, Muay Thai, Judo, Wrestling, or Taekwondo. Master iconic techniques and unleash game-changing style perks like Boxer's *Slip & Counter*, Muay Thai's *Thai Clinch*, Judo's *Kuzushi Reversals*, and Wrestler's *Ground Control*.
 
 ---
 
-## Martial Arts Styles
+### 🎲 For Game Masters: Zero-Prep Procedural Urban Crawling
 
-Choose your discipline, each offering restricted sub-actions and two unique style perks:
-1.  **Boxing (The Sweet Science)**: Slipping punches to deliver devastating counters (*Slip & Counter*, *Iron Chin*).
-2.  **Muay Thai (Art of Eight Limbs)**: Devastating low kicks and dominant collar-ties (*Thai Clinch*, *Heavy Leg Kicks*).
-3.  **Judo (The Gentle Way)**: Perfect parries and high-impact shoulder throws (*Kuzushi*, *Sweeping Reversal*).
-4.  **Wrestling (Ground Dominance)**: Power double-legs and pin-locks (*Shooter*, *Ground Control*).
-5.  **Taekwondo / Karate (Long-Range Kicking)**: Evasive outfighting and spinning setups (*Spinning Kicks*, *Outfighting*).
-
----
-
-## Files Included
-
-*   [rules.md](rules.md): The core rules detailing fighter creation, combat checks, attributes, damage mitigation, styles, and XP Keys.
-*   [gm.md](gm.md): The Game Master's guide with block generators, NPC enforcers, mob rules, subway line crawlers, and a **1d10 rollable 1970s soundtrack playlist**.
-*   [LICENSE.md](LICENSE.md): The Creative Commons Attribution-NonCommercial-ShareAlike 4.0 (CC BY-NC-SA 4.0) license.
+*   **Zero Pre-Game Prep (Procedural 1d10 Generators)**:
+    Run entire campaign nights on the fly with zero advance preparation! Use simple $1\text{d}10$ tables to procedurally generate subway lines, station platform events, street names, commercial landmarks, urban hazards, and gang encounters across **5 Block Danger Ranks** (10 unique encounters per rank).
+*   **Effortless Group Swarms (Mob Punk Rules)**:
+    Run brawls against gang mobs of 4 to 6 punks without tracking individual hitpoints or turn order. A Mob acts as a single collective entity with a shared Mob Pool—**1 point of damage instantly TKOs 1 Punk** from the crowd!
+*   **Built-in 1d10 1970s Funk & Soul Soundtrack**:
+    Instant atmospheric immersion! The GM guide includes a rollable $1\text{d}10$ playlist of authentic 1970s funk, soul, and blaxploitation film tracks to set the tone for every street brawl.
 
 ---
 
