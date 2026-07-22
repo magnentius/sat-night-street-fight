@@ -17,6 +17,7 @@
 9. [Status Conditions](#status-conditions)
 10. [Healing & Recovery](#healing--recovery)
 11. [Campaign Progression & The Street Crawl](#campaign-progression--the-street-crawl)
+12. [Experience & Character Growth (XP Keys)](#experience--character-growth-xp-keys)
 
 ---
 
@@ -359,7 +360,7 @@ To resolve a contested roll, combatants calculate their totals using the followi
     *   **Critical Success**: Succeeding by a margin of 5 or more (Winner Total - Loser Total $\ge 5$) activates secondary weapon/style/critical effects, and increases incoming damage by $+1$ attribute damage.
     *   **The Overkill Rule (Natural 20)**: Rolling double 10s on your action dice is a **Natural 20 (Overkill)**. It guarantees an automatic Critical Hit ($+1$ damage and critical secondary effects) regardless of scores, and grants a **Momentum Surge** (instantly restoring $+1$ Stamina or Cool to the attacker).
 
-### 3. Ties and Clashes (Identical Roll Totals)
+### 4. Ties and Clashes (Identical Roll Totals)
 If both combatants calculate the exact same Roll Total, the round is resolved as follows based on the action matchup:
 *   **Strike vs. Strike Clash (Red vs. Red)**: Simultaneous connection! Both strikes hit and deal full, unmitigated Attribute Damage to both fighters.
 *   **Strike vs. Block Clash (Red vs. White)**: The defense holds. The block successfully mitigates the strike's damage, but the Blocker is **Staggered** next turn from the impact.
@@ -492,30 +493,30 @@ If a fighter fails their recovery check, they suffer a permanent $-1$ reduction 
 
 A single campaign session of **Saturday Night Street Fight** is structured as a **Street Crawl**—a self-contained procedural run through the blighted city streets and subways.
 
-### The Street Crawl Session Loop
+### 1. The Street Crawl Session Loop
 Every game session follows a structured four-phase loop representing one night on the streets:
 
 1.  **Phase 1: The Briefing (Select Target)**: Players start in their **Home Turf** (or a previously secured safe house) and choose a destination block or station.
 2.  **Phase 2: Riding the Rails (Transit Crawl)**: Players traverse the subway line. The GM generates the line length and stop types, rolling on the *Subway Station Event Table* for each platform.
-3.  **Phase 3: Navigating the Blocks (Street Crawl)**: When exiting a station, the GM generates the block's layout, landmarks, and hazards, setting its **Danger Rank**. Players resolve any street encounters using the procedural rules in the [Game Master's Guide](file:///Users/johnk/github/sat-night-street-fight/gm.md#encounter-building--starting-range-matrix).
+3.  **Phase 3: Navigating the Blocks (Street Crawl)**: When exiting a station, the GM generates the block's layout, landmarks, and hazards, setting its **Danger Rank**. Players resolve any street encounters using the procedural rules in the [Game Master's Guide](gm.md#encounter-building--starting-range-matrix).
 4.  **Phase 4: Retreat to Safety (Session End)**: A session ends when the fighters successfully reach their target, escape to a Transit Safe House, return home, or get admitted to a Hospital. During this phase, players spend earned Experience Points (XP) to train technique masteries and condition core attributes.
 
 ---
 
-### Experience & Character Growth (XP Keys)
+## Experience & Character Growth (XP Keys)
 
 Fighters grow stronger not just by surviving brawls, but by acting out their personal street code, brawler motivations, and martial arts philosophy. 
 
 Rather than flat combat XP, **Saturday Night Street Fight** uses **XP Keys**. Keys drive character advancement and award Experience Points (XP) during play whenever your fighter fulfills their motivations or overcomes personal obstacles.
 
-#### 1. Character Rank & Available XP
+### 1. Character Rank & Available XP
 *   **Available XP (Bank)**: The unspent XP currently sitting in your pool ready to spend on technique masteries or attribute conditioning.
     *   *At Character Creation*: Starting 50 XP budget minus XP spent on creation (e.g., 50 – 48 = **2 Available XP**).
 *   **Character Rank (= Total Spent XP)**: Your fighter's overall power level, street reputation, and total XP investment.
     *   *At Character Creation*: Rank equals XP spent during creation (e.g., **Rank 48**).
     *   *In Play*: Whenever you spend XP on training or conditioning attributes, your **Character Rank increases by the exact amount spent!** *(e.g., Spending 3 XP to train a move increases your Rank from 48 to 51).*
 
-#### 2. How Keys & Unlocks Work
+### 2. How Keys & Unlocks Work
 *   **Starting Keys**: At character creation (Rank ~48), select **2 Keys** from the list below.
 *   **Unlocking 3rd Key Slot**: When your fighter's **Character Rank reaches 60** (after spending ~12 XP in campaign play), you permanently unlock your **3rd active Key slot** (Maximum 3 active Keys).
 *   **Key Capacity**: A character can hold a maximum of **3 active Keys** at any time. Once all 3 slots are full, you must trigger a **Buyoff** on an existing Key to adopt a new motivation.
@@ -525,51 +526,51 @@ Rather than flat combat XP, **Saturday Night Street Fight** uses **XP Keys**. Ke
 
 ---
 
-#### 2. The Martial Arts XP Keys List
+### 3. The Martial Arts XP Keys List
 
-##### A. Key of Dojo Pride (Style Honor)
+#### A. Key of Dojo Pride (Style Honor)
 *Your character lives to prove that their martial arts style (Boxing, Judo, Muay Thai, Wrestling, Taekwondo) is superior to all others.*
 *   **1 XP**: Defeat an opponent who practices a different martial arts style in a 1v1 duel.
 *   **2 XP**: Defeat a rival Tier 3 Boss who publicly mocks or discredits your style.
 *   **Buyoff / Counter**: Publicly admit that another style is superior to yours or abandon your primary style. *(Gain +3 XP, remove Key).*
 
-##### B. Key of Turf Loyalty (Neighborhood Defender)
+#### B. Key of Turf Loyalty (Neighborhood Defender)
 *Your character is fiercely protective of your home turf, neighborhood, and local crew.*
 *   **1 XP**: Defend your home block or transit safe house from an intruding gang.
 *   **2 XP**: Reclaim a lost block or drive a rival Syndicate Boss completely off your neighborhood's turf.
 *   **Buyoff / Counter**: Abandon your home turf to save yourself, or sell out your block to a rival syndicate. *(Gain +3 XP, remove Key).*
 
-##### C. Key of the Iron Fist (The Challenger)
+#### C. Key of the Iron Fist (The Challenger)
 *Your character seeks out the toughest enforcers and syndicate bosses on the street to test their physical limits.*
 *   **1 XP**: Challenge the strongest opponent in an encounter to a 1v1 duel.
 *   **2 XP**: Defeat a Tier 3 Syndicate Boss in single combat without receiving assistance from allies.
 *   **Buyoff / Counter**: Refuse a direct challenge from a rival brawler, or flee from a fight you could have won. *(Gain +3 XP, remove Key).*
 
-##### D. Key of the Street Code (Brawler Honor)
+#### D. Key of the Street Code (Brawler Honor)
 *Your character abides by a strict code of street honor: no sucker punches, no jumping isolated fighters, and protecting the weak.*
 *   **1 XP**: Allow a defeated opponent to walk away without executing a finishing blow or inflicting permanent scarring.
 *   **2 XP**: Refuse to break your street code even when doing so results in taking severe damage or losing a fight.
 *   **Buyoff / Counter**: Execute a dishonorable sucker punch, or abandon an innocent to save your own skin. *(Gain +3 XP, remove Key).*
 
-##### E. Key of the Hustler (Street Cash & Bets)
+#### E. Key of the Hustler (Street Cash & Bets)
 *You are in it for the payday—street craps, side wagers, protection cash, and raw survival earnings.*
 *   **1 XP**: Win a street craps game, extortion roll, or land a favorable monetary trade.
 *   **2 XP**: Secure control of a high-value commercial landmark (like a Pawn Shop or Transit Hub) for your crew.
 *   **Buyoff / Counter**: Give away your hard-earned cash/resources for free to a stranger without getting anything in return. *(Gain +3 XP, remove Key).*
 
-##### F. Key of Vengeance (The Grudge)
+#### F. Key of Vengeance (The Grudge)
 *You hold a deep, burning grudge against a specific rival syndicate, gang leader, or corrupt official who wronged you.*
 *   **1 XP**: Hurt or humiliate a member or lackey of the targeted syndicate.
 *   **2 XP**: Defeat the syndicate leader or bring down their primary stronghold.
 *   **Buyoff / Counter**: Forgive your sworn enemy, or let the syndicate leader go free when you have them at your mercy. *(Gain +3 XP, remove Key).*
 
-##### G. Key of the Underdog (Rising Grit)
+#### G. Key of the Underdog (Rising Grit)
 *You love proving the doubters wrong, thriving when the odds are stacked against you.*
 *   **1 XP**: Enter a brawl while already suffering from 1 or more attribute damage.
 *   **2 XP**: Win an encounter while at least two of your attributes are reduced to 1 point.
 *   **Buyoff / Counter**: Give up mid-fight or surrender to an opponent when you still have fight left in you. *(Gain +3 XP, remove Key).*
 
-##### H. Key of the Mentor (Protecting the Crew)
+#### H. Key of the Mentor (Protecting the Crew)
 *You care about bringing up the next generation of street brawlers and protecting your crew's rookies.*
 *   **1 XP**: Offer tactical advice or spend a 10-minute short rest conditioning a companion.
 *   **2 XP**: Save a companion from taking a severe attribute TKO (0) by placing yourself directly in harm's way.
@@ -577,12 +578,12 @@ Rather than flat combat XP, **Saturday Night Street Fight** uses **XP Keys**. Ke
 
 ---
 
-#### 3. Spending Experience Points
+### 4. Spending Experience Points
 Fighters spend their earned XP during **Phase 4: Retreat to Safety** to train techniques and condition their body:
 
-##### A. Increasing Technique Masteries
+#### A. Increasing Technique Masteries
 *   **Untrained (Rank 0) $\rightarrow$ Trained (Rank 1)** ($+3$ bonus): Costs **3 XP** and requires 1 day of practice.
 *   **Trained (Rank 1) $\rightarrow$ Mastered (Rank 2)** ($+5$ bonus): Costs **6 XP** (requires Rank 1 first) and requires sparring or executing the move in 3 separate fights.
 
-##### B. Conditioning Attributes
+#### B. Conditioning Attributes
 *   **Increasing an Attribute by +1**: Costs **10 XP** and requires 1 week of dedicated training (up to the campaign cap of **4**).

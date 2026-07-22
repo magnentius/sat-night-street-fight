@@ -50,5 +50,15 @@ Choose your discipline, each offering restricted sub-actions and two unique styl
 
 ## Files Included
 
-*   [rules.md](file:///Users/johnk/github/sat-night-street-fight/rules.md): The core rules detailing fighter creation, combat checks, attributes, damage mitigation, and styles.
-*   [gm.md](file:///Users/johnk/github/sat-night-street-fight/gm.md): The Game Master's guide with block generators, NPC enforcers, group mob combat rules, flanking rules, subway line crawlers, and a **1d10 rollable 1970s soundtrack playlist**.
+*   [rules.md](rules.md): The core rules detailing fighter creation, combat checks, attributes, damage mitigation, styles, and XP Keys.
+*   [gm.md](gm.md): The Game Master's guide with block generators, NPC enforcers, mob rules, subway line crawlers, and a **1d10 rollable 1970s soundtrack playlist**.
+*   [LICENSE.md](LICENSE.md): The Creative Commons Attribution-NonCommercial-ShareAlike 4.0 (CC BY-NC-SA 4.0) license.
+
+---
+
+## License & Copyright
+
+**Saturday Night Street Fight**  
+Copyright © 2026 John Karakashian. Some Rights Reserved.
+
+This work is licensed under the **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License** (CC BY-NC-SA 4.0). See [LICENSE.md](LICENSE.md) for details.
