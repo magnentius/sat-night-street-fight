@@ -275,7 +275,7 @@ def format_character_sheet(name, style_name, attrs, masteries, unspent_xp, arche
     
     return "\n".join(sheet)
 
-def interactive_generation():
+def interactive_generation(should_write=False):
     print_header("Fighter Creation System")
     name = input("Enter your fighter's name: ").strip()
     if not name:
@@ -377,40 +377,46 @@ def interactive_generation():
 
     # Save character sheet
     sheet_content = format_character_sheet(name, style_name, attrs, masteries, xp)
-    filename = f"{name.replace(' ', '_').lower()}_sheet.md"
-    
-    with open(filename, "w") as f:
-        f.write(sheet_content)
-        
     print_header("Fighter Created Successfully!")
     print(sheet_content)
-    print(f"\nCharacter sheet saved to: {os.path.abspath(filename)}")
+    
+    if should_write:
+        filename = f"{name.replace(' ', '_').lower()}_sheet.md"
+        with open(filename, "w") as f:
+            f.write(sheet_content)
+        print(f"\nCharacter sheet saved to: {os.path.abspath(filename)}")
 
 def main():
-    if len(sys.argv) > 1:
-        arg = sys.argv[1]
+    should_write = "-w" in sys.argv or "--write" in sys.argv
+    args = [a for a in sys.argv if a not in ["-w", "--write"]]
+
+    if len(args) > 1:
+        arg = args[1]
         if arg in ["--random", "-r"]:
             name, style_name, arch_name, attrs, masteries, xp = generate_random_character()
             sheet_content = format_character_sheet(name, style_name, attrs, masteries, xp, arch_name)
-            filename = f"{name.replace(' ', '_').lower()}_sheet.md"
-            with open(filename, "w") as f:
-                f.write(sheet_content)
             print_header("Random Fighter Generated")
             print(sheet_content)
-            print(f"\nSaved to: {os.path.abspath(filename)}")
+            
+            if should_write:
+                filename = f"{name.replace(' ', '_').lower()}_sheet.md"
+                with open(filename, "w") as f:
+                    f.write(sheet_content)
+                print(f"\nSaved to: {os.path.abspath(filename)}")
         elif arg in ["--help", "-h"]:
             print("Saturday Night Street Fight — Character Generator")
             print("Usage:")
             print("  ./pc_generator.py          : Launch interactive character builder")
             print("  ./pc_generator.py --random : Generate a random, fully valid character sheet")
             print("  ./pc_generator.py -r       : Generate a random, fully valid character sheet")
-            print("  ./pc_generator.py --help   : Show this help menu")
-            print("  ./pc_generator.py -h       : Show this help menu")
+            print("  Options:")
+            print("    -w, --write              : Save the character sheet to a Markdown file")
+            print("    -h, --help               : Show this help menu")
         else:
             print(f"Unknown argument: {arg}")
             print("Run with --help or -h to see options.")
     else:
-        interactive_generation()
+        interactive_generation(should_write=should_write)
 
 if __name__ == "__main__":
     main()

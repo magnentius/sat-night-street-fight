@@ -268,7 +268,7 @@ class Combatant:
         
         return total, roll_log, attr_name
 
-def run_fight(p1, p2):
+def run_fight(p1, p2, should_write=False):
     global log_lines
     log_lines = []
     
@@ -543,7 +543,7 @@ def run_fight(p1, p2):
         match_result = f"{p1.name} wins via TKO"
 
     # Write report and print final metrics
-    write_metrics_report(p1, p2, metrics, match_result)
+    write_metrics_report(p1, p2, metrics, match_result, should_write=should_write)
 
 def resolve_hit(attacker, move, target, damage, crit, metrics, att_key, def_key):
     target_attr = "timing"
@@ -585,7 +585,7 @@ def resolve_hit(attacker, move, target, damage, crit, metrics, att_key, def_key)
         log_print(f"   -> {target.name} is STUNNED by the massive blow!")
         target.stunned = True
 
-def write_metrics_report(p1, p2, metrics, match_result):
+def write_metrics_report(p1, p2, metrics, match_result, should_write=False):
     p1_stats = metrics["p1"]
     p2_stats = metrics["p2"]
     
@@ -642,12 +642,24 @@ def write_metrics_report(p1, p2, metrics, match_result):
     script_dir = os.path.dirname(os.path.abspath(__file__))
     report_path = os.path.join(script_dir, filename)
     
-    with open(report_path, "w") as f:
-        f.write(report_content)
-        
-    print(f"\nDetailed markdown combat log written to: {report_path}")
+    if should_write:
+        with open(report_path, "w") as f:
+            f.write(report_content)
+        print(f"\nDetailed markdown combat log written to: {report_path}")
 
 def main():
+    should_write = "-w" in sys.argv or "--write" in sys.argv
+    args = [a for a in sys.argv if a not in ["-w", "--write"]]
+
+    if len(args) > 1 and args[1] in ["-h", "--help"]:
+        print("Saturday Night Street Fight — 1v1 Duel Simulator")
+        print("Usage:")
+        print("  ./duel_simulator.py          : Launch 1v1 Street Fight Duel Simulator")
+        print("  Options:")
+        print("    -w, --write              : Save detailed markdown combat log (duel_report.md)")
+        print("    -h, --help               : Show this help menu")
+        sys.exit(0)
+
     print_banner("1v1 Street Fight Duel Simulator")
     
     # Option to select Tiers
@@ -663,7 +675,7 @@ def main():
     if p1_choice == "2":
         print("Launching interactive PC Builder...")
         from pc_generator import interactive_generation
-        interactive_generation()
+        interactive_generation(should_write=should_write)
         print("\nNow let's load that character or roll a random brawler for the duel...")
         name, style_name, arch_name, attrs, masteries, xp = generate_random_character()
     else:
@@ -695,7 +707,7 @@ def main():
         npc_data.get("style", None)
     )
 
-    run_fight(p1, p2)
+    run_fight(p1, p2, should_write=should_write)
 
 if __name__ == "__main__":
     main()

@@ -343,13 +343,19 @@ def main():
     report.append("- *Balance Verdict*: The new Strike vs. Strike clash resolution rules successfully prevented instant mutual double-KOs (Double TKO rate is close to 0%). Fights last an average of 4-6 rounds, providing a great sweet spot for TTRPG session pacing.")
 
     # Write report file to artifacts
-    artifacts_dir = "/Users/johnk/.gemini/antigravity-ide/brain/85f2e824-c8a1-4206-b0c4-a87695fbc2fd"
-    report_path = os.path.join(artifacts_dir, "balance_analysis.md")
+    report_text = "\n".join(report)
     
-    with open(report_path, "w") as f:
-        f.write("\n".join(report))
-        
-    print(f"\nBalance report written to: {report_path}")
+    if "-w" in sys.argv or "--write" in sys.argv:
+        artifacts_dir = "/Users/johnk/.gemini/antigravity-ide/brain/85f2e824-c8a1-4206-b0c4-a87695fbc2fd"
+        report_path = os.path.join(artifacts_dir, "balance_analysis.md")
+        with open(report_path, "w") as f:
+            f.write(report_text)
+        print(f"\nBalance report written to: {report_path}")
+    else:
+        print("\n" + "="*70)
+        print(report_text)
+        print("="*70 + "\n")
+        print("Tip: Run with -w or --write to save this report to the artifacts directory.")
 
 if __name__ == "__main__":
     main()
