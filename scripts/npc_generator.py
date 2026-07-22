@@ -22,19 +22,27 @@ BOSS_NICKNAMES = [
 ENCOUNTERS = {
     1: [
         ("Empty Street", "A quiet, peaceful night under the streetlights. No threats."),
-        ("Friendly Merchant", "A local vendor or ally offers a discount. Buy warm food to recover 1 attribute damage (3 XP, or 1 XP with a Cool Check [DC 10] success)."),
+        ("Friendly Merchant", "A local vendor or street ally. Players can trade street rumors, get directions to local safe houses, or rest safely without threat of ambushes."),
         ("Transit Police Patrol", "Active police presence. Brawling is forbidden; combat actions immediately summon police enforcers."),
         ("Local Informant", "A street contact shares rumors. Roll a Cool Check (DC 10) to gain Advantage on the next Subway Station Event roll."),
         ("Safe Alleyway", "A hidden, dry alcove to hide. Players can safely rest here to recover minor attribute damage (+1 to all stats at 1 or higher)."),
-        ("Minor Nuisance", "A single pickpocket (Tier 1 Punk) attempts a grab and run. They flee if the player wins a contested Cool or Timing check.")
+        ("Minor Nuisance", "A single pickpocket (Tier 1 Punk) attempts a grab and run. They flee if the player wins a contested Cool or Timing check."),
+        ("Corner Newsstand", "Commuters reading evening papers. Peaceful safe zone."),
+        ("Diner Window Seat", "Warm interior light shining onto the sidewalk. Safe resting spot."),
+        ("Off-Duty Brawler", "A retired veteran brawler offering combat advice (grants Advantage on your next stance read check)."),
+        ("Street Musician", "A saxophone player playing a calm jazz melody; unwinds stress and restores Cool to maximum.")
     ],
     2: [
         ("Quiet Corridor", "The block is quiet, but shadows flicker in the alleys. No immediate threats."),
         ("Solitary Lookout", "A single Tier 1 Lookout stands guard. Players can sneak past (contested Timing) or bluff past (contested Cool)."),
-        ("Street Craps Game", "A group of locals gambling. Players can wager 3 XP on a single contested Cool check against the dealer. Win to gain +6 XP."),
+        ("Street Craps Game", "A group of locals gambling. Players can wager 1 Available XP on a single contested Cool check against the dealer. Win to gain +2 XP."),
         ("Foot Patrol", "Two Tier 1 Punks walking the beat. They harass the players unless intimidated by a contested Cool check."),
         ("Drunk Fighter", "A single Tier 2 Thug who is highly intoxicated and looking for a brawl (rolls with Disadvantage)."),
-        ("Shakedown", "A single Tier 2 Thug demands a toll (1 XP). Players can pay, fight, or bluff past with a contested Cool check.")
+        ("Shakedown", "A single Tier 2 Thug demands a turf toll. Players can fight or bluff past with a contested Cool check."),
+        ("Tagging Crew", "Three Tier 1 Punks spray-painting gang slogans. They grow hostile if confronted."),
+        ("Narrow Alley Shortcut", "A dark alley starting at Striking Range."),
+        ("Debris Obstruction", "Loose wooden crates; requires a Footwork Check (DC 8) to cross without tripping."),
+        ("Stolen Vehicle", "A stripped car creating cover in the center of the block.")
     ],
     3: [
         ("Watchful Eyes", "Gang watchmen occupy the rooftops. Crossing without panic requires a contested Cool check to blend into the shadows."),
@@ -42,7 +50,11 @@ ENCOUNTERS = {
         ("Heavy Hitter", "A single Tier 2 Thug carrying an improvised weapon (baseball bat or pipe), adding +1 damage to all successful Strikes."),
         ("Gang Rush", "A Mob of Punks (Tier 1) rushes the players, starting at Striking Range."),
         ("Corner Defense", "Two Tier 2 Thugs guarding a business entry. They block passage until defeated."),
-        ("Alleyway Ambush", "A Mob of Punks (Tier 1) ambushes the players from the shadows, starting immediately at Clinch Range.")
+        ("Alleyway Ambush", "A Mob of Punks (Tier 1) ambushes the players from the shadows, starting immediately at Grapple Range."),
+        ("Barroom Spillout", "Two Tier 2 Thugs crashing out of a dive bar onto the sidewalk."),
+        ("Guard Dog Handler", "A Tier 2 Thug with an aggressive guard dog enforcing gang turf lines."),
+        ("Chokepoint Fence", "A chainlink fence blocking the block, forcing Grapple Range."),
+        ("Street Standoff", "A hostile Mob of 3 Punks staring down the block at Outside Range.")
     ],
     4: [
         ("Fortified Blockade", "Barbwire and wooden crates block the street. Crossing requires a contested Posture check against two Tier 2 Thugs."),
@@ -50,15 +62,23 @@ ENCOUNTERS = {
         ("Warlord Patrol", "Three Tier 2 Thugs patrolling in close coordination."),
         ("The Pack", "A Mob of Punks (Tier 1) led by a Tier 2 Thug enforcer."),
         ("Hit Squad", "Two Tier 2 Thugs who coordinate their attacks to specifically target the players' lowest attribute."),
-        ("Double Ambush", "Two separate Mobs of Punks (Tier 1) attack from both sides (Flanking rules apply).")
+        ("Double Ambush", "Two separate Mobs of Punks (Tier 1) attack from both sides (Flanking rules apply)."),
+        ("Arson Threat", "A Tier 2 Thug threatening to burn down a local storefront unless stopped immediately."),
+        ("Rooftop Bottle Throwers", "Gang scouts throwing bricks/bottles from above, giving enemies Advantage on the first round."),
+        ("Heavy Enforcer Duo", "Two Tier 2 Thugs wielding lead pipes."),
+        ("Subway Stairs Chokepoint", "Ambush right at the subway exit stairs at Grapple Range.")
     ],
     5: [
         ("Grime Trap", "Low visibility and steam vents cover the street. All action rolls on this block suffer a -1 penalty."),
         ("The Elite Guard", "Two Tier 3 Bosses (built using full Character Creation rules) patrolling."),
         ("Syndicate Patrol", "A Mob of Punks (Tier 1) led by an elite Tier 3 Boss enforcer."),
         ("Style Champion", "A Tier 3 Boss who has active style perks and multiple Mastered techniques (+5) challenges the players to a 1-on-1 duel."),
-        ("Death Alley Ambush", "Two Tier 2 Thugs and one Tier 3 Boss ambush the players immediately at Clinch Range."),
-        ("The Overlord", "The main Boss of the sector is present with a personal bodyguard of two Tier 2 Thugs.")
+        ("Death Alley Ambush", "Two Tier 2 Thugs and one Tier 3 Boss ambush the players immediately at Grapple Range."),
+        ("The Overlord", "The main Boss of the sector is present with a personal bodyguard of two Tier 2 Thugs."),
+        ("Syndicate Warband", "A Mob of 6 Punks led by two Tier 2 Thugs."),
+        ("Heavyweight Champion", "A Tier 3 Boss with maxed Posture and Stamina (4)."),
+        ("Iron Gate Trap", "Security gates lock behind the crew; forces a fight to the TKO!"),
+        ("Final Showdown", "The Syndicate Leader challenges the crew at Outside Range under glowing neon lights.")
     ]
 }
 
@@ -125,7 +145,7 @@ def print_npc(npc):
     if not npc["masteries"]:
         print("  None (Untrained Rank 0)")
     for move, rank in npc["masteries"].items():
-        rank_text = "Trained (Rank 1, +2)" if rank == 1 else "Mastered (Rank 2, +5)"
+        rank_text = "Trained (Rank 1, +3)" if rank == 1 else "Mastered (Rank 2, +5)"
         print(f"  - {move.title()}: {rank_text}")
         
     print("Style Perks:")

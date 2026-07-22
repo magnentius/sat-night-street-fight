@@ -51,11 +51,11 @@ Whenever the train pulls into a station, roll to see what awaits the players on 
 | **4-5** | **Local Gang Toll** | A group of **Standard Thugs (Tier 2)** guards the turnstiles, demanding a toll or a bribe. Players can pay, fight, or bluff/negotiate past by winning a contested **Cool** check. |
 | **6-7** | **Ambush!** | The platform lights flicker out. A **Mob of Punks (Tier 1)** ambushes from the shadows at **Grapple Range**. Players must pass a **Cool Check (DC 10)** to keep their nerve; on a failure, the attackers gain **Advantage** on the first round. |
 | **8-9** | **Rival Crew Turf** | A rival **Boss (Tier 3)** and their enforcers are waiting on the platform, looking to defend their turf from outsiders. |
-| **10** | **Transit Safe House & Clinic Connection** | A friendly transit worker lets players hide in a breakroom. This station is directly connected to a **City Hospital** (players can immediately roll the **Cool Check [DC 12]** to get admitted for Severe Recovery without exiting to the surface). Restores Cool for 2 XP. |
+| **10** | **Transit Safe House & Clinic Connection** | A friendly transit worker lets players hide in a breakroom. This station is directly connected to a **City Hospital** (players can immediately roll the **Cool Check [DC 12]** to get admitted for Severe Recovery without exiting to the surface). Restores Cool to maximum. |
 
 ### Procedural Subway Line Generator
 To map out a transit line between the players' Home Turf and their target destination:
-1.  **Roll Line Length**: Roll **$1\text{d}6 + 2$** to determine the number of intermediate stations on the line.
+1.  **Roll Line Length**: Roll **$1\text{d}10$** to determine the number of intermediate stations on the line (1–3: 3 stations, 4–7: 5 stations, 8–10: 7 stations).
 2.  **Generate Stations**: For each intermediate station, roll a **$1\text{d}10$** on the table below to determine its layout and routing choices:
 
 | Roll ($1\text{d}10$) | Station Type | Description & Routing Rules |
@@ -136,7 +136,7 @@ Roll to determine the three primary landmarks on the block.
 
 | Roll | Landmark / Business | Tactical Layout / Features |
 | :--- | :--- | :--- |
-| **1** | **Dive Bar** | Pool table (obstructs movement), jukebox, slippery spilled drinks. Players can spend 2 XP here to unwind and fully restore Cool. |
+| **1** | **Dive Bar** | Pool table (obstructs movement), jukebox, slippery spilled drinks. Players can rest here to unwind and fully restore Cool to maximum. |
 | **2** | **Pawn Shop** | Iron security gates (can be used to pin), glass display cases. |
 | **3** | **Abandoned Movie Theater** | Littered lobby, broken ticket booth, heavy double doors. |
 | **4** | **Greasy Spoon Diner** | High counter stools, hot coffee pots, narrow aisle-ways. |
@@ -164,25 +164,33 @@ These hazards add mechanical friction to the brawls.
 
 ## Block Danger Ranks & Encounters
 
-Every block in the city has a **Danger Rank** from **1 to 5** that reflects the presence of hostile gang control. When players arrive at a block, the GM determines the Danger Rank (or rolls a $1\text{d}6$ on the Danger Zone station types) and rolls a **$1\text{d}6$** on the corresponding table below to generate the encounter:
+Every block in the city has a **Danger Rank** from **1 to 5** that reflects the presence of hostile gang control. When players arrive at a block, the GM determines the Danger Rank and rolls a **$1\text{d}10$** on the corresponding table below to generate the encounter:
 
 ### Danger Rank 1: Safe Zone / Home Turf
 *Friendly neighborhoods, neutral territory, or heavily patrolled sectors.*
 *   **1: Empty Street**: A quiet, peaceful night under the streetlights. No threats.
-*   **2: Friendly Merchant**: A local vendor or ally. Players can buy warm food to recover 1 attribute damage (costs 3 XP, or 1 XP if they win a **Cool Check [DC 10]** to barter).
+*   **2: Friendly Merchant**: A local vendor or street ally. Players can trade street rumors, get directions to local safe houses, or rest safely without threat of ambushes.
 *   **3: Transit Police Patrol**: Active police presence. Brawling is forbidden; any combat actions rolled on this block immediately summon police enforcers.
 *   **4: Local Informant**: A street contact. Players can roll a **Cool Check (DC 10)** to gather rumors, gaining **Advantage** on their next Subway Station Event roll on a success.
 *   **5: Safe Alleyway**: A hidden, dry alcove to hide. Players can safely rest here to recover minor attribute damage ($+1$ point to all attributes at 1 or higher).
 *   **6: Minor Nuisance**: A single pickpocket (**Tier 1 Punk**) attempts a grab and run. They will immediately flee if the player wins a contested **Cool** (intimidation) or Timing (chase) check.
+*   **7: Corner Newsstand**: Commuters reading evening papers. Peaceful safe zone.
+*   **8: Diner Window Seat**: Warm interior light shining onto the sidewalk. Safe resting spot.
+*   **9: Off-Duty Brawler**: A retired veteran brawler offering combat advice (grants **Advantage** on your next stance read check).
+*   **10: Street Musician**: A saxophone player playing a calm jazz melody; unwinds stress and restores Cool to maximum.
 
 ### Danger Rank 2: Low Danger / Disputed Blocks
 *Fringe territory where low-level crews occasionally pick fights.*
 *   **1: Quiet Corridor**: The block is quiet, but shadows flicker in the alleys. No immediate threats.
 *   **2: Solitary Lookout**: A single **Tier 1 Lookout** stands guard. Players can sneak/take them down using contested Timing, or bluff past them using a contested **Cool** check.
-*   **3: Street Craps Game**: A group of locals gambling. Players can wager 3 XP on a single contested **Cool** check against the dealer. Win to gain +6 XP; lose the XP on a failure.
+*   **3: Street Craps Game**: A group of locals gambling. Players can wager 1 Available XP on a single contested **Cool** check against the dealer. Win to gain +2 XP; lose on a failure.
 *   **4: Foot Patrol**: Two **Tier 1 Punks** walking the beat. They will harass the players unless intimidated by a contested **Cool** check.
 *   **5: Drunk Fighter**: A single **Tier 2 Thug** who is highly intoxicated and looking for a brawl. Due to their state, they roll all checks with **Disadvantage**.
-*   **6: Shakedown**: A single **Tier 2 Thug** demands a toll (1 XP) to cross. Players can pay, fight, or bluff past them by winning a contested **Cool** check.
+*   **6: Shakedown**: A single **Tier 2 Thug** demands a turf toll. Players can fight or bluff past them by winning a contested **Cool** check.
+*   **7: Tagging Crew**: Three **Tier 1 Punks** spray-painting gang slogans. They grow hostile if confronted.
+*   **8: Narrow Alley Shortcut**: A dark alley starting at **Striking Range**.
+*   **9: Debris Obstruction**: Loose wooden crates; requires a **Footwork Check (DC 8)** to cross without tripping.
+*   **10: Stolen Vehicle**: A stripped car creating cover in the center of the block.
 
 ### Danger Rank 3: Medium Danger / Active Turf
 *Core gang territory where members actively defend their blocks.*
@@ -192,6 +200,10 @@ Every block in the city has a **Danger Rank** from **1 to 5** that reflects the 
 *   **4: Gang Rush**: A **Mob of Punks (Tier 1)** rushes the players, starting at Striking Range.
 *   **5: Corner Defense**: Two **Tier 2 Thugs** guarding a business entry. They block passage until defeated.
 *   **6: Alleyway Ambush**: A **Mob of Punks (Tier 1)** ambushes the players from the shadows, starting immediately at **Grapple Range**.
+*   **7: Barroom Spillout**: Two **Tier 2 Thugs** crashing out of a dive bar onto the sidewalk.
+*   **8: Guard Dog Handler**: A **Tier 2 Thug** with an aggressive guard dog enforcing gang turf lines.
+*   **9: Chokepoint Fence**: A chainlink fence blocking the block, forcing **Grapple Range**.
+*   **10: Street Standoff**: A hostile Mob of 3 Punks staring down the block at **Outside Range**.
 
 ### Danger Rank 4: High Danger / Contested Turf War
 *War zones where rival factions are actively brawling or heavily fortified.*
@@ -201,6 +213,10 @@ Every block in the city has a **Danger Rank** from **1 to 5** that reflects the 
 *   **4: The Pack**: A **Mob of Punks (Tier 1)** led by a **Tier 2 Thug** enforcer.
 *   **5: Hit Squad**: Two **Tier 2 Thugs** who coordinate their attacks to specifically target the players' lowest attribute.
 *   **6: Double Ambush**: Two separate **Mobs of Punks (Tier 1)** attack from both sides, catching the players in a crossfire (Flanking rules apply!).
+*   **7: Arson Threat**: A **Tier 2 Thug** threatening to burn down a local storefront unless stopped immediately.
+*   **8: Rooftop Bottle Throwers**: Gang scouts throwing bricks/bottles from above, giving enemies **Advantage** on the first round.
+*   **9: Heavy Enforcer Duo**: Two **Tier 2 Thugs** wielding lead pipes.
+*   **10: Subway Stairs Chokepoint**: Ambush right at the subway exit stairs at **Grapple Range**.
 
 ### Danger Rank 5: Extreme Danger / Boss Territory
 *Fortified syndicate headquarters or the personal turf of a gang leader.*
@@ -210,6 +226,10 @@ Every block in the city has a **Danger Rank** from **1 to 5** that reflects the 
 *   **4: Style Champion**: A **Tier 3 Boss** who has active style perks and multiple Mastered techniques ($+5$) challenges the players to a 1-on-1 duel.
 *   **5: Death Alley Ambush**: Two **Tier 2 Thugs** and one **Tier 3 Boss** ambush the players immediately at **Grapple Range**.
 *   **6: The Overlord**: The main Boss of the sector is present with a personal bodyguard of **two Tier 2 Thugs**.
+*   **7: Syndicate Warband**: A Mob of 6 Punks led by two **Tier 2 Thugs**.
+*   **8: Heavyweight Champion**: A **Tier 3 Boss** with maxed Posture and Stamina (4).
+*   **9: Iron Gate Trap**: Security gates lock behind the crew; forces a fight to the TKO!
+*   **10: Final Showdown**: The Syndicate Leader challenges the crew at **Outside Range** under glowing neon lights.
 
 ---
 
@@ -223,13 +243,13 @@ When building a street encounter or resolving a random event during the Street C
 *   **Tier 3: Syndicate Boss (Climax Encounter)**: 1 Boss built using the full 50 XP budget (Attributes 3, multiple Mastered moves). High-stakes duel (PC Win Rate ~50%).
 
 ### 2. Environmental Starting Range Table
-When an encounter begins, determine the starting range based on the location or roll **1d6**:
+When an encounter begins, determine the starting range based on the location or roll **1d10**:
 
-| d6 Roll | Location & Environment | Starting Range | Tactical Impact |
+| 1d10 Roll | Location & Environment | Starting Range | Tactical Impact |
 | :--- | :--- | :--- | :--- |
-| **1–2** | **Open Ground**: Wide street block, parking lot, or subway platform sightlines. | **Outside Range (Long Range)** | Favors long-range kickers (*Push Kick, High Kick*); punches & throws are out of range. |
-| **3–4** | **Standard Pocket**: Diner booth, alleyway square-up, or bar room floor. | **Striking Range (Medium Range)** | Default face-off distance; punches, kicks, and guards are all active. |
-| **5–6** | **Close Quarters / Ambush**: Crowded subway car, elevator, narrow hallway, or sucker punch. | **Grapple Range (Close Range)** | Favors grapplers (*Clinch, Takedown, Hip Throw*); long strikes cannot be thrown. |
+| **1–3** | **Open Ground**: Wide street block, parking lot, or subway platform sightlines. | **Outside Range (Long Range)** | Favors long-range kickers (*Push Kick, High Kick*); punches & throws are out of range. |
+| **4–7** | **Standard Pocket**: Diner booth, alleyway square-up, or bar room floor. | **Striking Range (Medium Range)** | Default face-off distance; punches, kicks, and guards are all active. |
+| **8–10** | **Close Quarters / Ambush**: Crowded subway car, elevator, narrow hallway, or sucker punch. | **Grapple Range (Close Range)** | Favors grapplers (*Clinch, Takedown, Hip Throw*); long strikes cannot be thrown. |
 
 ### 3. Tactical Ambush & Stance Cues
 If a party successfully ambushes an enemy (or gets ambushed):

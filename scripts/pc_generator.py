@@ -254,7 +254,9 @@ def format_character_sheet(name, style_name, attrs, masteries, unspent_xp, arche
         sheet.append(f"**Style**: {style_name} — Archetype: {archetype_name} (*{style['Focus']}*)")
     else:
         sheet.append(f"**Style**: {style_name} (*{style['Focus']}*)")
-    sheet.append(f"**Unspent Experience**: {unspent_xp} XP\n")
+    spent_xp = 50 - unspent_xp
+    sheet.append(f"**Character Rank**: {spent_xp} (Total Spent XP — Unlocks 3rd Key Slot at Rank 60)")
+    sheet.append(f"**Available XP (Bank)**: {unspent_xp} XP\n")
     
     sheet.append("## Attributes")
     for attr in ATTRIBUTES:
@@ -272,6 +274,11 @@ def format_character_sheet(name, style_name, attrs, masteries, unspent_xp, arche
     sheet.append("## Style Perks")
     for perk in style["Perks"]:
         sheet.append(f"*   {perk}")
+    sheet.append("")
+
+    sheet.append("## Active XP Keys (Select 2 at Creation)")
+    sheet.append("*   [ ] **Key 1**: ________________________")
+    sheet.append("*   [ ] **Key 2**: ________________________")
     
     return "\n".join(sheet)
 
