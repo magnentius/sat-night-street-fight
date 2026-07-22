@@ -1,35 +1,53 @@
-# RPG Combat Rules
+# Saturday Night Street Fight
 
 ## Fighter Creation
 
-To build a fighter, follow these four simple steps:
+> *"I fear not the man who has practiced 10,000 kicks once, but I fear the man who has practiced one kick 10,000 times."* — Bruce Lee
 
-### 1. Allocate Combat Attributes
-Your four core attributes represent your physical and mental defaults:
-*   **Footwork**: Agility, movement speed, evasive positioning, and lower-body dexterity.
-*   **Posture**: Physical structure, strength, balance, stability, and leverage.
-*   **Timing**: Perception, reaction speed, precision, and counter-strike detection.
-*   **Stamina**: Cardiorespiratory endurance, wind, lung recovery, and execution of heavy/exhausting maneuvers.
 
-**Point Buy**:
-*   All four attributes start at **2**.
-*   You have **5 points** to distribute among them.
-*   No attribute can be higher than **5** at character creation.
-    *   *Example allocation: Footwork 3, Posture 3, Timing 4, Stamina 3.*
+To build a fighter, follow these three simple steps:
 
-### 2. Choose a Martial Arts Style
+### 1. Choose a Martial Arts Style
 Select **one** Martial Arts Style (Boxing, Muay Thai, Judo, Wrestling, or Taekwondo). 
 *   This grants you your Style Perks and dictates which sub-actions you are allowed to perform (see **Martial Arts Styles** below).
 
-### 3. Purchase Technique Masteries
-You have **4 Mastery Points** to spend on the sub-actions allowed by your chosen style:
-*   **Trained (Rank 1)** ($+2$ bonus to rolls): Costs **1 point**.
-*   **Mastered (Rank 2)** (Advantage and $+2$ bonus to rolls): Costs **2 points** (requires Rank 1 first).
-    *   *Example (Boxer): Spent 1 point to Train Jab, 1 point to Train Dodge, and 2 points to Master Hook.*
+### 2. Spend Starting XP
+Every fighter starts as a blank slate with a baseline of **2** in all four Attributes (Footwork, Posture, Timing, and Stamina) and **Untrained (Rank 0)** in all techniques.
+
+You have **50 Experience Points (XP)** to customize your fighter. Spend them using the same costs as character progression:
+
+#### A. Allocate Combat Attributes
+*   **Attributes**: Footwork, Posture, Timing, and Stamina.
+*   **Cost**: Costs **10 XP** to increase an attribute by $+1$ (starting at 2).
+*   **Limit**: No attribute can be higher than **3** at character creation.
+
+#### B. Purchase Technique Masteries
+You can train in any sub-actions allowed by your chosen style:
+*   **Trained (Rank 1)** ($+2$ bonus): Costs **3 XP** per technique.
+*   **Mastered (Rank 2)** ($+5$ bonus): Costs **6 XP** (requires Rank 1 first, for a total of 9 XP).
+
+---
+
+### Fighter Creation Example
+A Boxer starts with Footwork 2, Posture 2, Timing 2, Stamina 2. They spend their **50 XP** as follows:
+*   **Attributes** (Spent 30 XP):
+    *   Increase Timing to 3 (costs 10 XP).
+    *   Increase Posture to 3 (costs 10 XP).
+    *   Increase Stamina to 3 (costs 10 XP).
+    *   *Resulting stats: Footwork 2, Posture 3, Timing 3, Stamina 3.*
+*   **Techniques** (Spent 18 XP):
+    *   Master Hook (costs 3 XP to Train, 6 XP to Master = 9 XP).
+    *   Train Jab (costs 3 XP).
+    *   Train Dodge (costs 3 XP).
+    *   Train Parry (costs 3 XP).
+*   **Remaining XP**: 2 XP unspent (saved for campaign play).
 
 ---
 
 ## Combat Actions Triangle
+
+> *"Be water, my friend. Empty your mind. Be formless, shapeless, like water. You put water into a cup, it becomes the cup."* — Bruce Lee
+
 
 The core combat dynamic follows a rock-paper-scissors-style relationship:
 
@@ -40,6 +58,9 @@ The core combat dynamic follows a rock-paper-scissors-style relationship:
 ---
 
 ## Action Types & Sub-Actions
+
+> *"Everyone has a plan until they get punched in the mouth."* — Mike Tyson
+
 
 When choosing an action, you must also select one of its sub-actions. Each sub-action offers tactical trade-offs in speed, power, and secondary effects.
 
@@ -67,6 +88,7 @@ Blocks aim to mitigate damage from incoming strikes.
 *   **Low Guard**: Crouching or dropped block protecting the legs. Negates low kicks and leg attacks. Vulnerable to high strikes and easily bypassed by Throws.
 *   **Parry**: High-skill deflection. Low passive defense, but if successful against a Strike, it staggers the opponent and allows a guaranteed fast counter-strike (e.g., a Jab) on the next action.
 *   **Dodge / Evasion**: Dynamic movement to completely avoid attacks. Completely avoids any Strike regardless of height. Succeeding grants a movement or positioning advantage.
+*   **Stand Up**: Special defensive maneuver used only while **Prone**. Attempting to stand up and reset to a neutral standing stance.
 
 ---
 
@@ -82,6 +104,9 @@ Throws aim to bypass blocks, control the opponent, and force them to the ground.
 
 ## Attributes & Technique Masteries
 
+> *"It is not important to be better than someone else, but to be better than you were yesterday."* — Jigoro Kano
+
+
 A character's physical and mental combat capabilities are defined by four core Attributes (**Option 3**) and their specific training in various sub-actions, called Technique Masteries (**Option 2**).
 
 ### Combat Attributes
@@ -94,7 +119,7 @@ A character's physical and mental combat capabilities are defined by four core A
 Characters can train in individual sub-actions (e.g., *Jab*, *Low Kick*, *Parry*, *Hip/Shoulder Throw*):
 *   **Untrained (Rank 0)**: You only add your governing Attribute to your roll.
 *   **Trained (Rank 1)**: You gain a $+2$ bonus to your roll.
-*   **Mastered (Rank 2)**: You gain **Advantage** (roll $3\text{d}10$, keep the two highest dice) and a $+2$ bonus to your roll.
+*   **Mastered (Rank 2)**: You gain a $+5$ bonus to your roll.
 
 ### Attribute Mapping
 Each sub-action is governed by a specific Attribute representing the physical capacity required to execute it:
@@ -113,6 +138,7 @@ Each sub-action is governed by a specific Attribute representing the physical ca
 | **Low Guard** | **Posture** | Block | Crouching stability. |
 | **Parry** | **Timing** | Block | Precise timing of deflection. |
 | **Dodge / Evasion** | **Footwork** | Block | Moving the body out of range. |
+| **Stand Up** | **Footwork** | Block | Attempt to stand up from Prone stance. |
 | **Clinch / Grab** | **Timing** | Throw | Catching/securing limbs. |
 | **Trip / Sweep** | **Footwork** | Throw | Precise foot placement and trip. |
 | **Hip / Shoulder Throw** | **Stamina** | Throw | High-exertion lift via mechanical leverage. |
@@ -122,7 +148,10 @@ Each sub-action is governed by a specific Attribute representing the physical ca
 
 ## Attribute Damage & Defeat
 
-Instead of tracking numerical hitpoints, Injury Levels, or Trauma Scores, combatants suffer direct damage to their core **Attributes** (Footwork, Posture, Timing, and Stamina). This damage degrades their rolls in real-time, representing fatigue and cumulative physical trauma.
+> *"A champion is someone who gets up when they can't."* — Jack Dempsey
+
+
+Instead of tracking numerical hitpoints, combatants suffer direct damage to their core **Attributes** (Footwork, Posture, Timing, and Stamina). This damage degrades their rolls in real-time, representing fatigue and cumulative physical trauma.
 
 ### 1. The Defeat Condition
 A combatant is defeated (knocked out, submits, or suffers a referee stoppage) immediately when **any of their four attributes is reduced to 0 (or below)**.
@@ -163,6 +192,9 @@ If a defender successfully blocks or dodges, they subtract their defense rating 
 
 ## Range & Movement
 
+> *"Float like a butterfly, sting like a bee."* — Muhammad Ali
+
+
 Combat takes place across three fluid **Ranges**. Combatants control the distance by using their actions to advance, retreat, or push their opponent back.
 
 ### 1. The Three Combat Ranges
@@ -192,39 +224,71 @@ To step back safely, perform an evasive **Block (White)** action:
 To actively push an opponent away, perform a specialized **Strike (Red)** action:
 *   **Push Kick (Teep)**: A successful hit pushes the opponent back one range step (e.g., Clinch $\rightarrow$ Striking).
 
+## Status Conditions
+
+Street fights are chaotic and brutal. Combatants can inflict or suffer various temporary physical states:
+
+### 1. Prone (Lying on the Ground)
+Fighters are knocked **Prone** when hit by a throwing action (Trip/Sweep, Hip/Shoulder Throw, Takedown) or when knocked down. While Prone:
+*   **Action Limitation**: You cannot choose **Strike (Red)** actions.
+*   **Disadvantage**: You roll with **Disadvantage** (roll $3\text{d}10$, keep the two lowest dice) on all checks while Prone (including checks to defend or stand up).
+*   **Defense Restriction**: You cannot choose Dodge/Evasion. You can only choose High Guard, Low Guard, or Parry to defend from the ground.
+*   **Getting Up**: To stand back up, you must declare the **Stand Up** sub-action (resolved as a **Block / White** action, governed by **Footwork**). If you win the contested check, you stand up and remove this condition. If you lose, you remain Prone.
+
+### 2. Pinned (Trapped on the Canvas)
+Fighters are **Pinned** when an opponent wins a Grapple Struggle (Black vs. Black) on the ground (e.g., via Wrestling's *Ground Control* perk). While Pinned:
+*   **Incapacitated**: You cannot select **Stand Up** or **Dodge/Evasion**.
+*   **Disadvantage**: You roll with **Disadvantage** on all checks.
+*   **Escaping**: To escape, you must choose **Clinch/Grab** (Throw / Black, governed by **Posture**) to engage in a Grapple Struggle. If you win the check, you break the pin (returning to Prone, but no longer Pinned). If you lose, the pin is maintained.
+
+### 3. Staggered (Off-Balance)
+Fighters are **Staggered** temporarily when their attack is successfully parried, or due to specific style effects.
+*   **Duration**: Lasts until the end of your next action check.
+*   **Effect**: You roll with **Disadvantage** on your next action check.
+
+### 4. Stunned (Dazed)
+Fighters are **Stunned** when hit by a high-impact head blow (like a Critical High Kick) or projected hard (like a Judo Hip Throw).
+*   **Duration**: Lasts for 1 round.
+*   **Effect**: You cannot select **Strike (Red)** or **Throw (Black)** actions. You can only choose **High Guard** or **Low Guard** (White/Block) to cover up, and you roll this check with **Disadvantage**.
+
 ---
 
 ## Mechanics & Resolution
 
+> *"There is timing in everything. Timing in strategy cannot be mastered without much practice."* — Miyamoto Musashi
+
+
 ### Contested Round Structure
 Combat is played in simultaneous **Rounds** resolved by a single **Contested Roll**:
 
-1. **Phase 1: Choose & Roll**
-   * Combatants secretly select the $2\text{d}10$ color pair corresponding to their main action:
-     * **Red Dice** = **Strike**
-     * **White Dice** = **Block (Defend)**
-     * **Black Dice** = **Throw**
-   * Both combatants roll their chosen dice simultaneously and verbally declare their chosen sub-action (e.g., "Jab" or "Dodge").
+1. **Phase 1: Commit & Reveal (Declaration)**
+   * Combatants secretly choose their action type (Red for **Strike**, White for **Block**, Black for **Throw**) along with their specific sub-action (e.g., *Red / Hook* or *White / Parry*) using colored cards, tokens, or written notes.
+   * Both combatants reveal their choices simultaneously.
 
-2. **Phase 2: Resolve (Contested Roll-Off)**
+2. **Phase 2: Roll & Resolve (Contested Roll-Off)**
+   * Now that the action matchup is revealed, combatants roll their dice:
+     * **Triangle Winner**: Rolls with **Advantage** (roll $3\text{d}10$, keep the two highest dice).
+     * **Triangle Loser**: Rolls their standard $2\text{d}10$ check.
+     * **Same Color matchup** (e.g., Red vs. Red): Both roll their standard $2\text{d}10$ check normally.
    * Each combatant calculates their **Roll Total**:
      $$\text{Roll Total} = \text{Dice Result} + \text{Governing Attribute} + \text{Technique Mastery Bonus}$$
-   * The combatant with the **higher Roll Total wins the round**, and their chosen sub-action succeeds. The loser's action fails.
-   * **The RPS Triangle** determines who rolls with a mechanical advantage:
-     * **Triangle Winner**: Rolls with **Advantage** (roll $3\text{d}10$, keep the two highest dice) and adds $+2$ to their total.
-     * **Triangle Loser**: Rolls their standard $2\text{d}10$ check.
-     * *Note: The triangle winner is statistically favored to win the contest, but a high-rolling triangle loser can still overcome the advantage and win the round.*
+   * The combatant with the **higher Roll Total wins the round**, executing their sub-action. The loser's action is interrupted or fails.
+   * *Note: The triangle winner is statistically favored to win the contest, but a high-rolling triangle loser can still overcome the advantage and win the round.*
 
 ---
 
 ### 1. Resolving the Triangle (RPS)
 
 *   **Different Actions (Triangle Check)**: If the rolled colors match a winning/losing pair (e.g., Red vs. Black / Strike vs. Throw):
-    *   The triangle winner rolls with Advantage $+2$.
+    *   The triangle winner rolls with Advantage.
     *   The triangle loser rolls normally.
-    *   *Example (Block vs. Strike)*: White beats Red. The Blocker rolls with Advantage $+2$; the Striker rolls normally. 
-        *   If the **Blocker wins the contested roll**, the block succeeds and mitigates the strike's Attribute Damage.
-        *   If the **Striker wins the contested roll** (beating the blocker's roll despite the blocker's advantage), the strike bypasses the guard entirely, dealing full, unmitigated Attribute Damage.
+    *   **Winner-Take-All**: Only the winner of the contested roll executes their action; the loser's action is completely interrupted and fails (dealing no damage or secondary effects).
+    *   *Example 1 (Block vs. Strike)*: White beats Red. The Blocker rolls with Advantage.
+        *   If the **Blocker wins**, the block succeeds and subtracts its mitigation rating from the strike's Attribute Damage (e.g., High Guard mitigates 2 damage, completely absorbing a 2-damage Cross, but letting 1 chip damage through from a 3-damage Uppercut).
+        *   If the **Striker wins** (overcoming the blocker's advantage), the strike bypasses the guard entirely, dealing full, unmitigated Attribute Damage.
+    *   *Example 2 (Strike vs. Throw)*: Red beats Black. The Striker rolls with Advantage.
+        *   If the **Striker wins**, the strike connects, dealing Attribute Damage and interrupting the throw.
+        *   If the **Thrower wins** (overcoming the striker's advantage), the thrower successfully clinches or throws the opponent; the strike is completely interrupted and deals 0 damage.
 *   **Same Actions (Same Color Rolls)**:
     *   **Red vs. Red (Strike vs. Strike)**: Both roll normally (no Advantage). The higher total wins the round, landing their strike. The loser's strike misses or is beat to the punch.
     *   **White vs. White (Block vs. Block)**: No contest is needed. Both combatants remain passive in guard. Standoff; the round resets to neutral.
@@ -232,16 +296,28 @@ Combat is played in simultaneous **Rounds** resolved by a single **Contested Rol
 
 ### 2. Dice Checks (2d10 System)
 To resolve the contested roll, combatants calculate their totals using the following:
-*   **Action Roll**: Roll the chosen $2\text{d}10$ (or $3\text{d}10$ based on Advantage or Technique Mastery).
+*   **Action Roll**: Roll the chosen $2\text{d}10$ (or $3\text{d}10$ if rolling with Advantage).
 *   **Attribute Modifier**: Add the governing Attribute (**Footwork**, **Posture**, **Timing**, or **Stamina**).
-*   **Mastery Modifier**: Add the Technique Mastery bonus ($+2$ if Trained or Mastered).
+*   **Mastery Modifier**: Add the Technique Mastery bonus (**$+2$** if Trained, **$+5$** if Mastered).
+*   **The Modifier Cap**: The sum of all flat modifiers (Attribute + Mastery + style/situational bonuses) applied to any check can **never exceed $+10$**.
+*   **Temporary Penalties**: Temporary combat penalties (e.g. from Low Kicks or Body Kicks) degrade your attribute modifiers for rolls next round, but **can never reduce an attribute below 1 for checks, and never trigger defeat/TKO**.
 *   **Compare Totals**:
     *   **Success**: Have the higher Roll Total.
     *   **Critical Success**: Succeeding by a margin of 5 or more (Winner Total - Loser Total $\ge 5$) activates secondary weapon/style/critical effects, and increases incoming damage by $+1$ attribute damage.
 
+### 3. Ties and Clashes (Identical Roll Totals)
+If both combatants calculate the exact same Roll Total, the round is resolved as follows based on the action matchup:
+*   **Strike vs. Strike Clash (Red vs. Red)**: Simultaneous connection! Both strikes hit and deal full, unmitigated Attribute Damage to both fighters.
+*   **Strike vs. Block Clash (Red vs. White)**: The defense holds. The block successfully mitigates the strike's damage, but the Blocker is **Staggered** next turn from the impact.
+*   **Throw vs. Throw Clash (Black vs. Black)**: A wrestling stalemate. Both fighters struggle for leverage and reset to a neutral standing stance.
+*   **All Other Matches**: A neutral standoff. The round resets.
+
 ---
 
 ## Martial Arts Styles
+
+> *"Styles separate men. If you have no style, you just say, 'Here I am as a human being, how can I express myself?'"* — Bruce Lee
+
 
 Characters can adopt a specific Martial Arts Style, which dictates their available sub-actions and provides unique mechanical perks:
 
@@ -299,9 +375,43 @@ Characters can adopt a specific Martial Arts Style, which dictates their availab
 
 ## Healing & Recovery
 
+> *"Fall down seven times, stand up eight."* — Japanese Proverb
+
+
 ### 1. Attribute Restoration (Natural Healing)
 Fighters recover their damaged attributes naturally over time through rest:
-*   **Minor Damage** (attributes at 2 or higher): Attributes recover by **$+1$ point** per night of sleep.
-*   **Severe Damage** (attributes at 1 or 0): The fighter requires strict medical downtime (casting, surgery, or hospitalization) to avoid long-term degradation.
+*   **Minor Damage** (attributes at 1 or higher): Attributes recover by **$+1$ point** per night of sleep.
+*   **Severe Damage** (attributes at 0 or below): The fighter was TKO'd or knocked out, and requires strict medical downtime (casting, surgery, or hospitalization) to avoid long-term degradation.
     *   Reduced attributes recover by **$+1$ point** per week of complete rest.
-    *   At the end of recovery, they must pass a **Posture Check** (DC 10 for recovering from 1, DC 12 for recovering from 0) to avoid a permanent $-1$ reduction to their maximum score for that attribute.
+    *   At the end of recovery, they must pass a **Posture Check (DC 12)** to avoid a permanent $-1$ reduction to their maximum score for that attribute.
+
+### 2. Permanent Scarring Table
+If a fighter fails their recovery check, they suffer a permanent $-1$ reduction to the maximum score of that attribute, representing career-altering physical trauma. Use the table below for narrative description and roleplay prompts:
+
+| Attribute | Permanent Scarring Effect | Narrative & Roleplay Examples |
+| :--- | :--- | :--- |
+| **Timing** | **Dull Reflexes / Blind Spots** | Slow reaction speed, orbital scar tissue, lingering brain fog, or delayed parry response. |
+| **Posture** | **Structural Instability** | Chronic back alignment issues, shoulder joint laxity, or a collarbone that braced poorly. |
+| **Footwork** | **Joint Weakness / Lingering Limp** | Blown knee ligaments (ACL/MCL), stiff ankles, or sluggish lateral agility. |
+| **Stamina** | **Winded / Cardiorespiratory Scarring** | Chronic shortness of breath, cracked ribs that healed misaligned, or reduced lung capacity. |
+
+---
+
+## Campaign Progression
+
+> *"Today is victory over yourself of yesterday; tomorrow is your victory over lesser men."* — Miyamoto Musashi
+
+
+Fighters grow stronger as they survive street fights, spar, and refine their techniques. After each fight, players earn **Experience Points (XP)**:
+*   **Surviving a Fight**: 2 XP.
+*   **Winning the Fight**: +2 XP (4 XP total).
+*   **Highlight Reel**: +1 XP if the fighter pulled off a spectacular finish, critical throw, or a stylistic victory.
+
+### 1. Increasing Technique Masteries
+Fighters spend their earned XP to increase their mastery of specific sub-actions:
+*   **Untrained (Rank 0) $\rightarrow$ Trained (Rank 1)**: Costs **3 XP** and requires 1 day of intensive practice/sparring.
+*   **Trained (Rank 1) $\rightarrow$ Mastered (Rank 2)**: Costs **6 XP** (requires Rank 1 first) and requires sparring with a partner who knows the move, or successfully executing the move in 3 separate fights.
+
+### 2. Conditioning Attributes
+Fighters can train their physical body to increase their core attributes (up to a campaign maximum of **4**):
+*   **Increasing an Attribute by +1**: Costs **10 XP** and requires 1 week of dedicated strength, cardio, agility, or reaction training.

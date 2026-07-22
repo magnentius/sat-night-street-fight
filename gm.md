@@ -1,0 +1,275 @@
+# Saturday Night Street Fight — Game Master's Guide
+
+This guide provides the Game Master (GM) with setting guidelines, environmental generation tables, and NPC rules to run street-level brawls in a gritty, high-friction urban landscape.
+
+---
+
+## The Setting: 1975 Urban Decay
+
+The setting is inspired by 1970s New York City—a blighted, financially broken metropolis during the mid-1970s. 
+*   **The Vibe**: Steam rising from manholes, cracked asphalt, flickering neon signs, graffiti-covered subway cars, piles of uncollected garbage, and yellow cabs splashing through puddles under broken streetlights.
+*   **The Conflict**: Power vacuums, street gangs defending blocks, turf wars, corrupt officials, and neighborhoods left to fend for themselves.
+
+---
+
+## Subway Traversal (The Station Crawl)
+
+Fighters move through the blighted city by riding the subway line. Traveling from neighborhood to neighborhood is a dangerous journey where every stop brings new threats.
+
+### Traversal Loop:
+1.  **Select Destination**: Players choose their target neighborhood or destination station.
+2.  **Riding the Rails**: The train travels through the underground tunnels. For each station the train passes through or stops at, the GM rolls on the **Subway Station Event Table** below.
+3.  **Explore the Block (Station-Linked Danger)**: When players exit a station to the surface, the GM generates a new block using the **Block Generation System**. The block's **Danger Rank** is directly tied to the type of station they just exited:
+    *   **Transit Safe House** (Event Roll 10) $\rightarrow$ Exits onto a **Danger Rank 1** block.
+    *   **Transfer Hub** (Station Type 5-7) $\rightarrow$ Exits onto a **Danger Rank 1** (1-4 on $1\text{d}10$) or **Danger Rank 2** (5-10 on $1\text{d}10$) block.
+    *   **Local Stop** (Station Type 1-4) $\rightarrow$ Exits onto a **Danger Rank 2** (1-6 on $1\text{d}10$) or **Danger Rank 3** (7-10 on $1\text{d}10$) block.
+    *   **Danger Zone** (Station Type 8-9) $\rightarrow$ Exits onto a **Danger Rank 4** (1-6 on $1\text{d}10$) or **Danger Rank 5** (7-10 on $1\text{d}10$) block.
+    *   **Final Station (Boss's Lair)** $\rightarrow$ Exits onto a **Danger Rank 5** block.
+
+### Subway Station Event Table (Roll $1\text{d}10$)
+Whenever the train pulls into a station, roll to see what awaits the players on the platform:
+
+| Roll | Station Event | Description & Rules |
+| :--- | :--- | :--- |
+| **1-3** | **Clear Platform** | The station is quiet, populated only by a few nervous commuters. Players can safely exit to the street (generating a new block) or rest to recover minor attribute damage. |
+| **4-5** | **Local Gang Toll** | A group of **Standard Thugs (Tier 2)** guards the turnstiles, demanding a toll or a bribe. If players refuse, a fight breaks out at Clinch Range. |
+| **6-7** | **Ambush!** | The platform lights flicker out. A **Mob of Punks (Tier 1)** ambushes the players from the shadows, starting immediately at Clinch Range with **Advantage** on the first round. |
+| **8-9** | **Rival Crew Turf** | A rival **Boss (Tier 3)** and their enforcers are waiting on the platform, looking to defend their turf from outsiders. |
+| **10** | **Transit Safe House** | A friendly transit worker or local ally lets the players hide in an employee breakroom. Players can safely heal attributes, swap gear, or spend XP. |
+
+### 3. Procedural Subway Line Generator
+To map out a transit line between the players' Home Turf and their target destination:
+1.  **Roll Line Length**: Roll **$1\text{d}6 + 2$** to determine the number of intermediate stations on the line.
+2.  **Generate Stations**: For each intermediate station, roll a **$1\text{d}10$** on the table below to determine its layout and routing choices:
+
+| Roll ($1\text{d}10$) | Station Type | Description & Routing Rules |
+| :--- | :--- | :--- |
+| **1-4** | **Local Stop** | Standard station. Roll on the *Subway Station Event Table* normally when arriving. |
+| **5-7** | **Transfer Hub** | Large intersecting station. Players can choose to switch to a different line, bypassing the next station on their current route but adding $+1$ station to their total trip. |
+| **8-9** | **Danger Zone** | A gang-controlled choke point. Any rolls on the *Subway Station Event Table* at this stop are made with **Disadvantage** (taking the worse result). |
+| **10** | **Express Line Bypass** | A fast-track tunnel. Allows the train to bypass the next scheduled station entirely, skipping an event roll. |
+
+### Example Subway Campaign Map
+Below is an example of a procedurally generated subway route connecting the players' starting neighborhood (**Cypress Ave**) to the final Syndicate Boss's lair (**Brooklyn Bridge**). 
+
+At **Grand Central**, players are presented with a tactical routing choice: take the fast but high-danger Express track through the **Canal St Danger Zone** (guaranteeing a Danger Rank 4-5 street exit), or take the slower, safer Local track through the **Mulberry St Local Stop** (Danger Rank 2-3).
+
+```mermaid
+graph TD
+    classDef home fill:#2ecc71,stroke:#27ae60,stroke-width:2px,color:#fff;
+    classDef local fill:#3498db,stroke:#2980b9,stroke-width:2px,color:#fff;
+    classDef hub fill:#f1c40f,stroke:#f39c12,stroke-width:2px,color:#000;
+    classDef danger fill:#e74c3c,stroke:#c0392b,stroke-width:2px,color:#fff;
+    classDef boss fill:#8e44ad,stroke:#7d3c98,stroke-width:2px,color:#fff;
+
+    Start["Cypress Ave (Home Turf)"]:::home
+    Stop1["42nd St (Local Stop)"]:::local
+    Hub["Grand Central (Transfer Hub)"]:::hub
+    Danger["Canal St (Danger Zone)"]:::danger
+    Local2["Mulberry St (Local Stop)"]:::local
+    Boss["Brooklyn Bridge (Boss Lair)"]:::boss
+
+    Start --> Stop1
+    Stop1 --> Hub
+    
+    %% Branching choices at the Transfer Hub
+    Hub -->|Express Track| Danger
+    Hub -->|Local Track| Local2
+    
+    Danger --> Boss
+    Local2 --> Boss
+```
+
+---
+
+## Block Generation System
+
+To generate the block where a fight takes place, the GM rolls on the following tables to create a distinct intersection, populate it with businesses, and add environmental hazards.
+
+### Step 1: Street Name Generator (Roll $2\text{d}10$ four times)
+Roll two ten-sided dice to get a number between 2 and 20. Roll four times to generate the street names that intersect to form your block.
+
+| Roll | Street Name A (Prefix) | Street Name B (Suffix/Avenue) |
+| :--- | :--- | :--- |
+| **2** | Cypress | Avenue A |
+| **3** | Lexington | Broadway |
+| **4** | Delancey | St. Ann's Street |
+| **5** | Mercer | Madison Avenue |
+| **6** | St. Mark's | 42nd Street |
+| **7** | Bowery | Grand Street |
+| **8** | Lafayette | Hudson Street |
+| **9** | Bleeker | 8th Avenue |
+| **10** | Greenwich | Canal Street |
+| **11** | Mulberry | Rivington Street |
+| **12** | Kenmare | MacDougal Street |
+| **13** | Orchard | Houston Street |
+| **14** | Sullivan | Christopher Street |
+| **15** | Thompson | Allen Street |
+| **16** | Waverly | Chrystie Street |
+| **17** | Ludlow | Eldridge Street |
+| **18** | Pitt | Forsyth Street |
+| **19** | Clinton | Essex Street |
+| **20** | Broome | Division Street |
+
+*Example Roll: 7, 10, 4, 13 $\rightarrow$ The block is the corner of **Bowery & Canal**, stretching down to **Delancey & Houston**.*
+
+---
+
+### Step 2: Populate the Block (Roll $1\text{d}10$ three times)
+Roll to determine the three primary landmarks on the block.
+
+| Roll | Landmark / Business | Tactical Layout / Features |
+| :--- | :--- | :--- |
+| **1** | **Dive Bar** | Pool table (obstructs movement), jukebox, slippery spilled drinks. |
+| **2** | **Pawn Shop** | Iron security gates (can be used to pin), glass display cases. |
+| **3** | **Abandoned Movie Theater** | Littered lobby, broken ticket booth, heavy double doors. |
+| **4** | **Greasy Spoon Diner** | High counter stools, hot coffee pots, narrow aisle-ways. |
+| **5** | **Tenement Steps & Stoop** | Elevated concrete steps, metal handrails, basement stairwell. |
+| **6** | **Narrow Alleyway** | Dumpsters (can block exits), fire escapes, wooden pallets. |
+| **7** | **Auto Repair Shop** | Tire stacks, motor oil slicks (Footwork hazard), tool racks. |
+| **8** | **Billiards Hall** | Narrow green tables, wooden cues (can be improvised strikes). |
+| **9** | **Subway Station Entrance** | Concrete stairs descending into darkness, metal turnstiles. |
+| **10** | **Construction Site** | Wooden scaffolding, loose bricks, wire fences, wet cement. |
+
+---
+
+### Step 3: Environmental Hazards (Roll $1\text{d}10$ for the block)
+These hazards add mechanical friction to the brawls.
+
+| Roll | Hazard | Mechanical Effect |
+| :--- | :--- | :--- |
+| **1-3** | **Steam Vent** | Blind spot. Any timing-based action rolled near it has **Disadvantage**. |
+| **4-5** | **Oil Slick / Wet Pavement** | Slippery. Any character moving or dodging must pass a **Footwork Check (DC 8)** or fall **Prone**. |
+| **6-7** | **Broken Streetlight** | Low visibility. All Strike actions suffer a $-1$ penalty to rolls. |
+| **8-9** | **Loose Garbage / Debris** | Footing hazard. Dodge actions lose their $+2$ Outfighting bonus. |
+| **10** | **Fire Escape Scaffolding** | Vertical space. Clambering up allows Strikes from above (gaining **Advantage**). |
+
+
+## Block Danger Ranks & Encounters
+
+Every block in the city has a **Danger Rank** from **1 to 5** that reflects the presence of hostile gang control. When players arrive at a block, the GM determines the Danger Rank (or rolls a $1\text{d}6$ on the Danger Zone station types) and rolls a **$1\text{d}6$** on the corresponding table below to generate the encounter:
+
+### Danger Rank 1: Safe Zone / Home Turf
+*Friendly neighborhoods, neutral territory, or heavily patrolled sectors.*
+*   **1: Empty Street**: A quiet, peaceful night under the streetlights. No threats.
+*   **2: Friendly Merchant**: A local vendor, deli owner, or ally offers a discount. Players can spend 3 XP to gain a tip (grants Advantage on their next roll).
+*   **3: Transit Police Patrol**: Active police presence. Brawling is forbidden; any combat actions rolled on this block immediately summon police enforcers.
+*   **4: Local Informant**: A street contact shares rumors about the next station. Players gain **Advantage** on their next Subway Station Event roll.
+*   **5: Safe Alleyway**: A hidden, dry alcove to hide. Players can safely rest here to recover minor attribute damage ($+1$ point to all attributes at 1 or higher).
+*   **6: Minor Nuisance**: A single pickpocket (**Tier 1 Punk**) attempts a grab and run. They will immediately flee if the player wins a contested Timing check.
+
+### Danger Rank 2: Low Danger / Disputed Blocks
+*Fringe territory where low-level crews occasionally pick fights.*
+*   **1: Quiet Corridor**: The block is quiet, but shadows flicker in the alleys. No immediate threats.
+*   **2: Solitary Lookout**: A single **Tier 1 Lookout** stands guard. Players can sneak past or perform a silent takedown using a contested Timing vs. Timing check. If they fail, the alarm is raised.
+*   **3: Street Craps Game**: A group of locals gambling. Players can wager 3 XP on a single $2\text{d}10$ high-roll contest against the house. Win to gain +6 XP; lose to lose the wagered XP.
+*   **4: Foot Patrol**: Two **Tier 1 Punks** walking the beat. They will harass the players unless intimidated.
+*   **5: Drunk Fighter**: A single **Tier 2 Thug** who is highly intoxicated and looking for a brawl. Due to their state, they roll all checks with **Disadvantage**.
+*   **6: Shakedown**: A single **Tier 2 Thug** demands a toll (1 XP) to cross the block. Refusal starts a brawl at Clinch Range.
+
+### Danger Rank 3: Medium Danger / Active Turf
+*Core gang territory where members actively defend their blocks.*
+*   **1: Watchful Eyes**: Gang watchmen occupy the rooftops. Crossing the block without being spotted requires a contested Footwork check.
+*   **2: Rival Patrol**: Two **Tier 2 Thugs** of the local style (e.g., Boxers if in Boxers' turf) patrolling.
+*   **3: Heavy Hitter**: A single **Tier 2 Thug** carrying an improvised weapon (baseball bat or pipe), adding $+1$ damage to all successful Strikes.
+*   **4: Gang Rush**: A **Mob of Punks (Tier 1)** rushes the players, starting at Striking Range.
+*   **5: Corner Defense**: Two **Tier 2 Thugs** guarding a business entry. They block passage until defeated.
+*   **6: Alleyway Ambush**: A **Mob of Punks (Tier 1)** ambushes the players from the shadows, starting immediately at Clinch Range.
+
+### Danger Rank 4: High Danger / Contested Turf War
+*War zones where rival factions are actively brawling or heavily fortified.*
+*   **1: Fortified Blockade**: Barbwire and wooden crates block the street. Crossing requires a contested Posture check against barricade defenders (**two Tier 2 Thugs**).
+*   **2: Elite Enforcer**: A single **Tier 2 Thug** who has upgraded one of their style techniques to **Mastered Rank 2 ($+5$)** stands guard.
+*   **3: Warlord Patrol**: Three **Tier 2 Thugs** patrolling. They fight with high coordination.
+*   **4: The Pack**: A **Mob of Punks (Tier 1)** led by a **Tier 2 Thug** enforcer.
+*   **5: Hit Squad**: Two **Tier 2 Thugs** who coordinate their attacks to specifically target the players' lowest attribute.
+*   **6: Double Ambush**: Two separate **Mobs of Punks (Tier 1)** attack from both sides, catching the players in a crossfire (Flanking rules apply!).
+
+### Danger Rank 5: Extreme Danger / Boss Territory
+*Fortified syndicate headquarters or the personal turf of a gang leader.*
+*   **1: Grime Trap**: Low visibility and steam vents cover the street. All action rolls on this block suffer a $-1$ penalty.
+*   **2: The Elite Guard**: Two **Tier 3 Bosses** (built using full Character Creation rules) patrolling.
+*   **3: Syndicate Patrol**: A **Mob of Punks (Tier 1)** led by an elite **Tier 3 Boss** enforcer.
+*   **4: Style Champion**: A **Tier 3 Boss** who has active style perks and multiple Mastered techniques ($+5$) challenges the players to a 1-on-1 duel.
+*   **5: Death Alley Ambush**: Two **Tier 2 Thugs** and one **Tier 3 Boss** ambush the players immediately at Clinch Range.
+*   **6: The Overlord**: The main Boss of the sector is present with a personal bodyguard of **two Tier 2 Thugs**.
+
+---
+
+## NPC Stats & Threat Levels
+
+Not everyone on the streets is a martial arts master. The GM populates blocks with three distinct tiers of opponents.
+
+### 1. Punks & Lookouts (Tier 1)
+Street kids, pickpockets, or low-level lookouts. They are physically weak and untrained, looking for easy prey.
+*   **Attributes**: Footwork 1, Posture 1, Timing 1, Stamina 1.
+*   **Techniques**: Untrained (Rank 0) in all sub-actions.
+*   **Perks**: None.
+*   **Tactics**: They only fight in groups. If one is isolated, they will flee.
+
+### 2. Standard Thugs & Soldiers (Tier 2)
+Enforcers, muscle, or standard gang soldiers who know how to swing a bat or throw a punch.
+*   **Attributes**: Footwork 2, Posture 2, Timing 2, Stamina 2.
+*   **Techniques**: Trained (Rank 1, $+2$ bonus) in **two** style-specific moves (e.g., Jab and High Guard).
+*   **Perks**: None.
+*   **Tactics**: Defensive when outnumbered, aggressive when they have the upper hand.
+
+### 3. Bosses & Leaders (Tier 3)
+Gang leaders, legendary street fighters, or elite enforcers. 
+*   **Creation**: Built using the standard **Fighter Creation Rules** (50 XP budget, starting attributes at 2, cap of 3 at creation).
+*   **Style**: Choose one of the 5 Martial Arts Styles and apply both perks.
+*   **Tactics**: Highly strategic, targeting the player's weakest attribute.
+
+---
+
+## Group Combat Rules
+
+Use these rules when players are outnumbered or coordinating with allies.
+
+### 1. Mob Rules (Managing Groups of Punks)
+To speed up combat, a group of 3–4 Punks (Tier 1) can be treated as a single **Mob** with a unified stat block:
+*   **Mob Stats**: Footwork 3, Posture 3, Timing 3, Stamina 3.
+*   **Mob Action**: The Mob declares a single collective action type per round (representing a gang rush).
+*   **Degradation**: Every 3 points of total attribute damage dealt to the Mob knocks out one Punk, reducing all of the Mob's attributes by **$-1$** in real-time.
+*   **Defeat**: When the Mob's attributes reach 0, all Punks are defeated or flee.
+
+### 2. Flanking & Third-Party Intervention
+If a fighter is double-teamed by multiple opponents:
+*   The defender must choose one attacker to be their **Primary Threat** and roll against them normally.
+*   Against any **secondary (flanking) attackers**, the defender rolls with **Disadvantage** (roll $3\text{d}10$, keep the two lowest dice) and cannot choose Dodge/Evasion or Parry.
+
+---
+
+## The Saturday Night Soundtrack (1970s Playlist)
+
+To set the mood at your table, roll a **$1\text{d}10$** on the tables below to select a track during session exploration or brawls:
+
+### Gritty Exploration & Mood (Subways & Wet Asphalt)
+
+| Roll ($1\text{d}10$) | Song | Artist & Year |
+| :--- | :--- | :--- |
+| **1** | "Across 110th Street" | Bobby Womack (1972) |
+| **2** | "Walk on the Wild Side" | Lou Reed (1972) |
+| **3** | "Summer in the City" | Quincy Jones (1973) |
+| **4** | "Papa Was a Rollin' Stone" | The Temptations (1972) |
+| **5** | "Inner City Blues (Make Me Wanna Holler)" | Marvin Gaye (1971) |
+| **6** | "Living for the City" | Stevie Wonder (1973) |
+| **7** | "Nightclubbing" | Iggy Pop (1977) |
+| **8** | "Pusherman" | Curtis Mayfield (1972) |
+| **9** | "Riders on the Storm" | The Doors (1971) |
+| **10** | "Low Rider" | War (1975) |
+
+### High-Energy Street Brawls
+
+| Roll ($1\text{d}10$) | Song | Artist & Year |
+| :--- | :--- | :--- |
+| **1** | "The Payback" | James Brown (1973) |
+| **2** | "Blitzkrieg Bop" | Ramones (1976) |
+| **3** | "Search and Destroy" | The Stooges (1973) |
+| **4** | "Theme from Shaft" | Isaac Hayes (1971) |
+| **5** | "Superstition" | Stevie Wonder (1972) |
+| **6** | "Rock and Roll All Nite" | Kiss (1975) |
+| **7** | "Ballroom Blitz" | Sweet (1973) |
+| **8** | "Born to Run" | Bruce Springsteen (1975) |
+| **9** | "White Riot" | The Clash (1977) |
+| **10** | "Kung Fu Fighting" | Carl Douglas (1974) |
