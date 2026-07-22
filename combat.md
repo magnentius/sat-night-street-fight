@@ -5,16 +5,17 @@
 To build a fighter, follow these four simple steps:
 
 ### 1. Allocate Combat Attributes
-Your three core attributes represent your physical and mental defaults:
+Your four core attributes represent your physical and mental defaults:
 *   **Footwork**: Agility, movement speed, evasive positioning, and lower-body dexterity.
 *   **Posture**: Physical structure, strength, balance, stability, and leverage.
-*   **Timing**: Perception, reaction speed, precision, and mental focus.
+*   **Timing**: Perception, reaction speed, precision, and counter-strike detection.
+*   **Stamina**: Cardiorespiratory endurance, wind, lung recovery, and execution of heavy/exhausting maneuvers.
 
 **Point Buy**:
-*   All three attributes start at **1**.
+*   All four attributes start at **2**.
 *   You have **5 points** to distribute among them.
-*   No attribute can be higher than **4** at character creation.
-    *   *Example allocation: Footwork 3, Posture 2, Timing 3.*
+*   No attribute can be higher than **5** at character creation.
+    *   *Example allocation: Footwork 3, Posture 3, Timing 4, Stamina 3.*
 
 ### 2. Choose a Martial Arts Style
 Select **one** Martial Arts Style (Boxing, Muay Thai, Judo, Wrestling, or Taekwondo). 
@@ -25,11 +26,6 @@ You have **4 Mastery Points** to spend on the sub-actions allowed by your chosen
 *   **Trained (Rank 1)** ($+2$ bonus to rolls): Costs **1 point**.
 *   **Mastered (Rank 2)** (Advantage and $+2$ bonus to rolls): Costs **2 points** (requires Rank 1 first).
     *   *Example (Boxer): Spent 1 point to Train Jab, 1 point to Train Dodge, and 2 points to Master Hook.*
-
-### 4. Calculate Secondary Stats
-*   **Max Stamina**: $10 + (\text{Posture} \times 2)$.
-*   **Starting Stamina**: Matches Max Stamina.
-*   **Starting ISS (Injury Severity Score)**: $0$ (no injuries).
 
 ---
 
@@ -50,57 +46,49 @@ When choosing an action, you must also select one of its sub-actions. Each sub-a
 ### 1. Strikes
 Strikes aim to inflict damage and interrupt throws.
 
-#### A. Punches
-*   **Jab** (0 Stamina): Fastest punch. High accuracy, low damage. Interrupts slower actions.
-*   **Cross** (1 Stamina): Straight power punch. Moderate speed, high damage. Standard damage-dealer.
-*   **Hook** (1 Stamina): Looping power punch. Slower speed, high damage. Acts as a counterpunch, gaining a damage bonus if the opponent also chose a Strike.
-*   **Uppercut** (2 Stamina): Vertical power punch. Slow speed, massive damage. Bypasses low guards/crouching stances, but highly vulnerable to fast punches.
+##### A. Punches
+*   **Jab**: Fastest punch. High accuracy, low damage. Interrupts slower actions.
+*   **Cross**: Straight power punch. Moderate speed, high damage. Standard damage-dealer.
+*   **Hook**: Looping power punch. Slower speed, high damage. Acts as a counterpunch, gaining a damage bonus if the opponent also chose a Strike.
+*   **Uppercut**: Vertical power punch. Slow speed, massive damage. Bypasses low guards/crouching stances, but highly vulnerable to fast punches.
 
 #### B. Kicks
-*   **Low Kick** (1 Stamina): Fast leg strike. Targets stability; successful hits reduce the opponent's speed and evasion next round.
-*   **Body Kick** (2 Stamina): Mid-height power kick. Moderate speed and damage. Focuses on exhaustion, draining 3 Stamina from the opponent.
-*   **High Kick** (2 Stamina): High-impact head kick. Very slow speed, massive damage. High chance to stun or knock out the opponent, but easily parried or caught.
-*   **Push Kick (Teep)** (1 Stamina): Straight thrusting kick. Fast speed, low damage. Pushes the opponent back, resetting combat to neutral range and canceling throw/clinch attempts.
+*   **Low Kick**: Fast leg strike. Targets stability; successful hits inflict a temporary $-1$ penalty to the target's **Footwork** attribute on the next round (stacking with standard Footwork attribute damage).
+*   **Body Kick**: Mid-height power kick. Focuses on windedness; successful hits inflict a temporary $-1$ penalty to the target's **Stamina** attribute next round (stacking with standard Stamina attribute damage).
+*   **High Kick**: High-impact head kick. Very slow speed, massive damage. High chance to stun or knock out the opponent, but easily parried or caught.
+*   **Push Kick (Teep)**: Straight thrusting kick. Fast speed, low damage. Pushes the opponent back, resetting combat to neutral range and canceling throw/clinch attempts.
 
 ---
 
 ### 2. Blocks
 Blocks aim to mitigate damage from incoming strikes.
 
-*   **High Guard** (0 Stamina): Standard standing block protecting the head and torso. Negates most punch damage and high/mid kicks. Vulnerable to low kicks and easily bypassed by Throws.
-*   **Low Guard** (0 Stamina): Crouching or dropped block protecting the legs. Negates low kicks and leg attacks. Vulnerable to high strikes and easily bypassed by Throws.
-*   **Parry** (1 Stamina): High-skill deflection. Low passive defense, but if successful against a Strike, it staggers the opponent and allows a guaranteed fast counter-strike (e.g., a Jab) on the next action.
-*   **Dodge / Evasion** (2 Stamina): Dynamic movement to completely avoid attacks. Completely avoids any Strike regardless of height. Succeeding grants a movement or positioning advantage.
+*   **High Guard**: Standard standing block protecting the head and torso. Negates most punch damage and high/mid kicks. Vulnerable to low kicks and easily bypassed by Throws.
+*   **Low Guard**: Crouching or dropped block protecting the legs. Negates low kicks and leg attacks. Vulnerable to high strikes and easily bypassed by Throws.
+*   **Parry**: High-skill deflection. Low passive defense, but if successful against a Strike, it staggers the opponent and allows a guaranteed fast counter-strike (e.g., a Jab) on the next action.
+*   **Dodge / Evasion**: Dynamic movement to completely avoid attacks. Completely avoids any Strike regardless of height. Succeeding grants a movement or positioning advantage.
 
 ---
 
 ### 3. Throws
 Throws aim to bypass blocks, control the opponent, and force them to the ground.
 
-*   **Clinch / Grab** (0 Stamina): Simple entry grapple to hold the opponent. Deals no initial damage, but prevents the opponent from backing away and sets up advanced grappling.
-*   **Trip / Sweep** (1 Stamina): Quick attack on the opponent's base/balance. Fast speed, low damage. Knocks opponent prone. Especially effective against High Guards.
-*   **Hip / Shoulder Throw** (2 Stamina): High-impact projection throw. Moderate speed, high damage. Knocks the opponent prone and stuns them for a turn.
-*   **Takedown (Double Leg)** (2 Stamina): Power drive to force the opponent down. Bypasses High Guards entirely, but highly vulnerable to fast Strikes like Uppercuts or Jabs.
+*   **Clinch / Grab**: Simple entry grapple to hold the opponent. Deals no initial damage, but prevents the opponent from backing away and sets up advanced grappling.
+*   **Trip / Sweep**: Quick attack on the opponent's base/balance. Fast speed, low damage. Knocks opponent prone. Especially effective against High Guards.
+*   **Hip / Shoulder Throw**: High-impact projection throw. Moderate speed, high damage. Knocks the opponent prone and stuns them for a turn.
+*   **Takedown (Double Leg)**: Power drive to force the opponent down. Bypasses High Guards entirely, but highly vulnerable to fast Strikes like Uppercuts or Jabs.
 
 ---
 
 ## Attributes & Technique Masteries
 
-A character's physical and mental combat capabilities are defined by three Attributes (**Option 3**), a secondary pool of Stamina, and their specific training in various sub-actions, called Technique Masteries (**Option 2**).
+A character's physical and mental combat capabilities are defined by four core Attributes (**Option 3**) and their specific training in various sub-actions, called Technique Masteries (**Option 2**).
 
 ### Combat Attributes
 *   **Footwork**: Agility, movement speed, evasive positioning, and lower-body dexterity.
 *   **Posture**: Physical structure, strength, balance, stability, and leverage.
-*   **Timing**: Perception, reaction speed, precision, and mental focus.
-
-### Combat Resources: Stamina
-Physical combat is taxing. Characters have a **Stamina** pool representing their short-term endurance.
-*   **Max Stamina**: Derived from Posture: $\text{Max Stamina} = 10 + (\text{Posture} \times 2)$.
-*   **Stamina Recovery**: At the end of each round, all combatants recover $2$ Stamina.
-*   **Stamina Costs**: Sub-actions cost 0, 1, or 2 Stamina to perform (see mapping below).
-*   **Exhaustion (0 Stamina)**: If a character’s Stamina reaches 0:
-    *   They cannot choose any **Heavy Actions** (2 Stamina cost).
-    *   All their action rolls suffer **Disadvantage** (roll $3\text{d}10$ and keep the two *lowest* dice).
+*   **Timing**: Perception, reaction speed, precision, and counter-strike detection.
+*   **Stamina**: Cardiorespiratory endurance, wind, lung recovery, and execution of heavy/exhausting maneuvers.
 
 ### Technique Masteries (Skills)
 Characters can train in individual sub-actions (e.g., *Jab*, *Low Kick*, *Parry*, *Hip/Shoulder Throw*):
@@ -108,86 +96,68 @@ Characters can train in individual sub-actions (e.g., *Jab*, *Low Kick*, *Parry*
 *   **Trained (Rank 1)**: You gain a $+2$ bonus to your roll.
 *   **Mastered (Rank 2)**: You gain **Advantage** (roll $3\text{d}10$, keep the two highest dice) and a $+2$ bonus to your roll.
 
-### Attribute & Stamina Mapping
-Each sub-action is governed by a specific Attribute and has a set Stamina cost:
+### Attribute Mapping
+Each sub-action is governed by a specific Attribute representing the physical capacity required to execute it:
 
-| Sub-Action | Governing Attribute | Main Action | Stamina Cost | Description |
-| :--- | :--- | :--- | :--- | :--- |
-| **Jab** | **Timing** | Strike | 0 | Speed and timing-based entry. |
-| **Cross** | **Posture** | Strike | 1 | Strong structure and weight transfer. |
-| **Hook** | **Timing** | Strike | 1 | Precise flanking angle. |
-| **Uppercut** | **Posture** | Strike | 2 | Power generated from legs/base. |
-| **Low Kick** | **Footwork** | Strike | 1 | Quick leg sweep/strike. |
-| **Body Kick** | **Posture** | Strike | 2 | Strong hip rotation and structure. Drains target stamina. |
-| **High Kick** | **Footwork** | Strike | 2 | Balance and flexibility. High impact. |
-| **Push Kick (Teep)** | **Footwork** | Strike | 1 | Spacing and foot placement. |
-| **High Guard** | **Posture** | Block | 0 | Standing structure and stance. |
-| **Low Guard** | **Posture** | Block | 0 | Crouching stability. |
-| **Parry** | **Timing** | Block | 1 | Precise timing of deflection. |
-| **Dodge / Evasion** | **Footwork** | Block | 2 | Moving the body out of range. |
-| **Clinch / Grab** | **Timing** | Throw | 0 | Catching/securing limbs. |
-| **Trip / Sweep** | **Footwork** | Throw | 1 | Precise foot placement and trip. |
-| **Hip / Shoulder Throw** | **Posture** | Throw | 2 | Lifting via mechanical leverage. |
-| **Takedown (Double Leg)** | **Posture** | Throw | 2 | Driving forward with body structure. |
+| Sub-Action | Governing Attribute | Main Action | Description |
+| :--- | :--- | :--- | :--- |
+| **Jab** | **Timing** | Strike | Speed and timing-based entry. |
+| **Cross** | **Posture** | Strike | Strong structure and weight transfer. |
+| **Hook** | **Timing** | Strike | Precise flanking angle. |
+| **Uppercut** | **Stamina** | Strike | Heavy vertical launch requiring cardiorespiratory power. |
+| **Low Kick** | **Footwork** | Strike | Quick leg sweep/strike. |
+| **Body Kick** | **Stamina** | Strike | Heavy body strike draining target's wind. |
+| **High Kick** | **Stamina** | Strike | High-impact flexibility and explosive power. |
+| **Push Kick (Teep)** | **Footwork** | Strike | Spacing and foot placement. |
+| **High Guard** | **Posture** | Block | Standing structure and stance. |
+| **Low Guard** | **Posture** | Block | Crouching stability. |
+| **Parry** | **Timing** | Block | Precise timing of deflection. |
+| **Dodge / Evasion** | **Footwork** | Block | Moving the body out of range. |
+| **Clinch / Grab** | **Timing** | Throw | Catching/securing limbs. |
+| **Trip / Sweep** | **Footwork** | Throw | Precise foot placement and trip. |
+| **Hip / Shoulder Throw** | **Stamina** | Throw | High-exertion lift via mechanical leverage. |
+| **Takedown (Double Leg)** | **Stamina** | Throw | Power drive and penetration step. |
 
 ---
 
-## Injuries & Trauma (Simplified ISS)
+## Attribute Damage & Defeat
 
-Instead of using a numerical hitpoint pool, this system uses a simplified version of the clinical **Injury Severity Score (ISS)** and **Abbreviated Injury Scale (AIS)** to track bodily trauma. Combatants suffer discrete injuries that degrade their combat attributes in real-time, eventually leading to a knockout or stoppage.
+Instead of tracking numerical hitpoints, Injury Levels, or Trauma Scores, combatants suffer direct damage to their core **Attributes** (Footwork, Posture, Timing, and Stamina). This damage degrades their rolls in real-time, representing fatigue and cumulative physical trauma.
 
-### 1. Body Regions & Attribute Penalties
-Injuries are categorized into three distinct body regions. The highest AIS injury in a region acts as a direct penalty to its corresponding attribute:
+### 1. The Defeat Condition
+A combatant is defeated (knocked out, submits, or suffers a referee stoppage) immediately when **any of their four attributes is reduced to 0 (or below)**.
+*   **Timing reaches 0**: Knocked Out (concussion, loss of consciousness).
+*   **Posture reaches 0**: Structural TKO (broken ribs, physical collapse, or submission).
+*   **Footwork reaches 0**: Mobility TKO (broken leg, blown knee, unable to stand).
+*   **Stamina reaches 0**: Exhaustion TKO (complete cardiorespiratory failure/collapse).
 
-*   **Head & Face** (governs **Timing**): Concussions, broken jaws, brain bleeds, orbital fractures.
-*   **Body & Torso** (governs **Posture**): Broken ribs, winded lungs, internal organ trauma.
-*   **Limbs & Extremities** (governs **Footwork**): Sprained ankles, broken hands, swept legs.
+### 2. Inflicting Attribute Damage
+When an attack connects, it deals direct damage to a specific attribute based on the strike's target and impact level.
 
-### 2. The Abbreviated Injury Scale (AIS)
-Every injury has an AIS severity rating from 1 to 5:
+> [!NOTE]
+> The **governing attribute** (listed in the Attribute Mapping table) is the attribute the *attacker* rolls to execute the action. The **attribute damage** type (listed below) is the attribute the *defender* loses on a successful hit.
 
-| AIS Rating | Severity | Attribute Penalty | Example Injuries |
-| :--- | :--- | :--- | :--- |
-| **AIS 1** | Minor | None (Drains 2 Stamina) | Swollen eye, bruised ribs, superficial cut. |
-| **AIS 2** | Moderate | $-1$ to Region's Attribute | Mild concussion, cracked rib, sprained wrist. |
-| **AIS 3** | Serious | $-2$ to Region's Attribute | Shattered nose/jaw, fractured hand, deep muscle tear. |
-| **AIS 4** | Severe | $-3$ to Region's Attribute | Severe brain bleed, fractured knee, broken collarbone. |
-| **AIS 5** | Critical | Instant Defeat / Stoppage | Unconsciousness, ruptured organ, broken spine. |
+*   **Timing Damage** (Head & Face strikes): Jab, Cross, Hook, Uppercut, High Kick.
+*   **Posture Damage** (Core/Structure strikes & slams): Hip/Shoulder Throw.
+*   **Footwork Damage** (Leg strikes & sweeps): Low Kick, Trip/Sweep, Takedown.
+*   **Stamina Damage** (Wind/lung blows): Body Kick, Push Kick (Teep).
 
-### 3. Injury Severity Score (ISS)
-A combatant's overall trauma is represented by their ISS, which is the sum of the single highest AIS score from each of the three regions:
-
-$$\text{ISS} = \text{Head Max AIS} + \text{Body Max AIS} + \text{Limbs Max AIS}$$
-
-*   **Major Trauma (Stoppage)**: If a combatant's **ISS reaches 10**, or if any single region suffers an **AIS 5** injury, they are immediately defeated (knocked out, submit, or stopped by the referee/medical staff).
-
-### 4. Inflicting & Mitigating Injuries
-
-#### Inflicting Injuries
-When an attack connects, it inflicts a base AIS score depending on its impact power:
-*   **Low Impact (AIS 1)**: Jab (Targets Head or Body, attacker's choice).
-*   **Medium Impact (AIS 2)**: Cross (Head/Body), Hook (Head/Body), Low Kick (Targets Limbs), Push Kick (Targets Body), Trip/Sweep (Targets Limbs).
-*   **High Impact (AIS 3)**: Uppercut (Head/Body), Body Kick (Targets Body), High Kick (Targets Head), Hip/Shoulder Throw (Targets Body), Takedown (Targets Limbs).
-
-*Note: Successful Throws also knock the target **Prone**.*
+#### Base Damage by Impact Level:
+*   **Low Impact (1 damage)**: Jab.
+*   **Medium Impact (2 damage)**: Cross, Hook, Low Kick, Push Kick (Teep), Trip/Sweep.
+*   **High Impact (3 damage)**: Uppercut, Body Kick, High Kick, Hip/Shoulder Throw, Takedown (Double Leg).
+*   *Note: Successful Throws also knock the target **Prone**.*
 
 #### Success Modifier
-If the attacker wins the clash with a **Critical Success** (succeeding by a margin of 5 or more), the injury severity increases by $+1$ AIS (up to a maximum of AIS 5).
+If the attacker wins the clash with a **Critical Success** (succeeding by a margin of 5 or more), the attribute damage is increased by $+1$.
 
-#### Cumulative Trauma
-Injuries to the same region accumulate. If a region already has an injury, and a new attack connects and inflicts an injury of at least AIS 1:
-*   If the new injury is **equal to or higher than** the existing injury, the region's AIS rating increases to the new value, plus $+1$.
-*   If the new injury is **lower than** the existing injury, the region's AIS rating increases by $+1$ (representing cumulative swelling, bleeding, or structural wear).
-*   *Note: A region's AIS rating can never exceed 5 (Critical/Defeat).*
+### 3. Mitigation (Blocking & Dodging)
+If a defender successfully blocks or dodges, they subtract their defense rating from the incoming attack's base damage:
+*   **High/Low Guard**: Mitigates 2 damage.
+*   **Dodge / Evasion**: Mitigates 3 damage.
+*   **Parry**: If the parry check succeeds, it mitigates 100% of incoming damage and staggers the attacker.
 
-
-#### Mitigation (Blocking & Dodging)
-If a defender successfully guards or dodges, they subtract their defense rating from the incoming attack's base AIS before applying the injury:
-*   **High/Low Guard**: Mitigates 2 AIS.
-*   **Dodge / Evasion**: Mitigates 3 AIS.
-*   **Parry**: If the parry check succeeds, it mitigates 100% of incoming AIS and staggers the attacker.
-
-*Example: A combatant is hit by a High Kick (Base AIS 3) while using a High Guard (Mitigates 2). The final injury is AIS 1 (3 - 2 = 1) to the Head & Face region, draining 2 Stamina but causing no attribute penalty.*
+*Example: A combatant is hit by a High Kick (Base 3 Timing damage) while using a High Guard (Mitigates 2). The defender takes 1 Timing damage (3 - 2 = 1), reducing their Timing attribute by 1.*
 
 ---
 
@@ -199,7 +169,7 @@ Combat takes place across three fluid **Ranges**. Combatants control the distanc
 
 *   **Outfighting (Long Range)**: Spaced out, circling.
     *   *Allowed Actions*: Only long Strikes (Low Kick, Body Kick, High Kick, Push Kick). Punches and Throws are out of range.
-    *   *Mobility Perk*: **Dodge / Evasion** costs $0$ Stamina at this range.
+    *   *Mobility Perk*: **Dodge / Evasion** (Footwork-based) is highly effective at this range.
 *   **Striking Range (Medium Range)**: The pocket, exchange range.
     *   *Allowed Actions*: All Strikes (Punches & Kicks) and Blocks. Throws are out of range.
 *   **Clinch Range (Close Range)**: Grappling, tied up.
@@ -253,21 +223,21 @@ Combat is played in simultaneous **Rounds** resolved by a single **Contested Rol
     *   The triangle winner rolls with Advantage $+2$.
     *   The triangle loser rolls normally.
     *   *Example (Block vs. Strike)*: White beats Red. The Blocker rolls with Advantage $+2$; the Striker rolls normally. 
-        *   If the **Blocker wins the contested roll**, the block succeeds and mitigates the strike's AIS.
-        *   If the **Striker wins the contested roll** (beating the blocker's roll despite the blocker's advantage), the strike bypasses the guard entirely, dealing full, unmitigated AIS injury.
+        *   If the **Blocker wins the contested roll**, the block succeeds and mitigates the strike's Attribute Damage.
+        *   If the **Striker wins the contested roll** (beating the blocker's roll despite the blocker's advantage), the strike bypasses the guard entirely, dealing full, unmitigated Attribute Damage.
 *   **Same Actions (Same Color Rolls)**:
     *   **Red vs. Red (Strike vs. Strike)**: Both roll normally (no Advantage). The higher total wins the round, landing their strike. The loser's strike misses or is beat to the punch.
-    *   **White vs. White (Block vs. Block)**: No contest is needed. Both combatants remain passive in guard. Both recover $+2$ extra Stamina (for a total of 4 recovered this round).
+    *   **White vs. White (Block vs. Block)**: No contest is needed. Both combatants remain passive in guard. Standoff; the round resets to neutral.
     *   **Black vs. Black (Throw vs. Throw)**: A grapple struggle. Both roll off normally using either **Posture** or **Timing**. The higher total wins the check, securing a Clinch or a throw.
 
 ### 2. Dice Checks (2d10 System)
 To resolve the contested roll, combatants calculate their totals using the following:
 *   **Action Roll**: Roll the chosen $2\text{d}10$ (or $3\text{d}10$ based on Advantage or Technique Mastery).
-*   **Attribute Modifier**: Add the governing Attribute (**Footwork**, **Posture**, or **Timing**).
+*   **Attribute Modifier**: Add the governing Attribute (**Footwork**, **Posture**, **Timing**, or **Stamina**).
 *   **Mastery Modifier**: Add the Technique Mastery bonus ($+2$ if Trained or Mastered).
 *   **Compare Totals**:
     *   **Success**: Have the higher Roll Total.
-    *   **Critical Success**: Succeeding by a margin of 5 or more (Winner Total - Loser Total $\ge 5$) activates secondary weapon/style/critical effects, and increases incoming injury by $+1$ AIS.
+    *   **Critical Success**: Succeeding by a margin of 5 or more (Winner Total - Loser Total $\ge 5$) activates secondary weapon/style/critical effects, and increases incoming damage by $+1$ attribute damage.
 
 ---
 
@@ -283,7 +253,7 @@ Characters can adopt a specific Martial Arts Style, which dictates their availab
     *   *Throws*: Clinch/Grab only (No Trip, Hip Throw, or Takedown).
 *   **Style Perks**:
     *   **Slip & Counter**: Successfully defending with Dodge/Evasion allows a free Hook or Uppercut counter-attack on your next turn.
-    *   **Iron Chin**: High Guard mitigates 100% of punch damage (normally absorbs 80%).
+    *   **Iron Chin**: High Guard mitigates $+1$ damage against Punches (for a total of 3 damage mitigated, neutralizing Jabs, Crosses, and Hooks).
 
 ### 2. Muay Thai (Art of Eight Limbs)
 *   **Focus**: Bone-breaking Kicks & Clinch Grappling.
@@ -292,13 +262,13 @@ Characters can adopt a specific Martial Arts Style, which dictates their availab
     *   *Blocks*: High Guard, Parry (No Low Guard or Dodge).
     *   *Throws*: Clinch/Grab only (No Trip, Hip Throw, or Takedown).
 *   **Style Perks**:
-    *   **Thai Clinch**: While holding an opponent in a Clinch/Grab, you can execute Knee strikes (deals Uppercut damage at Jab speed).
-    *   **Heavy Leg Kicks**: Low Kicks deal moderate damage in addition to reducing the opponent's speed and evasion.
+    *   **Thai Clinch**: While holding an opponent in a Clinch/Grab, you can execute Knee strikes (Strike action, Timing-based, that deals High Impact [3 damage] to either Timing or Stamina).
+    *   **Heavy Leg Kicks**: Low Kicks deal 2 Footwork damage as normal, but inflict a temporary $-2$ penalty to the target's Footwork next round (instead of $-1$).
 
 ### 3. Judo (The Gentle Way)
 *   **Focus**: Redirection & High-Impact Throws.
 *   **Allowed Actions**:
-    *   *Strikes*: None.
+    *   *Strikes*: Jab (No other Strikes).
     *   *Blocks*: High Guard, Parry (No Low Guard or Dodge).
     *   *Throws*: Clinch/Grab, Trip/Sweep, Hip/Shoulder Throw.
 *   **Style Perks**:
@@ -308,7 +278,7 @@ Characters can adopt a specific Martial Arts Style, which dictates their availab
 ### 4. Wrestling (Ground Dominance)
 *   **Focus**: Clinches & Power Takedowns.
 *   **Allowed Actions**:
-    *   *Strikes*: None.
+    *   *Strikes*: Jab (No other Strikes).
     *   *Blocks*: High Guard, Low Guard (No Parry or Dodge).
     *   *Throws*: Clinch/Grab, Trip/Sweep, Takedown (Double Leg).
 *   **Style Perks**:
@@ -322,23 +292,16 @@ Characters can adopt a specific Martial Arts Style, which dictates their availab
     *   *Blocks*: High Guard, Dodge/Evasion (No Low Guard or Parry).
     *   *Throws*: None.
 *   **Style Perks**:
-    *   **Spinning Kicks**: High Kicks do not suffer speed penalties if performed immediately following a successful Push Kick (Teep).
-    *   **Outfighting**: Evasion actions do not cost stamina if you are outside of clinch range.
+    *   **Spinning Kicks**: A High Kick gains a $+2$ bonus if performed immediately following a successful Push Kick (Teep).
+    *   **Outfighting**: Evasion/Dodge actions gain a $+2$ bonus if you are outside of Clinch Range.
 
 ---
 
 ## Healing & Recovery
 
-### 1. Post-Fight Healing (Long-Term Rest)
-Outside of active combat, injuries heal naturally over time depending on their severity. If a fighter goes on medical suspension or takes downtime, refer to the table below:
-
-| Injury Severity | Recovery Time | Medical Requirement | Permanent Effects |
-| :--- | :--- | :--- | :--- |
-| **AIS 1 (Minor)** | Short Rest (10 mins) or Sleep | None | None |
-| **AIS 2 (Moderate)**| 1 Week of light activity | Basic rest, ice, braces | None |
-| **AIS 3 (Serious)** | 3 Weeks of strict rest | Stitches, splints, or casts | Requires a **Posture** check (DC 10) to avoid scarring or a permanent $-1$ penalty to that region. |
-| **AIS 4 (Severe)**  | 2 Months of downtime | Hospital stay, surgery | Requires a **Posture** check (DC 12) to avoid permanent $-1$ attribute reduction. |
-| **AIS 5 (Critical)**| 4+ Months of rehabilitation | Advanced surgery & physical therapy | Must pass a DC 14 **Posture** check; failure results in permanent $-1$ to all attributes. |
-
-### 2. Stamina Recovery Outside Combat
-*   Once combat ends and the fighter catches their breath (approx. 5 minutes of rest), their **Stamina is fully restored** to their current maximum.
+### 1. Attribute Restoration (Natural Healing)
+Fighters recover their damaged attributes naturally over time through rest:
+*   **Minor Damage** (attributes at 2 or higher): Attributes recover by **$+1$ point** per night of sleep.
+*   **Severe Damage** (attributes at 1 or 0): The fighter requires strict medical downtime (casting, surgery, or hospitalization) to avoid long-term degradation.
+    *   Reduced attributes recover by **$+1$ point** per week of complete rest.
+    *   At the end of recovery, they must pass a **Posture Check** (DC 10 for recovering from 1, DC 12 for recovering from 0) to avoid a permanent $-1$ reduction to their maximum score for that attribute.
