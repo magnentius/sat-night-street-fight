@@ -169,7 +169,7 @@ Characters can adopt a specific Martial Arts Style, which dictates their availab
     *   *Throws*: None.
 *   **Style Perks**:
     *   **Ikken Hissatsu (One Strike, One Kill)**: When you land a Critical Hit (margin $\ge 5$ or Natural 20), the attack deals an additional $+1$ attribute damage on top of the normal critical bonus (for a total of $+2$ bonus damage on crits).
-    *   **Kiai Shout**: Once per fight, after landing a successful Strike, you may let out a devastating Kiai — the defender must pass a **DC 12 Cool check** or suffer **1 Cool damage AND the Staggered condition** (Disadvantage next turn).
+    *   **Kiai Shout**: Once per fight, after landing a successful Strike, you may let out a devastating battle cry. Roll a contested **Cool Check** ($2\text{d}10 + \text{Cool}$ vs. $2\text{d}10 + \text{Cool}$). If you win, the defender suffers **1 Cool damage AND the Staggered condition** (Disadvantage on their next Stance Check).
 
 ### 6. Kung Fu (The Martial Way)
 *   **Focus**: Flowing Combos & Trapping Hands.
@@ -371,7 +371,9 @@ Combat is played in simultaneous **Rounds** resolved by a single **Contested Rol
 To make combat timing and perk follow-ups crystal clear, all checks in **Saturday Night Street Fight** are categorized into 3 distinct Action Check types:
 
 *   **Stance Check (Primary Action Roll)**: The primary contested roll of Phase 3 in a combat round, committed simultaneously using Action Cards (**Strike Stance**, **Block Stance**, **Throw Stance**). Temporary status penalties like **Staggered**, **Hobbled**, and **Winded** specifically apply their penalty/Disadvantage to your **very next Stance Check**.
-*   **Perk Reaction Check (Immediate Special Follow-up)**: A free, immediate bonus check triggered by a style perk upon landing a strike or executing a parry (e.g., *Judo Kuzushi Sweeping Reversal*, *Karate Kiai Shout*). Perk Reaction Checks resolve instantly within the same round, do not consume your stance card, and do not clear Stance Check conditions.
+*   **Perk Reaction Check (Immediate Special Follow-up)**: A free, immediate bonus check triggered by a style perk upon landing a strike or executing a parry. Perk Reaction Checks resolve instantly within the same round, do not consume a stance card, and do not clear Stance Check conditions. A Perk Reaction Check rolls against either:
+    *   **Immediate Contested Physical Roll**: Roll against an immediate opponent reaction roll ($2\text{d}10 + \text{Agility}$ or $\text{Power}$) to land a follow-up reversal (e.g., Judo *Kuzushi* sweeping throw).
+    *   **Immediate Contested Mental Roll**: Roll a contested **Cool Check** ($2\text{d}10 + \text{Cool}$ vs. $2\text{d}10 + \text{Cool}$) to shake an opponent's spirit (e.g., Karate *Kiai Shout*).
 *   **Environmental Check (Hazard / Reaction Roll)**: A roll triggered by street hazards, subway trains, or ambient conditions ($2\text{d}10 + \text{Agility}$ or $\text{Cool}$).
 
 ### 3. Die Roll Architecture (Strictly d10 System)
@@ -383,6 +385,19 @@ All mechanics and random tables in **Saturday Night Street Fight** strictly use 
 *   **Natural 20 (Double 10s)**: Rolling double 10s on action dice is a **Natural 20 (Overkill)**. Guarantees an automatic Critical Hit ($+1$ damage and critical status) + **Momentum Surge** ($+1$ Stamina or Cool recovery).
 *   **Reaction Rolls (2d10 + Cool)**: Rolled when encountering new street gangs or NPCs to determine initial disposition ($2\text{d}10 + \text{Cool}$).
 *   **Table & Generator Rolls (1d10)**: All procedural tables (environmental starting ranges, subway events, street names, landmarks, environmental hazards, block danger rank encounters, and 1970s soundtracks) roll a single **$1\text{d}10$**.
+
+#### Standardized Target DC Tiers (Non-Combat & Environmental Checks)
+For non-combat environmental obstacles, street hazards, and hospital triage checks where no opponent is actively rolling back, difficulty is governed by 5 standardized Target DC tiers:
+
+| Tier | Difficulty Level | Target DC | Average Brawler (Attr 2) Success | Recommended Usage |
+| :--- | :--- | :---: | :---: | :--- |
+| 🟢 **Easy** | Minor Obstacle | **DC 10** | **79%** | Gathering street rumors, jumping over low debris, street navigation |
+| 🟡 **Medium** | Standard Challenge | **DC 12** | **64%** | Hospital ER triage admittance, turnstile bribes, slippery pavement |
+| 🔴 **Hard** | Severe Challenge | **DC 15** | **36%** | Hospital Discharge healing resilience check, picking heavy locks, razor wire fence |
+| 🟣 **Very Hard** | Extremely Tough | **DC 18** | **15%** | Leaping across rooftop alley gaps, picking bank vaults, extreme street feats |
+| 💀 **Impossible** | Nearly Impossible | **DC 20** | **6%** | Surviving a collapsing building structure, performing miraculous feats |
+
+*Note: Rolling double 10s (**Natural 20**) automatically succeeds on any check regardless of target DC!*
 
 ### 3. Action Roll Resolution & Modifiers
 To resolve a contested roll, combatants calculate their totals using the following:
@@ -518,9 +533,9 @@ Fighters recover their damaged attributes through short breathers and medical tr
 *   **Severe Damage & Hospitalization (Attributes at 0)**: If any physical attribute (Reaction, Power, Agility, Stamina) is reduced to **0**, the fighter suffers a physical TKO (concussion, broken bone, ligament tear). **They are physically incapacitated and cannot heal via short rests.**
     *   **Catastrophic Trauma (Instant Street Death)**: If **all four physical attributes** (Reaction, Power, Agility, and Stamina) are reduced to 0 simultaneously, the fighter suffers total systemic collapse and dies **instantly on the spot**. No hospital admittance check or triage can save them.
     *   **Admittance Check**: To begin recovery for non-fatal TKOs (1-3 attributes at 0), the fighter must reach a **Hospital or Free Clinic** landmark (on a street block or subway station) and pass a **Cool Check (DC 12)** to get admitted (representing overcrowded 1970s urban emergency rooms). An uninjured companion can roll this check on the patient's behalf.
-    *   **The 24-Hour Emergency Ticking Clock (Street Death)**: An incapacitated fighter (0 attribute) has **24 Hours (a maximum of 3 Admittance Checks)** to reach emergency medical care. If 24 hours elapse without admittance (or if 3 checks fail without winning a **Contested Cool Check** to pull street strings and bypass triage lines), untreated internal trauma, concussions, or exposure result in **Street Death (Character Death)**!
+    *   **The 24-Hour Emergency Ticking Clock (Street Death)**: An incapacitated fighter (0 attribute) has **24 Hours (a maximum of 2 Admittance Checks, 12 hours per check)** to reach emergency medical care. If 24 hours elapse without admittance (failing both checks without winning a **Contested Cool Check** to pull street strings and bypass triage lines), untreated internal trauma, concussions, or exposure result in **Street Death (Character Death)**!
     *   **Recovery Rate**: Once admitted, hospital treatment requires **1 week of complete bed rest per zeroed attribute** (e.g., 1 zeroed attribute = 1 week; 2 zeroed attributes = 2 weeks).
-    *   **Discharge Check (Permanent Maximum Cap Reduction)**: At the end of hospital recovery, the fighter must pass a **Power Check (DC 12)** to test their body's long-term healing resilience.
+    *   **Discharge Check (Permanent Maximum Cap Reduction)**: At the end of hospital recovery, the fighter must pass a **Power Check (DC 15 — Hard)** to test their body's long-term healing resilience.
         *   **Success**: All attributes are fully restored to their maximum scores.
         *   **Failure (Permanent Scarring)**: The **Attribute Maximum Cap** for that specific attribute permanently drops by **$-1$** (e.g., Max Agility Cap drops from $4 \rightarrow 3$).
         *   **Capped-Down Current Score**: If the fighter's current attribute score was above the new lower Maximum Cap, their current attribute score is **immediately capped down** to match the new Maximum Cap (e.g., if current score was restored to 3, but the cap dropped to 2, their current score becomes 2).

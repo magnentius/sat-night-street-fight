@@ -154,7 +154,7 @@ Roll to determine the three primary landmarks on the block.
 | **7** | **Auto Repair Shop** | Tire stacks, motor oil slicks (Agility hazard), tool racks. |
 | **8** | **Billiards Hall** | Narrow green tables, wooden cues (can be improvised strikes). |
 | **9** | **Subway Station Entrance** | Concrete stairs descending into darkness, metal turnstiles. |
-| **10** | **County Hospital / Free Clinic** | Crowded emergency room, police guards, antiseptic smells. Required to treat Severe Recovery (attributes at 0). Getting admitted requires a **Cool Check (DC 12)** within 24 hours of TKO (failure to get admitted within 24 hours results in **Street Death**). |
+| **10** | **County Hospital / Free Clinic** | Crowded emergency room, police guards, antiseptic smells. Required to treat Severe Recovery (attributes at 0). Getting admitted requires a **Cool Check (DC 12 — Medium)** within the 24-hour emergency window (max 2 Admittance Checks; failure to get admitted within 24 hours results in **Street Death**). |
 
 ---
 
@@ -164,7 +164,7 @@ These hazards add mechanical friction to the brawls.
 | Roll | Hazard | Mechanical Effect |
 | :--- | :--- | :--- |
 | **1-3** | **Steam Vent** | Blind spot. Any reaction-based action rolled near it has **Disadvantage**. |
-| **4-5** | **Oil Slick / Wet Pavement** | Slippery. Any character moving or dodging must pass an **Agility Check (DC 8)** or fall **Prone**. |
+| **4-5** | **Oil Slick / Wet Pavement** | Slippery. Any character moving or dodging must pass an **Agility Check (DC 10 — Easy)** or fall **Prone**. |
 | **6-7** | **Broken Streetlight** | Low visibility. All Strike actions suffer a $-1$ penalty to rolls. |
 | **8-9** | **Loose Garbage / Debris** | Footing hazard. Dodge actions lose their $+2$ Outside Spacing bonus. |
 | **10** | **Fire Escape Scaffolding** | Vertical space. Clambering up allows Strikes from above (gaining **Advantage**). |
@@ -201,7 +201,7 @@ Every block in the city has a **Danger Rank** from **1 to 5** that reflects the 
 *   **6: Shakedown**: A single **Tier 2 Thug** demands a turf toll. Players can fight or bluff past them by winning a contested **Cool** check.
 *   **7: Tagging Crew**: Three **Tier 1 Punks** spray-painting gang slogans. They grow hostile if confronted.
 *   **8: Narrow Alley Shortcut**: A dark alley starting at **Striking Range**.
-*   **9: Debris Obstruction**: Loose wooden crates; requires an **Agility Check (DC 8)** to cross without tripping.
+*   **9: Debris Obstruction**: Loose wooden crates; requires an **Agility Check (DC 10 — Easy)** to cross without tripping.
 *   **10: Stolen Vehicle**: A stripped car creating cover in the center of the block.
 
 ### Danger Rank 3: Medium Danger / Active Turf

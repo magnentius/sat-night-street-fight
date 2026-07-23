@@ -636,19 +636,22 @@ def run_fight(p1, p2, should_write=False):
             if winner == p1: p1_struck_this_round = True
             else: p2_struck_this_round = True
             
-            # Karate Kiai Shout: once-per-fight Cool attack after landing a strike
+            # Karate Kiai Shout: once-per-fight contested Cool check after landing a strike
             if winner.style_name == "Karate" and not winner.kiai_used and not loser.is_defeated():
                 winner.kiai_used = True
-                kiai_roll = winner.roll_dice(2)[0] + winner.attrs["cool"]
-                log_print(f"   {C_YELLOW}[Karate Kiai Shout]{C_RESET} {winner.name} lets out a devastating KIAI! (DC 12 Cool check for {loser.name})")
-                if kiai_roll < 12:
+                w_kiai, _ = winner.roll_dice(2)
+                l_kiai, _ = loser.roll_dice(2)
+                w_kiai_tot = w_kiai + winner.attrs["cool"]
+                l_kiai_tot = l_kiai + loser.attrs["cool"]
+                log_print(f"   {C_YELLOW}[Karate Kiai Shout]{C_RESET} {winner.name} lets out a battle cry! (Contested Cool: {winner.name} {w_kiai_tot} vs {loser.name} {l_kiai_tot})")
+                if w_kiai_tot > l_kiai_tot:
                     loser.attrs["cool"] = max(0, loser.attrs["cool"] - 1)
                     loser.staggered = True
                     metrics[w_key]["damage_dealt"]["cool"] += 1
                     metrics[l_key]["damage_taken"]["cool"] += 1
-                    log_print(f"   -> {loser.name} fails! Suffers 1 COOL damage AND is STAGGERED! (New: {loser.attrs['cool']})")
+                    log_print(f"   -> {winner.name} wins the clash of wills! {loser.name} suffers 1 COOL damage AND is STAGGERED! (Cool: {loser.attrs['cool']})")
                 else:
-                    log_print(f"   -> {loser.name} steels their nerves (rolled {kiai_roll} vs DC 12).")
+                    log_print(f"   -> {loser.name} keeps their composure and resists the Kiai Shout.")
 
         # 2. Resolve Block (Parry/Dodge)
         elif w_color == "block":
