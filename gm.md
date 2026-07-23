@@ -54,10 +54,10 @@ Whenever the train pulls into a station, roll to see what awaits the players on 
 | Roll | Station Event | Description & Rules |
 | :--- | :--- | :--- |
 | **1-3** | **Clear Platform** | The station is quiet, populated only by a few nervous commuters. Players can safely exit to the street (generating a new block) or rest to recover minor attribute damage. |
-| **4-5** | **Local Gang Toll** | A group of **Standard Thugs (Tier 2)** guards the turnstiles, demanding a toll or a bribe. Players can pay, fight, or bluff/negotiate past by winning a contested **Cool** check. |
+| **4-5** | **Local Gang Toll** | A group of **Standard Thugs (Tier 2)** guards the turnstiles, demanding a toll. Players can offer a street favor/bribe (**Cool Check DC 10**), fight, or bluff/intimidate past (**Contested Cool Check**). |
 | **6-7** | **Ambush!** | The platform lights flicker out. A **Mob of Punks (Tier 1)** ambushes from the shadows at **Grapple Range**. Players must pass a **Cool Check (DC 10)** to keep their nerve; on a failure, the attackers gain **Advantage** on the first round. |
 | **8-9** | **Rival Crew Turf** | A rival **Boss (Tier 3)** and their enforcers are waiting on the platform, looking to defend their turf from outsiders. |
-| **10** | **Transit Safe House & Clinic Connection** | A friendly transit worker lets players hide in a breakroom. This station is directly connected to a **City Hospital** (players can immediately roll the **Cool Check [DC 12]** to get admitted for Severe Recovery without exiting to the surface). Restores Cool to maximum. |
+| **10** | **Transit Safe House & Clinic Connection** | A friendly transit worker lets players hide in a breakroom. This station is directly connected to a **City Hospital** (players can immediately roll the **Cool Check [DC 12]** to get admitted for Severe Recovery within the 24-Hour emergency window without exiting to the surface). Restores Cool to maximum. |
 
 ### Procedural Subway Line Generator
 To map out a transit line between the players' Home Turf and their target destination:
@@ -151,10 +151,10 @@ Roll to determine the three primary landmarks on the block.
 | **4** | **Greasy Spoon Diner** | High counter stools, hot coffee pots, narrow aisle-ways. |
 | **5** | **Tenement Steps & Stoop** | Elevated concrete steps, metal handrails, basement stairwell. |
 | **6** | **Narrow Alleyway** | Dumpsters (can block exits), fire escapes, wooden pallets. |
-| **7** | **Auto Repair Shop** | Tire stacks, motor oil slicks (Footwork hazard), tool racks. |
+| **7** | **Auto Repair Shop** | Tire stacks, motor oil slicks (Agility hazard), tool racks. |
 | **8** | **Billiards Hall** | Narrow green tables, wooden cues (can be improvised strikes). |
 | **9** | **Subway Station Entrance** | Concrete stairs descending into darkness, metal turnstiles. |
-| **10** | **County Hospital / Free Clinic** | Crowded emergency room, police guards, antiseptic smells. Required to treat Severe Recovery (attributes at 0). Getting admitted requires a **Cool Check (DC 12)**. |
+| **10** | **County Hospital / Free Clinic** | Crowded emergency room, police guards, antiseptic smells. Required to treat Severe Recovery (attributes at 0). Getting admitted requires a **Cool Check (DC 12)** within 24 hours of TKO (failure to get admitted within 24 hours results in **Street Death**). |
 
 ---
 
@@ -163,8 +163,8 @@ These hazards add mechanical friction to the brawls.
 
 | Roll | Hazard | Mechanical Effect |
 | :--- | :--- | :--- |
-| **1-3** | **Steam Vent** | Blind spot. Any timing-based action rolled near it has **Disadvantage**. |
-| **4-5** | **Oil Slick / Wet Pavement** | Slippery. Any character moving or dodging must pass a **Footwork Check (DC 8)** or fall **Prone**. |
+| **1-3** | **Steam Vent** | Blind spot. Any reaction-based action rolled near it has **Disadvantage**. |
+| **4-5** | **Oil Slick / Wet Pavement** | Slippery. Any character moving or dodging must pass an **Agility Check (DC 8)** or fall **Prone**. |
 | **6-7** | **Broken Streetlight** | Low visibility. All Strike actions suffer a $-1$ penalty to rolls. |
 | **8-9** | **Loose Garbage / Debris** | Footing hazard. Dodge actions lose their $+2$ Outside Spacing bonus. |
 | **10** | **Fire Escape Scaffolding** | Vertical space. Clambering up allows Strikes from above (gaining **Advantage**). |
@@ -185,7 +185,7 @@ Every block in the city has a **Danger Rank** from **1 to 5** that reflects the 
 *   **3: Transit Police Patrol**: Active police presence. Brawling is forbidden; any combat actions rolled on this block immediately summon police enforcers.
 *   **4: Local Informant**: A street contact. Players can roll a **Cool Check (DC 10)** to gather rumors, gaining **Advantage** on their next Subway Station Event roll on a success.
 *   **5: Safe Alleyway**: A hidden, dry alcove to hide. Players can safely rest here to recover minor attribute damage ($+1$ point to all attributes at 1 or higher).
-*   **6: Minor Nuisance**: A single pickpocket (**Tier 1 Punk**) attempts a grab and run. They will immediately flee if the player wins a contested **Cool** (intimidation) or Timing (chase) check.
+*   **6: Minor Nuisance**: A single pickpocket (**Tier 1 Punk**) attempts a grab and run. They will immediately flee if the player wins a contested **Cool** (intimidation) or Reaction (chase) check.
 *   **7: Corner Newsstand**: Commuters reading evening papers. Peaceful safe zone.
 *   **8: Diner Window Seat**: Warm interior light shining onto the sidewalk. Safe resting spot.
 *   **9: Off-Duty Brawler**: A retired veteran brawler offering combat advice (grants **Advantage** on your next stance read check).
@@ -194,14 +194,14 @@ Every block in the city has a **Danger Rank** from **1 to 5** that reflects the 
 ### Danger Rank 2: Low Danger / Disputed Blocks
 *Fringe territory where low-level crews occasionally pick fights.*
 *   **1: Quiet Corridor**: The block is quiet, but shadows flicker in the alleys. No immediate threats.
-*   **2: Solitary Lookout**: A single **Tier 1 Lookout** stands guard. Players can sneak/take them down using contested Timing, or bluff past them using a contested **Cool** check.
-*   **3: Street Craps Game**: A group of locals gambling. Players can wager 1 Available XP on a single contested **Cool** check against the dealer. Win to gain +2 XP; lose on a failure.
+*   **2: Solitary Lookout**: A single **Tier 1 Lookout** stands guard. Players can sneak/take them down using contested Reaction, or bluff past them using a contested **Cool** check.
+*   **3: Street Craps Game**: A group of locals gambling. Players can participate in a high-stakes street game by winning a contested **Cool** check against the dealer to earn **+1 XP** (representing street reputation and experience gained from high-stakes gambling).
 *   **4: Foot Patrol**: Two **Tier 1 Punks** walking the beat. They will harass the players unless intimidated by a contested **Cool** check.
 *   **5: Drunk Fighter**: A single **Tier 2 Thug** who is highly intoxicated and looking for a brawl. Due to their state, they roll all checks with **Disadvantage**.
 *   **6: Shakedown**: A single **Tier 2 Thug** demands a turf toll. Players can fight or bluff past them by winning a contested **Cool** check.
 *   **7: Tagging Crew**: Three **Tier 1 Punks** spray-painting gang slogans. They grow hostile if confronted.
 *   **8: Narrow Alley Shortcut**: A dark alley starting at **Striking Range**.
-*   **9: Debris Obstruction**: Loose wooden crates; requires a **Footwork Check (DC 8)** to cross without tripping.
+*   **9: Debris Obstruction**: Loose wooden crates; requires an **Agility Check (DC 8)** to cross without tripping.
 *   **10: Stolen Vehicle**: A stripped car creating cover in the center of the block.
 
 ### Danger Rank 3: Medium Danger / Active Turf
@@ -219,7 +219,7 @@ Every block in the city has a **Danger Rank** from **1 to 5** that reflects the 
 
 ### Danger Rank 4: High Danger / Contested Turf War
 *War zones where rival factions are actively brawling or heavily fortified.*
-*   **1: Fortified Blockade**: Barbwire and wooden crates block the street. Crossing requires a contested Posture check against barricade defenders (**two Tier 2 Thugs**).
+*   **1: Fortified Blockade**: Barbwire and wooden crates block the street. Crossing requires a contested **Power** check against barricade defenders (**two Tier 2 Thugs**).
 *   **2: Elite Enforcer**: A single **Tier 2 Thug** who has upgraded one of their style techniques to **Mastered Rank 2 ($+5$)** stands guard.
 *   **3: Warlord Patrol**: Three **Tier 2 Thugs** patrolling. They fight with high coordination.
 *   **4: The Pack**: A **Mob of Punks (Tier 1)** led by a **Tier 2 Thug** enforcer.
@@ -239,7 +239,7 @@ Every block in the city has a **Danger Rank** from **1 to 5** that reflects the 
 *   **5: Death Alley Ambush**: Two **Tier 2 Thugs** and one **Tier 3 Boss** ambush the players immediately at **Grapple Range**.
 *   **6: The Overlord**: The main Boss of the sector is present with a personal bodyguard of **two Tier 2 Thugs**.
 *   **7: Syndicate Warband**: A Mob of 6 Punks led by two **Tier 2 Thugs**.
-*   **8: Heavyweight Champion**: A **Tier 3 Boss** with maxed Posture and Stamina (4).
+*   **8: Heavyweight Champion**: A **Tier 3 Boss** with maxed Power and Stamina (4).
 *   **9: Iron Gate Trap**: Security gates lock behind the crew; forces a fight to the TKO!
 *   **10: Final Showdown**: The Syndicate Leader challenges the crew at **Outside Range** under glowing neon lights.
 
@@ -256,6 +256,7 @@ When building a street encounter or resolving a random event during the Street C
 *   **Tier 1: Punks / Lookouts (Minor Obstacle)**: Groups of 2–6 Punks using **Mob Punk Rules** (1 damage = 1 Punk TKO'd; all defeated at Mob Pool 0). Tuned as minor street hurdles (PC Win Rate ~90%).
 *   **Tier 2: Thugs / Enforcers (Standard Encounter)**: 1–2 seasoned brawlers (Attributes 2–3, 1–2 Trained/Mastered moves). Always individual combatants (PC Win Rate ~60%).
 *   **Tier 3: Syndicate Boss (Climax Encounter)**: 1 Boss built using the full 50 XP budget (Attributes 3, multiple Mastered moves). High-stakes duel (PC Win Rate ~50%).
+*   **Tier 4: Syndicate Overlord (End-Game Climax Boss)**: 1 Sector Warlord / Grand Master built using an **80–100 XP budget** (Attributes 4s, multiple Mastered Rank 2 techniques +5). Climax endgame duel tuned for veteran and maxed PCs (PC Win Rate ~55–65%).
 
 ### 2. Environmental Starting Range Table
 When an encounter begins, determine the starting range based on the location or roll **1d10**:
@@ -269,7 +270,7 @@ When an encounter begins, determine the starting range based on the location or 
 ### 3. Tactical Ambush & Stance Cues
 If a party successfully ambushes an enemy (or gets ambushed):
 *   **Range Control**: The ambushing side chooses the initial **Starting Range** (Outside Range, Striking Range, or Grapple Range).
-*   **Free Stance Read**: The ambushing side automatically wins **Phase 1: Reading the Stance**, forcing the surprised defender to reveal their action card color first.
+*   **Free Stance Read**: The ambushing side automatically gains a **Perfect Read (Margin 7+)** on Phase 1, forcing the surprised defender to reveal their action card color first.
 
 ---
 
@@ -283,7 +284,7 @@ When players encounter a new gang, mob of punks, or street NPC during a Street C
 | $2\text{d}10 + \text{Cool}$ Total | Initial Disposition | Narrative & Tactical Outcome |
 | :--- | :--- | :--- |
 | **5 or lower** | **Hostile / Ambush** | Immediate attack! Enemies launch a surprise strike or force **Grapple Range**. |
-| **6–10** | **Aggressive / Demand Turf Toll** | Unfriendly. They demand a turf tax (1 XP or item) or provoke a brawl. A failed **Cool Check (DC 12)** triggers combat. |
+| **6–10** | **Aggressive / Demand Turf Toll** | Unfriendly. They demand a street favor or provoke a brawl. Passing a **Cool Check (DC 12)** defuses the tension; failure triggers combat. |
 | **11–15** | **Wary / Tense Standoff** | Sizing each other up at **Outside Range**. Fights only break out if provoked or if a stance read fails. |
 | **16–19** | **Indifferent / Open to Talk** | Neutral. Willing to share street rumors, give directions, or allow safe passage through their block. |
 | **20+** | **Friendly / Helpful** | Welcoming. Offers access to a **Transit Safe House**, street medical tips, or local backup. |
@@ -299,14 +300,14 @@ Not everyone on the streets is a martial arts master. The GM populates blocks wi
 
 ### 1. Punks & Lookouts (Tier 1)
 Street kids, pickpockets, or low-level lookouts. They are physically weak and untrained, looking for easy prey.
-*   **Attributes**: Footwork 1, Posture 1, Timing 1, Stamina 1.
-*   **Techniques**: Untrained (Rank 0) in all sub-actions.
+*   **Attributes**: Agility 1, Power 1, Reaction 1, Stamina 1, Cool 1.
+*   **Techniques**: Untrained (Rank 0) in all martial techniques.
 *   **Perks**: None.
 *   **Tactics**: They only fight in groups using **Mob Punk Rules**. If isolated, they flee.
 
 ### 2. Standard Thugs & Soldiers (Tier 2)
 Enforcers, muscle, or standard gang soldiers who know how to swing a bat or throw a punch.
-*   **Attributes**: Footwork 2, Posture 2, Timing 2, Stamina 2.
+*   **Attributes**: Agility 2, Power 2, Reaction 2, Stamina 2, Cool 2.
 *   **Techniques**: Trained (Rank 1, $+3$ bonus) in **two** style-specific moves (e.g., Jab and High Guard).
 *   **Perks**: None.
 *   **Tactics**: Always individual combatants. Defensive when outnumbered, aggressive when having the upper hand.
@@ -314,8 +315,14 @@ Enforcers, muscle, or standard gang soldiers who know how to swing a bat or thro
 ### 3. Bosses & Leaders (Tier 3)
 Gang leaders, legendary street fighters, or elite enforcers. 
 *   **Creation**: Built using the standard **Fighter Creation Rules** (50 XP budget, starting attributes at 2, cap of 3 at creation).
-*   **Style**: Choose one of the 5 Martial Arts Styles and apply both perks.
+*   **Style**: Choose one of the 7 Martial Arts Styles and apply both perks.
 *   **Tactics**: Highly strategic, targeting the player's weakest attribute.
+
+### 4. Syndicate Overlords (Tier 4)
+Sector warlords, grand masters, or syndicate leaders who rule entire districts.
+*   **Creation**: Built using an **80–100 XP budget** (Attributes at 4, 4 Mastered Rank 2 techniques with $+5$ bonus).
+*   **Style**: Choose one of the 7 Martial Arts Styles and apply both style perks.
+*   **Tactics**: Relentless pressure, stance reading mastery, and devastating combo strings. Tuned for climax duels against veteran/maxed PCs.
 
 ---
 
@@ -333,7 +340,7 @@ Use these rules when players are outnumbered or coordinating with allies.
 
 *   **Shared Mob Pool**: A group of Tier 1 Punks acts as a single collective entity called a **Mob**. The Mob has a **Mob Count** equal to the total number of punks in the group (e.g., a Mob of 4 Punks).
 *   **One-Hit TKO**: Every point of attribute damage dealt to the Mob instantly TKOs **1 Punk** from the gang (1 damage = 1 Punk defeated).
-    *   *Example*: A Boxer hits a 4-Punk Mob with a Cross dealing **3 Timing damage**. 3 Punks are immediately knocked out! The Mob Count drops from 4 down to 1.
+    *   *Example*: A Boxer hits a 4-Punk Mob with a Cross dealing **3 Reaction damage**. 3 Punks are immediately knocked out! The Mob Count drops from 4 down to 1.
 *   **Mob Group Bonus**: On its turn, the Mob rolls a single shared action check, adding a **$+1$ bonus per active Punk** remaining in the Mob (up to the standard $+10$ Modifier Cap).
 *   **Total Defeat**: When the Mob Count reaches **0**, all Punks in the Mob are defeated and any survivors scatter.
 

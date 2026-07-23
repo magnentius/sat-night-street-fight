@@ -10,7 +10,7 @@
 2. [Attributes & Technique Masteries](#attributes--technique-masteries)
 3. [Martial Arts Styles](#martial-arts-styles)
 4. [Combat Stances & Counter Dynamics](#combat-stances--counter-dynamics)
-5. [Action Types & Sub-Actions](#action-types--sub-actions)
+5. [Action Stances & Martial Techniques](#action-stances--martial-techniques)
 6. [Attribute Damage & Defeat](#attribute-damage--defeat)
 7. [Mechanics & Resolution](#mechanics--resolution)
 8. [Range & Movement](#range--movement)
@@ -30,32 +30,33 @@ To build a fighter, follow these three simple steps:
 
 ### 1. Choose a Martial Arts Style
 Select **one** Martial Arts Style (Boxing, Muay Thai, Judo, Wrestling, Karate, Kung Fu, or Taekwondo). 
-*   This grants you your Style Perks and dictates which sub-actions you are allowed to perform (see **Martial Arts Styles** below).
+*   This grants you your Style Perks and dictates which techniques you are allowed to perform (see **Martial Arts Styles** below).
 
 ### 2. Spend Starting XP
-Every fighter starts as a blank slate with a baseline of **2** in all five Attributes (Footwork, Posture, Timing, Stamina, and Cool) and **Untrained (Rank 0)** in all techniques.
+Every fighter starts as a blank slate with a baseline of **2** in all five Attributes (Agility, Power, Reaction, Stamina, and Cool) and **Untrained (Rank 0)** in all techniques.
 
 You have **50 Experience Points (XP)** to customize your fighter. Spend them using the same costs as character progression:
 
 #### A. Allocate Combat Attributes
-*   **Attributes**: Footwork, Posture, Timing, Stamina, and Cool.
+*   **Attributes**: Agility, Power, Reaction, Stamina, and Cool.
 *   **Cost**: Costs **10 XP** to increase an attribute by $+1$ (starting at 2).
 *   **Limit**: No attribute can be higher than **3** at character creation.
 
-#### B. Purchase Technique Masteries
-You can train in any sub-actions allowed by your chosen style:
+#### B. Train Technique Masteries
+You have **Untrained (Rank 0)** in all techniques by default.
+You can train in any techniques allowed by your chosen style:
 *   **Trained (Rank 1)** ($+3$ bonus): Costs **3 XP** per technique.
 *   **Mastered (Rank 2)** ($+5$ bonus): Costs **6 XP** (requires Rank 1 first, for a total of 9 XP).
 
 ---
 
 ### Fighter Creation Example
-A Boxer starts with Footwork 2, Posture 2, Timing 2, Stamina 2, Cool 2. They spend their **50 XP** as follows:
+A Boxer starts with Agility 2, Power 2, Reaction 2, Stamina 2, Cool 2. They spend their **50 XP** as follows:
 *   **Attributes** (Spent 30 XP):
-    *   Increase Timing to 3 (costs 10 XP).
-    *   Increase Posture to 3 (costs 10 XP).
+    *   Increase Reaction to 3 (costs 10 XP).
+    *   Increase Power to 3 (costs 10 XP).
     *   Increase Stamina to 3 (costs 10 XP).
-    *   *Resulting stats: Footwork 2, Posture 3, Timing 3, Stamina 3, Cool 2.*
+    *   *Resulting stats: Agility 2, Power 3, Reaction 3, Stamina 3, Cool 2.*
 *   **Techniques** (Spent 18 XP):
     *   Master Hook (costs 3 XP to Train, 6 XP to Master = 9 XP).
     *   Train Jab (costs 3 XP).
@@ -70,44 +71,44 @@ A Boxer starts with Footwork 2, Posture 2, Timing 2, Stamina 2, Cool 2. They spe
 > *"It is not important to be better than someone else, but to be better than you were yesterday."* — Jigoro Kano
 
 
-A character's capabilities are defined by five core Attributes and their specific training in various sub-actions, called Technique Masteries.
+A character's capabilities are defined by five core Attributes and their specific training in various martial techniques, called Technique Masteries.
 
 ### Combat Attributes
-*   **Footwork**: Agility, movement speed, evasive positioning, and lower-body dexterity.
-*   **Posture**: Physical structure, strength, balance, stability, and leverage.
-*   **Timing**: Perception, reaction speed, precision, and counter-strike detection.
+*   **Agility**: Movement speed, footwork, evasive positioning, leg sweeps, and lower-body dexterity.
+*   **Power**: Physical structure, strength, balance, heavy slams, takedowns, and leverage.
+*   **Reaction**: Perception, reaction speed, precision, head punches/kicks, and counter-strike detection.
 *   **Stamina**: Cardiorespiratory endurance, wind, lung recovery, and execution of heavy/exhausting maneuvers.
-*   **Cool**: Charisma, street swagger, negotiation, intimidation, and composure under pressure. Used for non-fighting checks.
+*   **Cool**: Charisma, street swagger, negotiation, intimidation, and composure under pressure. Used for all non-fighting checks.
 
-### Technique Masteries (Skills)
-Characters can train in individual sub-actions (e.g., *Jab*, *Low Kick*, *Parry*, *Hip/Shoulder Throw*):
-*   **Untrained (Rank 0)**: You only add your governing Attribute to your roll.
+### 1. Technique Masteries
+Technique Masteries represent specialized training in specific strikes, blocks, or throws. Masteries add a flat bonus to your dice roll whenever you execute that specific technique in combat:
+*   **Untrained (Rank 0)**: You receive no bonus (roll $2\text{d}10 + \text{Attribute}$).
 *   **Trained (Rank 1)**: You gain a $+3$ bonus to your roll.
 *   **Mastered (Rank 2)**: You gain a $+5$ bonus to your roll.
 
 ### Attribute Mapping
-Each sub-action is governed by a specific Attribute representing the physical capacity required to execute it:
+Each technique is governed by a specific Attribute representing the physical capacity required to execute it:
 
-| Sub-Action | Governing Attribute | Main Action | Description |
+| Martial Technique | Governing Attribute | Action Stance | Description |
 | :--- | :--- | :--- | :--- |
-| **Jab** | **Timing** | Strike | Speed and timing-based entry. |
-| **Cross** | **Posture** | Strike | Strong structure and weight transfer. |
-| **Hook** | **Timing** | Strike | Precise flanking angle. |
+| **Jab** | **Reaction** | Strike | Speed and reaction-based entry. |
+| **Cross** | **Power** | Strike | Strong power structure and weight transfer. |
+| **Hook** | **Reaction** | Strike | Precise flanking angle and rapid delivery. |
 | **Uppercut** | **Stamina** | Strike | Heavy vertical launch requiring cardiorespiratory power. |
-| **Low Kick** | **Footwork** | Strike | Quick leg sweep/strike. |
+| **Low Kick** | **Agility** | Strike | Quick leg sweep/strike using lower-body agility. |
 | **Body Kick** | **Stamina** | Strike | Heavy body strike draining target's wind. |
-| **High Kick** | **Stamina** | Strike | High-impact flexibility and explosive power. |
-| **Push Kick (Teep)** | **Footwork** | Strike | Spacing and foot placement. |
+| **High Kick** | **Stamina** | Strike | High-impact flexibility and explosive stamina. |
+| **Push Kick (Teep)** | **Agility** | Strike | Spacing, agility, and foot placement. |
 | **Taunt** | **Cool** | Strike | Verbal or physical psychological mock. |
-| **Submission Hold** | **Posture** | Throw | Joint lock or chokehold applied on a Prone/Pinned target. |
-| **Ground & Pound** | **Posture** | Strike | Striking a downed opponent on the canvas. |
-| **High Guard** | **Posture** | Block | Standing structure and stance. |
-| **Low Guard** | **Posture** | Block | Crouching stability. |
-| **Parry** | **Timing** | Block | Precise timing of deflection. |
-| **Dodge / Evasion** | **Footwork** | Block | Moving the body out of range. |
-| **Stand Up** | **Footwork** | Block | Attempt to stand up from Prone stance. |
-| **Clinch / Grab** | **Timing** | Throw | Catching/securing limbs. |
-| **Trip / Sweep** | **Footwork** | Throw | Precise foot placement and trip. |
+| **Submission Hold** | **Power** | Throw | Joint lock or chokehold applied on a Prone/Pinned target. |
+| **Ground & Pound** | **Power** | Strike | Striking a downed opponent on the canvas using power leverage. |
+| **High Guard** | **Power** | Block | Standing power structure and stance. |
+| **Low Guard** | **Power** | Block | Crouching lower-body stability. |
+| **Parry** | **Reaction** | Block | Precise reaction timing of deflection. |
+| **Dodge / Evasion** | **Agility** | Block | Moving the body out of range using agility. |
+| **Stand Up** | **Agility** | Block | Attempt to stand up from Prone stance using agility. |
+| **Clinch / Grab** | **Reaction** | Throw | Catching/securing limbs with rapid reaction. |
+| **Trip / Sweep** | **Agility** | Throw | Precise agility foot placement and sweep. |
 | **Hip / Shoulder Throw** | **Stamina** | Throw | High-exertion lift via mechanical leverage. |
 | **Takedown (Double Leg)** | **Stamina** | Throw | Power drive and penetration step. |
 
@@ -118,7 +119,7 @@ Each sub-action is governed by a specific Attribute representing the physical ca
 > *"Styles separate men. If you have no style, you just say, 'Here I am as a human being, how can I express myself?'"* — Bruce Lee
 
 
-Characters can adopt a specific Martial Arts Style, which dictates their available sub-actions and provides unique mechanical perks:
+Characters can adopt a specific Martial Arts Style, which dictates their available techniques and provides unique mechanical perks:
 
 ### 1. Boxing (The Sweet Science)
 *   **Focus**: Punches & Head Movement.
@@ -127,18 +128,18 @@ Characters can adopt a specific Martial Arts Style, which dictates their availab
     *   *Blocks*: High Guard, Parry, Dodge/Evasion (No Low Guard).
     *   *Throws*: Clinch/Grab only (No Trip, Hip Throw, or Takedown).
 *   **Style Perks**:
-    *   **Slip & Counter**: Successfully defending with Dodge/Evasion allows a free Hook or Uppercut counter-attack on your next turn.
+    *   **Slip & Counter**: Successfully defending with Dodge/Evasion grants **Advantage ($3\text{d}10$)** on your next Strike action in the following round.
     *   **Iron Chin**: High Guard mitigates $+1$ damage against Punches (for a total of 3 damage mitigated, neutralizing Jabs, Crosses, and Hooks).
 
 ### 2. Muay Thai (Art of Eight Limbs)
 *   **Focus**: Bone-breaking Kicks & Clinch Grappling.
 *   **Allowed Actions**:
-    *   *Strikes*: Jab, Hook, and all Kicks (Low, Body, High, Push).
+    *   *Strikes*: Jab, Hook, Clinch Knee, and all Kicks (Low, Body, High, Push).
     *   *Blocks*: High Guard, Parry (No Low Guard or Dodge).
     *   *Throws*: Clinch/Grab only (No Trip, Hip Throw, or Takedown).
 *   **Style Perks**:
-    *   **Thai Clinch**: While holding an opponent in a Clinch/Grab, you can execute Knee strikes (Strike action, Timing-based, that deals High Impact [3 damage] to either Timing or Stamina).
-    *   **Heavy Leg Kicks**: Low Kicks deal 2 Footwork damage as normal, but apply a severe **Hobbled** status condition (inflicting a $-2$ penalty to Footwork rolls next round instead of $-1$).
+    *   **Thai Clinch**: Unlocks the exclusive **Clinch Knee** technique (Assault Stance / Strike, Reaction-based, High Impact 3 damage to Reaction or Stamina) usable while holding an opponent in a Clinch/Grab.
+    *   **Heavy Leg Kicks**: Low Kicks deal 2 Agility damage as normal, but apply a severe **Hobbled** status condition (inflicting a $-2$ penalty to Agility rolls next round instead of $-1$).
 
 ### 3. Judo (The Gentle Way)
 *   **Focus**: Redirection & High-Impact Throws.
@@ -157,7 +158,7 @@ Characters can adopt a specific Martial Arts Style, which dictates their availab
     *   *Blocks*: High Guard, Low Guard (No Parry or Dodge).
     *   *Throws*: Clinch/Grab, Trip/Sweep, Takedown (Double Leg), Submission Hold (only vs. Prone/Pinned targets).
 *   **Style Perks**:
-    *   **Shooter**: Double Leg Takedowns gain Advantage against opponents in a High Guard.
+    *   **Shooter**: Double Leg Takedowns can be executed directly from **Striking Range** (bypassing the need to Clinch first) and gain a **$+2$ bonus** if the target chose an Assault Stance (Strike).
     *   **Ground Control**: Winning a Grapple Struggle (Black vs. Black) automatically knocks the opponent prone and pins them, preventing them from choosing a Strike next turn.
 
 ### 5. Karate (The Way of the Empty Hand)
@@ -168,17 +169,17 @@ Characters can adopt a specific Martial Arts Style, which dictates their availab
     *   *Throws*: None.
 *   **Style Perks**:
     *   **Ikken Hissatsu (One Strike, One Kill)**: When you land a Critical Hit (margin $\ge 5$ or Natural 20), the attack deals an additional $+1$ attribute damage on top of the normal critical bonus (for a total of $+2$ bonus damage on crits).
-    *   **Kiai Shout**: Once per fight, after landing a successful Strike, you may let out a devastating Kiai — the defender must pass a **DC 12 Cool check** or suffer **1 Cool damage** (psychological shock).
+    *   **Kiai Shout**: Once per fight, after landing a successful Strike, you may let out a devastating Kiai — the defender must pass a **DC 12 Cool check** or suffer **1 Cool damage AND the Staggered condition** (Disadvantage next turn).
 
 ### 6. Kung Fu (The Martial Way)
-*   **Focus**: Flowing Combos & Redirection.
+*   **Focus**: Flowing Combos & Trapping Hands.
 *   **Allowed Actions**:
     *   *Strikes*: Jab, Cross, Low Kick, High Kick, Push Kick (Teep).
     *   *Blocks*: Parry, Dodge/Evasion (No High Guard or Low Guard).
     *   *Throws*: Trip/Sweep only (No Clinch, Hip Throw, or Takedown).
 *   **Style Perks**:
     *   **Chain Strike**: If you successfully landed a Strike last round, your next Strike this round gains a $+2$ bonus (representing flowing combo sequences).
-    *   **Flowing Redirect**: When you successfully Parry a Strike, you may immediately execute a free Trip/Sweep as a reaction (representing Wing Chun trapping hands flowing into a leg sweep).
+    *   **Flowing Redirect**: When you successfully Parry a Strike, you trap the opponent's limbs—they suffer the **Staggered** condition and your next Strike against them gains **Advantage ($3\text{d}10$)**.
 
 ### 7. Taekwondo (The Way of the Foot and Fist)
 *   **Focus**: Agile Footwork & High Kicks.
@@ -189,6 +190,15 @@ Characters can adopt a specific Martial Arts Style, which dictates their availab
 *   **Style Perks**:
     *   **Spinning Kicks**: A High Kick gains a $+2$ bonus if performed immediately following a successful Push Kick (Teep).
     *   **Outside Spacing**: Evasion/Dodge actions gain a $+2$ bonus if you are at Outside Range.
+
+### 8. Martial Arts Cross-Training (Secondary Styles)
+
+Fighters who survive the street crawl often cross-train in other martial arts disciplines to eliminate tactical blind spots (e.g., a Boxer learning Wrestling takedowns, or a Muay Thai kicker learning Judo throws).
+
+*   **XP Adoption Cost**: Spend **15 XP** at any time on the fly to adopt a **Secondary Martial Arts Style**.
+*   **Technique Access**: You permanently unlock the technique list of your Secondary Style, allowing you to spend XP to train and master its moves (e.g., a Boxer who cross-trains Wrestling unlocks *Double Leg Takedown* and *Submission Hold*).
+*   **Secondary Perk Selection**: Upon adopting a Secondary Style, choose **1 Style Perk** from that style's perk list. You gain that perk's benefit in combat.
+*   **Style Capacity**: A fighter can hold a maximum of **1 Secondary Style** (Total 2 Styles: Primary + Secondary). You cannot adopt a 3rd style.
 
 ---
 
@@ -205,12 +215,12 @@ Fighters adopt one of three tactical combat stances during each exchange: **Assa
 
 ---
 
-## Action Types & Sub-Actions
+## Action Stances & Martial Techniques
 
 > *"Everyone has a plan until they get punched in the mouth."* — Mike Tyson
 
 
-When choosing an action, you must also select one of its sub-actions. Each sub-action offers tactical trade-offs in speed, power, and secondary effects.
+When adopting a combat stance, you must also select one of its martial techniques. Each technique offers tactical trade-offs in speed, power, and secondary effects.
 
 ### 1. Strikes
 Strikes aim to inflict damage and interrupt throws.
@@ -218,18 +228,18 @@ Strikes aim to inflict damage and interrupt throws.
 #### A. Punches
 *   **Jab**: Fastest punch. High accuracy, low damage. Interrupts slower actions.
 *   **Cross**: Straight power punch. Moderate speed, high damage. Standard damage-dealer.
-*   **Hook**: Looping power punch. Slower speed, high damage. Targets the body; successful hits deal **Stamina** or **Posture** damage (rib and liver shots), gaining a damage bonus if the opponent also chose a Strike.
-*   **Uppercut**: Vertical power punch. Slow speed, massive damage. Targets alignment; successful hits deal **Posture** damage (chin lift). Bypasses low guards/crouching stances, but highly vulnerable to fast punches.
+*   **Hook**: Looping power punch. Slower speed, high damage. Targets the body; successful hits deal **Stamina** or **Power** damage (rib and liver shots), gaining a damage bonus if the opponent also chose a Strike.
+*   **Uppercut**: Vertical power punch. Slow speed, massive damage. Targets alignment; successful hits deal **Power** damage (chin lift). Bypasses low guards/crouching stances, but highly vulnerable to fast punches.
 
 #### B. Kicks
-*   **Low Kick**: Fast leg strike. Targets stability; successful hits inflict **Footwork** attribute damage and apply the **Hobbled** status condition.
+*   **Low Kick**: Fast leg strike. Targets stability; successful hits inflict **Agility** attribute damage and apply the **Hobbled** status condition.
 *   **Body Kick**: Mid-height power kick. Focuses on windedness; successful hits inflict **Stamina** attribute damage and apply the **Winded** status condition.
 *   **High Kick**: High-impact head kick. Very slow speed, massive damage. High chance to stun or knock out the opponent, but easily parried or caught.
 *   **Push Kick (Teep)**: Straight thrusting kick. Fast speed, low damage. Pushes the opponent back, resetting combat to neutral range and canceling throw/clinch attempts.
 
 #### C. Special Strikes
 *   **Taunt**: A verbal or physical psychological mock. Takes the place of an **Assault Stance (Strike / Red)** action. Governed by the **Cool** attribute. Deals no physical damage, but a successful check inflicts **1 Cool damage** on the target.
-*   **Ground & Pound**: Striking a downed opponent on the canvas. Governed by **Posture** or **Timing**. Deals **Posture** or **Stamina** damage. Can only be selected against **Prone** or **Pinned** targets. *(Allowed for Wrestling and Judo).*
+*   **Ground & Pound**: Striking a downed opponent on the canvas. Governed by **Power** or **Reaction**. Deals **Power** or **Stamina** damage. Can only be selected against **Prone** or **Pinned** targets. *(Allowed for Wrestling and Judo).*
 
 ---
 
@@ -251,7 +261,7 @@ Throws aim to bypass blocks, control the opponent, and force them to the ground.
 *   **Trip / Sweep**: Quick attack on the opponent's base/balance. Fast speed, low damage. Knocks opponent prone. Especially effective against High Guards.
 *   **Hip / Shoulder Throw**: High-impact projection throw. Moderate speed, high damage. Knocks the opponent prone and stuns them for a turn.
 *   **Takedown (Double Leg)**: Power drive to force the opponent down. Bypasses High Guards entirely, but highly vulnerable to fast Strikes like Uppercuts or Jabs.
-*   **Submission Hold**: Joint lock or chokehold applied on the mat. Governed by **Posture**. Deals High Impact (3 damage) to **Stamina** (choke/joint pressure). Can only be selected against **Prone** or **Pinned** targets. *(Allowed for Wrestling and Judo).*
+*   **Submission Hold**: Joint lock or chokehold applied on the mat. Governed by **Power**. Deals High Impact (3 damage) to **Stamina** (choke/joint pressure). Can only be selected against **Prone** or **Pinned** targets. *(Allowed for Wrestling and Judo).*
 
 ---
 
@@ -260,13 +270,13 @@ Throws aim to bypass blocks, control the opponent, and force them to the ground.
 > *"A champion is someone who gets up when they can't."* — Jack Dempsey
 
 
-Instead of tracking numerical hitpoints, combatants suffer direct damage to their core **Attributes** (Footwork, Posture, Timing, and Stamina). This damage degrades their rolls in real-time, representing fatigue and cumulative physical trauma.
+Instead of tracking numerical hitpoints, combatants suffer direct damage to their core **Attributes** (Agility, Power, Reaction, and Stamina). This damage degrades their rolls in real-time, representing fatigue and cumulative physical trauma.
 
 ### 1. The Defeat Condition
 A combatant is defeated (knocked out, submits, or suffers a referee stoppage) immediately when **any of their four attributes is reduced to 0 (or below)**.
-*   **Timing reaches 0**: Knocked Out (concussion, loss of consciousness).
-*   **Posture reaches 0**: Structural TKO (broken ribs, physical collapse, or submission).
-*   **Footwork reaches 0**: Mobility TKO (broken leg, blown knee, unable to stand).
+*   **Reaction reaches 0**: Knocked Out (concussion KO, loss of consciousness).
+*   **Power reaches 0**: Structural TKO (broken ribs, physical collapse, or submission).
+*   **Agility reaches 0**: Mobility TKO (broken leg, blown knee, unable to stand).
 *   **Stamina reaches 0**: Exhaustion TKO (complete cardiorespiratory failure/collapse).
 
 ### 2. Inflicting Attribute Damage
@@ -275,10 +285,10 @@ When an attack connects, it deals direct damage to a specific attribute based on
 > [!NOTE]
 > The **governing attribute** (listed in the Attribute Mapping table) is the attribute the *attacker* rolls to execute the action. The **attribute damage** type (listed below) is the attribute the *defender* loses on a successful hit.
 
-*   **Timing Damage** (Head & Face strikes): Jab, Cross, High Kick.
-*   **Posture Damage** (Core/Structure strikes & slams): Uppercut, Hip/Shoulder Throw, Ground & Pound (can also target Stamina).
-*   **Footwork Damage** (Leg strikes & sweeps): Low Kick, Trip/Sweep, Takedown.
-*   **Stamina Damage** (Wind/lung blows & chokes): Hook (can also target Posture), Body Kick, Push Kick (Teep), Ground & Pound (can also target Posture), Submission Hold.
+*   **Reaction Damage** (Head & Face strikes): Jab, Cross, High Kick.
+*   **Power Damage** (Core/Structure strikes & slams): Uppercut, Hip/Shoulder Throw, Ground & Pound (can also target Stamina).
+*   **Agility Damage** (Leg strikes & sweeps): Low Kick, Trip/Sweep, Takedown.
+*   **Stamina Damage** (Wind/lung blows & chokes): Hook (can also target Power), Body Kick, Push Kick (Teep), Ground & Pound (can also target Power), Submission Hold.
 
 #### Base Damage by Impact Level:
 *   **Low Impact (1 damage)**: Jab.
@@ -296,7 +306,7 @@ If a defender successfully blocks or dodges, they subtract their defense rating 
 *   **Dodge / Evasion**: Mitigates 3 damage.
 *   **Parry**: If the parry check succeeds, it mitigates 100% of incoming damage and staggers the attacker.
 
-*Example: A combatant is hit by a High Kick (Base 3 Timing damage) while using a High Guard (Mitigates 2). The defender takes 1 Timing damage (3 - 2 = 1), reducing their Timing attribute by 1.*
+*Example: A combatant is hit by a High Kick (Base 3 Reaction damage) while using a High Guard (Mitigates 2). The defender takes 1 Reaction damage (3 - 2 = 1), reducing their Reaction attribute by 1.*
 
 ### 4. Mob Punk Rules (Tier 1 Gangs)
 
@@ -305,7 +315,7 @@ If a defender successfully blocks or dodges, they subtract their defense rating 
 
 *   **Shared Mob Pool**: A group of Tier 1 Punks acts as a single collective entity called a **Mob**. The Mob has a **Mob Count** equal to the total number of punks in the group (e.g., a Mob of 4 Punks).
 *   **One-Hit TKO**: Every point of attribute damage dealt to the Mob instantly TKOs **1 Punk** from the gang (1 damage = 1 Punk defeated).
-    *   *Example*: A Boxer hits a 4-Punk Mob with a Cross dealing **3 Timing damage**. 3 Punks are immediately knocked out! The Mob Count drops from 4 down to 1.
+    *   *Example*: A Boxer hits a 4-Punk Mob with a Cross dealing **3 Reaction damage**. 3 Punks are immediately knocked out! The Mob Count drops from 4 down to 1.
 *   **Mob Group Bonus**: On its turn, the Mob rolls a single shared action check, adding a **$+1$ bonus per active Punk** remaining in the Mob (up to the standard $+10$ Modifier Cap).
 *   **Total Defeat**: When the Mob Count reaches **0**, all Punks in the Mob are defeated and any survivors scatter.
 
@@ -320,13 +330,15 @@ If a defender successfully blocks or dodges, they subtract their defense rating 
 Combat is played in simultaneous **Rounds** resolved by a single **Contested Roll**:
 
 1. **Phase 1: Reading the Stance (Telegraphing)**
-   * Before committing action cards, a combatant can attempt to read their opponent's body language and telegraph cues.
-   * **The Roll**: Both roll a contested check. The reader rolls **Timing** or **Cool**. The opponent rolls **Cool** (feints/bluffing) or **Timing** (speed).
-   * **Success**: The reader wins the contested check and learns the opponent's planned action card color (Red for **Strike**, White for **Block**, Black for **Throw**) before committing their own action card.
-   * **Failure**: The reader fails to read the opponent. Commits proceed secretly and simultaneously as normal.
+   * Before committing action cards, combatants can attempt to read each other's body language and telegraph cues.
+   * **The Roll**: Both roll a contested check ($2\text{d}10 + \text{Reaction}$ or $\text{Cool}$). The reader rolls **Reaction** (spotting muscle movement) or **Cool** (reading intention). The defender rolls **Cool** (feints/poker face) or **Reaction** (masking entries).
+   * **Margin Thresholds** ($\text{Margin} = \text{Winner Total} - \text{Loser Total}$):
+     * **Margin 0–3 (Unclear / Feinted)**: Body language is unreadable or successfully feinted. Both combatants commit their action cards **secretly and simultaneously** in Phase 2.
+     * **Margin 4–6 (Partial Tell)**: The reader spots a subtle tell! The reader learns **1 stance color the defender is NOT taking** (e.g., *"He's NOT Blocking"*), narrowing the defender's stance down to 2 choices before the reader commits their card.
+     * **Margin 7+ or Natural 20 (Perfect Read)**: The reader gets a flawless read! The defender must commit and reveal their exact action card color (Red for **Strike**, White for **Block**, Black for **Throw**) before the reader commits their card.
 
 2. **Phase 2: Commit & Reveal (Declaration)**
-   * Combatants choose their action type (Red, White, or Black) along with their specific sub-action (e.g., *Red / Hook*) using cards, tokens, or written notes. If a fighter successfully read their opponent in Phase 1, the opponent must commit and show their card color first.
+   * Combatants choose their action type (Red, White, or Black) along with their specific technique (e.g., *Red / Hook*) using cards, tokens, or written notes. If a fighter achieved a **Perfect Read (Margin 7+)** in Phase 1, the defender must reveal their card color first. If a fighter achieved a **Partial Tell (Margin 4–6)**, the defender reveals 1 color they are NOT playing first. Otherwise, both commit secretly and reveal simultaneously.
    * Both combatants reveal their choices simultaneously.
 
 3. **Phase 3: Roll & Resolve (Contested Roll-Off)**
@@ -356,7 +368,7 @@ Combat is played in simultaneous **Rounds** resolved by a single **Contested Rol
 *   **Matched Stances (Same Stance Rolls)**:
     *   **Assault vs. Assault (Strike vs. Strike)**: Sequential Trade! Both roll normally ($2\text{d}10$). The fighter with the higher Roll Total lands their strike **first**. If the lower roller is knocked out (any attribute drops to 0), they collapse and their strike is interrupted. If the lower roller survives, their strike lands and deals full damage back. Outrolling the opponent by a margin of 5 or more (or rolling a Natural 20) upgrades your strike to a **Critical Hit** ($+1$ damage).
     *   **Guard vs. Guard (Block vs. Block)**: No contest is needed. Both combatants remain passive in guard. Standoff; the round resets to neutral.
-    *   **Grapple vs. Grapple (Throw vs. Throw)**: A grapple struggle. Both roll off normally using either **Posture** or **Timing**. The higher total wins the check, securing a Clinch or a throw.
+    *   **Grapple vs. Grapple (Throw vs. Throw)**: A grapple struggle. Both roll off normally using either **Power** or **Reaction**. The higher total wins the check, securing a Clinch or a throw.
 
 ### 2. Die Roll Architecture (Strictly d10 System)
 All mechanics and random tables in **Saturday Night Street Fight** strictly use ten-sided dice (d10):
@@ -371,7 +383,7 @@ All mechanics and random tables in **Saturday Night Street Fight** strictly use 
 ### 3. Action Roll Resolution & Modifiers
 To resolve a contested roll, combatants calculate their totals using the following:
 *   **Action Roll**: Roll the chosen $2\text{d}10$ (or $3\text{d}10$ if rolling with Advantage or Disadvantage).
-*   **Attribute Modifier**: Add the governing Attribute (**Footwork**, **Posture**, **Timing**, or **Stamina**).
+*   **Attribute Modifier**: Add the governing Attribute (**Agility**, **Power**, **Reaction**, or **Stamina**).
 *   **Mastery Modifier**: Add the Technique Mastery bonus (**$+3$** if Trained, **$+5$** if Mastered).
 *   **The Modifier Cap**: The sum of all flat modifiers (Attribute + Mastery + style/situational bonuses) applied to any check can **never exceed $+10$**.
 *   **Temporary Status Penalties**: Temporary combat conditions (e.g., **Hobbled** or **Winded**) degrade your attribute modifiers for rolls next round, but **can never reduce an attribute below 1 for checks, and never trigger defeat/TKO**.
@@ -400,7 +412,7 @@ Combat takes place across three fluid **Ranges**. Combatants control the distanc
 
 *   **Outside Range (Long Range)**: Spaced out, circling outside reach.
     *   *Allowed Actions*: Only long Strikes (Low Kick, Body Kick, High Kick, Push Kick). Punches and Throws are out of range.
-    *   *Mobility Perk*: **Dodge / Evasion** (Footwork-based) is highly effective at this range.
+    *   *Mobility Perk*: **Dodge / Evasion** (Agility-based) is highly effective at this range.
 *   **Striking Range (Medium Range)**: The pocket, exchange range.
     *   *Allowed Actions*: All Strikes (Punches & Kicks) and Guards. Throws are out of range.
 *   **Grapple Range (Close Range)**: Tied up, body-to-body grappling.
@@ -414,7 +426,7 @@ The initial distance when combat begins depends on the environment and encounter
 *   **Ambush / Close Quarters (Grapple Range)**: Fights inside crowded subway cars, elevators, narrow hallways, or ambushes from behind start at **Grapple Range**, giving grapplers immediate entry leverage.
 
 ### 3. Controlling the Distance
-Fighters change range by winning clashes with specific sub-actions:
+Fighters change range by winning clashes with specific techniques:
 
 #### A. Advancing (Closing the Distance)
 To move closer, perform a **Grapple Stance (Throw / Black)** action:
@@ -441,13 +453,13 @@ Fighters are knocked **Prone** when hit by a throwing action (Trip/Sweep, Hip/Sh
 *   **Action Limitation**: You cannot choose **Strike (Red)** actions.
 *   **Disadvantage**: You roll with **Disadvantage** (roll $3\text{d}10$, keep the two lowest dice) on all checks while Prone (including checks to defend or stand up).
 *   **Defense Restriction**: You cannot choose Dodge/Evasion. You can only choose High Guard, Low Guard, or Parry to defend from the ground.
-*   **Getting Up**: To stand back up, you must declare the **Stand Up** sub-action (resolved as a **Block / White** action, governed by **Footwork**). If you win the contested check, you stand up and remove this condition. If you lose, you remain Prone.
+*   **Getting Up**: To stand back up, you must declare the **Stand Up** technique (resolved as a **Block / White** action, governed by **Agility**). If you win the contested check, you stand up and remove this condition. If you lose, you remain Prone.
 
 ### 2. Pinned (Trapped on the Canvas)
 Fighters are **Pinned** when an opponent wins a Grapple Struggle (Black vs. Black) on the ground (e.g., via Wrestling's *Ground Control* perk). While Pinned:
 *   **Incapacitated**: You cannot select **Stand Up** or **Dodge/Evasion**.
 *   **Disadvantage**: You roll with **Disadvantage** on all checks.
-*   **Escaping**: To escape, you must choose **Clinch/Grab** (Throw / Black, governed by **Posture**) to engage in a Grapple Struggle. If you win the check, you break the pin (returning to Prone, but no longer Pinned). If you lose, the pin is maintained.
+*   **Escaping**: To escape, you must choose **Clinch/Grab** (Throw / Black, governed by **Power**) to engage in a Grapple Struggle. If you win the check, you break the pin (returning to Prone, but no longer Pinned). If you lose, the pin is maintained.
 
 ### 3. Staggered (Off-Balance)
 Fighters are **Staggered** temporarily when their attack is successfully parried, or due to specific style effects.
@@ -461,14 +473,14 @@ Fighters are **Stunned** when hit by a high-impact head blow (like a Critical Hi
 
 ### 5. Shaken (Cool 0)
 Fighters are **Shaken** when their Cool attribute is reduced to 0. Cool damage is only taken by losing a contested **Cool** check (e.g. from street encounters/gambling) or by being hit by a **Taunt** combat action.
-*   **Effect**: You suffer a **$-2$ penalty** to all Timing checks in combat (due to hesitation/panic) and have **Disadvantage** on all non-combat checks.
+*   **Effect**: You suffer a **$-2$ penalty** to all Reaction checks in combat (due to hesitation/panic) and have **Disadvantage** on all non-combat checks.
 *   **Perk Suspension**: You cannot use style perks that require calm or precision (such as Boxer's *Slip & Counter* or Judo's *Kuzushi*).
 *   **Duration**: Lasts until Cool is restored to 1 or higher. (Does not trigger a physical TKO).
 
-### 6. Hobbled (Footwork Penalty)
+### 6. Hobbled (Agility Penalty)
 Fighters are **Hobbled** when hit by a successful low leg attack (like a **Low Kick**).
 *   **Duration**: Lasts until the end of your next action check.
-*   **Effect**: You suffer a **$-1$ penalty** to all Footwork-based rolls (this penalty increases to **$-2$** if inflicted by a Muay Thai fighter's *Heavy Leg Kicks*).
+*   **Effect**: You suffer a **$-1$ penalty** to all Agility-based rolls (this penalty increases to **$-2$** if inflicted by a Muay Thai fighter's *Heavy Leg Kicks*).
 *   **TKO Protection**: Temporary modifiers can never reduce an attribute below 1 for checks, and never trigger defeat/TKO.
 
 ### 7. Winded (Stamina Penalty)
@@ -488,24 +500,28 @@ Fighters are **Winded** when hit by a successful body blow (like a **Body Kick**
 Fighters recover their damaged attributes through short breathers and medical treatment:
 
 *   **10-Minute Short Rest (Catch Your Breath)**: Between street encounters, fighters can spend **10 minutes** resting in a relatively safe location (a quiet alleyway, diner booth, subway platform, or transit bench) to catch their wind, patch minor cuts, and shake off fatigue.
-    *   **Minor Damage (Attributes at 1 or higher)**: Fully restores all attributes (Timing, Posture, Footwork, Stamina, and Cool) back to their maximum scores.
+    *   **Minor Damage (Attributes at 1 or higher)**: Fully restores all attributes (Reaction, Power, Agility, Stamina, and Cool) back to their maximum scores.
     *   **TKO Restriction**: A 10-minute short rest **cannot** heal any attribute that was reduced to **0** (see Hospitalization below).
 *   **Cool Composure**: Visiting a **Transit Safe House** or a **Dive Bar** landmark allows fighters to unwind and instantly recover **Cool** to its maximum value.
-*   **Severe Damage & Hospitalization (Attributes at 0)**: If any attribute (Timing, Posture, Footwork, Stamina) is reduced to **0**, the fighter suffers a physical TKO (concussion, broken bone, ligament tear). **They are physically incapacitated and cannot heal via short rests.**
-    *   **Admittance Check**: To begin recovery, the fighter must find a **Hospital or Free Clinic** landmark (on a street block or subway station) and pass a **Cool Check (DC 12)** to get admitted (representing overcrowded 1970s urban emergency rooms). An uninjured companion can roll this check on the patient's behalf.
-    *   **Delayed Treatment**: If the check fails, the patient is turned away and must wait until the next day to attempt admittance again or locate another clinic.
-    *   **Recovery Rate**: Once admitted, hospital treatment requires **1 week of complete bed rest per attribute at 0** (e.g., 1 zeroed attribute = 1 week; 2 zeroed attributes = 2 weeks). At the end of the stay, all zeroed attributes are fully restored back to their maximum scores.
-    *   **Discharge Check**: At the end of recovery, the fighter must pass a **Posture Check (DC 12)** to avoid a permanent $-1$ reduction to their maximum score for that attribute (see Permanent Scarring Table below).
+*   **Severe Damage & Hospitalization (Attributes at 0)**: If any attribute (Reaction, Power, Agility, Stamina) is reduced to **0**, the fighter suffers a physical TKO (concussion, broken bone, ligament tear). **They are physically incapacitated and cannot heal via short rests.**
+    *   **Admittance Check**: To begin recovery, the fighter must reach a **Hospital or Free Clinic** landmark (on a street block or subway station) and pass a **Cool Check (DC 12)** to get admitted (representing overcrowded 1970s urban emergency rooms). An uninjured companion can roll this check on the patient's behalf.
+    *   **The 24-Hour Emergency Ticking Clock (Street Death)**: An incapacitated fighter (0 attribute) has **24 Hours (a maximum of 3 Admittance Checks)** to reach emergency medical care. If 24 hours elapse without admittance (or if 3 checks fail without winning a **Contested Cool Check** to pull street strings and bypass triage lines), untreated internal trauma, concussions, or exposure result in **Street Death (Character Death)**!
+    *   **Recovery Rate**: Once admitted, hospital treatment requires **1 week of complete bed rest per zeroed attribute** (e.g., 1 zeroed attribute = 1 week; 2 zeroed attributes = 2 weeks).
+    *   **Discharge Check (Permanent Maximum Cap Reduction)**: At the end of hospital recovery, the fighter must pass a **Power Check (DC 12)** to test their body's long-term healing resilience.
+        *   **Success**: All attributes are fully restored to their maximum scores.
+        *   **Failure (Permanent Scarring)**: The **Attribute Maximum Cap** for that specific attribute permanently drops by **$-1$** (e.g., Max Agility Cap drops from $4 \rightarrow 3$).
+        *   **Capped-Down Current Score**: If the fighter's current attribute score was above the new lower Maximum Cap, their current attribute score is **immediately capped down** to match the new Maximum Cap (e.g., if current score was restored to 3, but the cap dropped to 2, their current score becomes 2).
+        *   **Career-Ending Retirement (Cap 0)**: If any attribute's Maximum Cap is ever reduced to **0**, the brawler suffers a career-ending permanent disability and must retire from street fighting (**Forced Retirement**).
 
 ### 2. Permanent Scarring Table
-If a fighter fails their recovery check, they suffer a permanent $-1$ reduction to the maximum score of that attribute, representing career-altering physical trauma. Use the table below for narrative description and roleplay prompts:
+If a fighter fails their recovery check, their **Attribute Maximum Cap** permanently drops by $-1$ and their current score is capped down to match. Use the table below for narrative description and roleplay prompts:
 
-| Attribute | Permanent Scarring Effect | Narrative & Roleplay Examples |
-| :--- | :--- | :--- |
-| **Timing** | **Dull Reflexes / Blind Spots** | Slow reaction speed, orbital scar tissue, lingering brain fog, or delayed parry response. |
-| **Posture** | **Structural Instability** | Chronic back alignment issues, shoulder joint laxity, or a collarbone that braced poorly. |
-| **Footwork** | **Joint Weakness / Lingering Limp** | Blown knee ligaments (ACL/MCL), stiff ankles, or sluggish lateral agility. |
-| **Stamina** | **Winded / Cardiorespiratory Scarring** | Chronic shortness of breath, cracked ribs that healed misaligned, or reduced lung capacity. |
+| Attribute | Scarring Effect | Mechanical Impact | Narrative & Roleplay Examples |
+| :--- | :--- | :--- | :--- |
+| **Reaction** | **Orbital Trauma / Brain Fog** | **Max Reaction Cap $-1$** | Slow reaction speed, orbital scar tissue, lingering brain fog, or delayed parry response. |
+| **Power** | **Structural Instability** | **Max Power Cap $-1$** | Chronic back alignment issues, shoulder joint laxity, or a collarbone that braced poorly. |
+| **Agility** | **Blown Ligaments** | **Max Agility Cap $-1$** | Blown knee ligaments (ACL/MCL), stiff ankles, or sluggish lateral agility. |
+| **Stamina** | **Cardiorespiratory Damage** | **Max Stamina Cap $-1$** | Chronic shortness of breath, cracked ribs that healed misaligned, or reduced lung capacity. |
 
 ---
 
@@ -519,7 +535,7 @@ Every game session follows a structured four-phase loop representing one night o
 1.  **Phase 1: The Briefing (Select Target)**: Players start in their **Home Turf** (or a previously secured safe house) and choose a destination block or station.
 2.  **Phase 2: Riding the Rails (Transit Crawl)**: Players traverse the subway line. The GM generates the line length and stop types, rolling on the *Subway Station Event Table* for each platform.
 3.  **Phase 3: Navigating the Blocks (Street Crawl)**: When exiting a station, the GM generates the block's layout, landmarks, and hazards, setting its **Danger Rank**. Players resolve any street encounters using the procedural rules in the [Game Master's Guide](gm.md#encounter-building--starting-range-matrix).
-4.  **Phase 4: Retreat to Safety (Session End)**: A session ends when the fighters successfully reach their target, escape to a Transit Safe House, return home, or get admitted to a Hospital. During this phase, players spend earned Experience Points (XP) to train technique masteries and condition core attributes.
+4.  **Phase 4: Session End & Recovery**: A session ends when the fighters complete their street run, reach a Transit Safe House, return home, or get admitted to a Hospital. Players can spend earned Experience Points (XP) **instantly on the fly at any time** or bank it in their pool for future breakthroughs.
 
 ---
 
@@ -530,7 +546,11 @@ Fighters grow stronger not just by surviving brawls, but by acting out their per
 Rather than flat combat XP, **Saturday Night Street Fight** uses **XP Keys**. Keys drive character advancement and award Experience Points (XP) during play whenever your fighter fulfills their motivations or overcomes personal obstacles.
 
 ### 1. Character Rank & Available XP
-*   **Available XP (Bank)**: The unspent XP currently sitting in your pool ready to spend on technique masteries or attribute conditioning.
+*   **Available XP (Bank)**: The unspent XP sitting in your pool ready to spend on technique masteries, attribute conditioning, or cross-training.
+    *   **Instant On-The-Fly Spending**: Available XP can be spent **INSTANTLY AT ANY TIME**—in the middle of a duel, between rounds, during street exploration, or while resting on Home Turf.
+        *   **Attribute Conditioning Boost (10 XP)**: Instantly increases both your **current attribute score** and **maximum attribute score** by $+1$ (providing an immediate 1-point heal that can save a fighter from TKO!).
+        *   **Technique Training (3 XP / 6 XP)**: Instantly unlocks or upgrades a move mastery, applying its $+3$ (Trained) or $+5$ (Mastered) bonus to your very next exchange.
+        *   **Instant Cross-Training (15 XP)**: Instantly unlocks a Secondary Style and 1 Secondary Perk mid-fight or mid-crawl.
     *   *At Character Creation*: Starting 50 XP budget minus XP spent on creation (e.g., 50 – 48 = **2 Available XP**).
 *   **Character Rank (= Total Spent XP)**: Your fighter's overall power level, street reputation, and total XP investment.
     *   *At Character Creation*: Rank equals XP spent during creation (e.g., **Rank 48**).
@@ -539,9 +559,8 @@ Rather than flat combat XP, **Saturday Night Street Fight** uses **XP Keys**. Ke
 ### 2. How Keys & Unlocks Work
 *   **Starting Keys**: At character creation (Rank ~48), select **2 Keys** from the list below.
 *   **Unlocking 3rd Key Slot**: When your fighter's **Character Rank reaches 60** (after spending ~12 XP in campaign play), you permanently unlock your **3rd active Key slot** (Maximum 3 active Keys).
-*   **Key Capacity**: A character can hold a maximum of **3 active Keys** at any time. Once all 3 slots are full, you must trigger a **Buyoff** on an existing Key to adopt a new motivation.
-*   **Buyoff / Counter**: Every Key has a **Buyoff / Counter**—a pivotal moment where your character goes against their code, forgives an enemy, or evolves. When you trigger a Key's Counter in play, you choose one of two options:
-    *   **Option A**: Lose 1 XP.
+*   **Key Counter / Buyoff**: Every Key has a **Buyoff / Counter**—a pivotal moment where your character goes against their code, forgives an enemy, or evolves. When you trigger a Key's Counter in play, you choose one of two options:
+    *   **Option A**: Gain 0 XP for the encounter (you act against your code, forfeiting XP gains from that Key).
     *   **Option B (Buyoff)**: Gain a **+3 XP lump sum** (enough to immediately train 1 new Rank 1 technique!) and permanently remove the Key, opening a slot to select a new Key!
 
 ---
@@ -572,11 +591,11 @@ Rather than flat combat XP, **Saturday Night Street Fight** uses **XP Keys**. Ke
 *   **2 XP**: Refuse to break your street code even when doing so results in taking severe damage or losing a fight.
 *   **Buyoff / Counter**: Execute a dishonorable sucker punch, or abandon an innocent to save your own skin. *(Gain +3 XP, remove Key).*
 
-#### E. Key of the Hustler (Street Cash & Bets)
-*You are in it for the payday—street craps, side wagers, protection cash, and raw survival earnings.*
-*   **1 XP**: Win a street craps game, extortion roll, or land a favorable monetary trade.
+#### E. Key of the Hustler (Street Favors & Bets)
+*You are in it for the street leverage—gambling, extortion, favor trading, and raw survival hustle.*
+*   **1 XP**: Win a street craps gamble, extortion roll, or land a favorable favor/information trade via a **Cool check**.
 *   **2 XP**: Secure control of a high-value commercial landmark (like a Pawn Shop or Transit Hub) for your crew.
-*   **Buyoff / Counter**: Give away your hard-earned cash/resources for free to a stranger without getting anything in return. *(Gain +3 XP, remove Key).*
+*   **Buyoff / Counter**: Do a major street favor or give up valuable leverage to a stranger for free without leveraging a **Cool check**. *(Gain +3 XP, remove Key).*
 
 #### F. Key of Vengeance (The Grudge)
 *You hold a deep, burning grudge against a specific rival syndicate, gang leader, or corrupt official who wronged you.*

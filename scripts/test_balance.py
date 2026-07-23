@@ -32,27 +32,37 @@ def simulate_single_fight(p1_data, p2_data):
         if rounds > 100: # prevent infinite loops
             break
 
-        # Stance Reads
-        p1_read = False
-        p2_read = False
+        # Stance Reads (Margin-based)
+        p1_read_level = "none"
+        p2_read_level = "none"
         if not p1.stunned and not p2.stunned:
-            p1_roll = p1.roll_dice(2)[0] + max(p1.attrs["timing"], p1.attrs["cool"])
-            p2_roll = p2.roll_dice(2)[0] + max(p2.attrs["timing"], p2.attrs["cool"])
-            if p1_roll > p2_roll:
-                p1_read = True
-            elif p2_roll > p1_roll:
-                p2_read = True
+            p1_roll = p1.roll_dice(2)[0] + max(p1.attrs["reaction"], p1.attrs["cool"])
+            p2_roll = p2.roll_dice(2)[0] + max(p2.attrs["reaction"], p2.attrs["cool"])
+            diff = p1_roll - p2_roll
+            margin = abs(diff)
+            if diff >= 4:
+                p1_read_level = "perfect" if margin >= 7 else "partial"
+            elif diff <= -4:
+                p2_read_level = "perfect" if margin >= 7 else "partial"
 
         # Action selections
         p1_down = p1.prone or p1.pinned
         p2_down = p2.prone or p2.pinned
 
-        if p1_read:
+        if p1_read_level == "perfect":
             p2_col, p2_sub = p2.select_action(opponent_down=p1_down)
             p1_col, p1_sub = p1.select_action(read_opponent_color=p2_col, opponent_down=p2_down)
-        elif p2_read:
+        elif p2_read_level == "perfect":
             p1_col, p1_sub = p1.select_action(opponent_down=p2_down)
             p2_col, p2_sub = p2.select_action(read_opponent_color=p1_col, opponent_down=p1_down)
+        elif p1_read_level == "partial":
+            p2_col, p2_sub = p2.select_action(opponent_down=p1_down)
+            other = [c for c in ["strike", "block", "throw"] if c != p2_col]
+            p1_col, p1_sub = p1.select_action(eliminate_opponent_color=random.choice(other), opponent_down=p2_down)
+        elif p2_read_level == "partial":
+            p1_col, p1_sub = p1.select_action(opponent_down=p2_down)
+            other = [c for c in ["strike", "block", "throw"] if c != p1_col]
+            p2_col, p2_sub = p2.select_action(eliminate_opponent_color=random.choice(other), opponent_down=p1_down)
         else:
             p1_col, p1_sub = p1.select_action(opponent_down=p2_down)
             p2_col, p2_sub = p2.select_action(opponent_down=p1_down)
@@ -68,8 +78,8 @@ def simulate_single_fight(p1_data, p2_data):
         elif p2_col == "block" and p1_col == "strike": p2_adv = True
 
         # Calculate checks
-        p1_tot, _, p1_attr, p1_nat = p1.calculate_check(p1_col, p1_sub, p1_adv)
-        p2_tot, _, p2_attr, p2_nat = p2.calculate_check(p2_col, p2_sub, p2_adv)
+        p1_tot, _, p1_attr, p1_nat = p1.calculate_check(p1_col, p1_sub, p1_adv, opponent_action=p2_col)
+        p2_tot, _, p2_attr, p2_nat = p2.calculate_check(p2_col, p2_sub, p2_adv, opponent_action=p1_col)
 
         # Reset temporary states
         p1.staggered = False
@@ -154,11 +164,16 @@ def simulate_single_fight(p1_data, p2_data):
         elif w_col == "block":
             if w_sub == "parry" and winner.style_name == "Judo" and l_col == "strike":
                 # free throw attempt
-                t_r = winner.roll_dice(2)[0] + winner.attrs["posture"]
-                d_r = loser.roll_dice(2)[0] + loser.attrs["footwork"]
+                t_r = winner.roll_dice(2)[0] + winner.attrs["power"]
+                d_r = loser.roll_dice(2)[0] + loser.attrs["agility"]
                 if t_r > d_r:
                     loser.prone = True
-                    loser.attrs["posture"] = max(0, loser.attrs["posture"] - 2)
+                    loser.attrs["power"] = max(0, loser.attrs["power"] - 2)
+            elif w_sub == "dodge" and winner.style_name == "Boxing" and l_col == "strike":
+                winner.slip_adv = True
+            elif w_sub == "parry" and winner.style_name == "Kung Fu" and l_col == "strike":
+                loser.staggered = True
+                winner.slip_adv = True
             elif w_sub == "stand up" and winner.prone:
                 winner.prone = False
 
@@ -166,16 +181,16 @@ def simulate_single_fight(p1_data, p2_data):
             if w_sub == "trip":
                 loser.prone = True
                 dmg = 2 + (1 if crit else 0)
-                loser.attrs["footwork"] = max(0, loser.attrs["footwork"] - dmg)
+                loser.attrs["agility"] = max(0, loser.attrs["agility"] - dmg)
             elif w_sub == "hip throw":
                 loser.prone = True
                 dmg = 3 + (1 if crit else 0)
-                loser.attrs["posture"] = max(0, loser.attrs["posture"] - dmg)
+                loser.attrs["power"] = max(0, loser.attrs["power"] - dmg)
                 if crit: loser.stunned = True
             elif w_sub == "takedown":
                 loser.prone = True
                 dmg = 3 + (1 if crit else 0)
-                loser.attrs["posture"] = max(0, loser.attrs["posture"] - dmg)
+                loser.attrs["power"] = max(0, loser.attrs["power"] - dmg)
                 if winner.style_name == "Wrestling":
                     loser.pinned = True
 
@@ -204,21 +219,21 @@ def simulate_single_fight(p1_data, p2_data):
     return winner_name, rounds, style_p1, defeat_reason
 
 def sim_resolve_hit(attacker, move, target, damage, crit):
-    target_attr = "timing"
+    target_attr = "reaction"
     if move in ["jab", "cross", "high kick"]:
-        target_attr = "timing"
+        target_attr = "reaction"
     elif move == "hook":
-        target_attr = "stamina" if target.attrs["stamina"] <= target.attrs["posture"] else "posture"
+        target_attr = "stamina" if target.attrs["stamina"] <= target.attrs["power"] else "power"
     elif move == "uppercut":
-        target_attr = "posture"
+        target_attr = "power"
     elif move in ["body kick", "push kick"]:
         target_attr = "stamina"
     elif move == "low kick":
-        target_attr = "footwork"
+        target_attr = "agility"
     elif move == "taunt":
         target_attr = "cool"
     elif move == "ground & pound":
-        target_attr = "posture" if target.attrs["posture"] <= target.attrs["stamina"] else "stamina"
+        target_attr = "power" if target.attrs["power"] <= target.attrs["stamina"] else "stamina"
 
     target.attrs[target_attr] = max(0, target.attrs[target_attr] - damage)
     
@@ -229,6 +244,13 @@ def sim_resolve_hit(attacker, move, target, damage, crit):
     elif move == "taunt":
         if target.attrs["cool"] <= 0:
             target.shaken = True
+            
+    if attacker.style_name == "Karate" and not getattr(attacker, "kiai_used", False):
+        attacker.kiai_used = True
+        kiai_roll = attacker.roll_dice(2)[0] + attacker.attrs["cool"]
+        if kiai_roll < 12:
+            target.attrs["cool"] = max(0, target.attrs["cool"] - 1)
+            target.staggered = True
             
     if crit and move == "high kick":
         target.stunned = True
@@ -353,23 +375,23 @@ def main():
     report.append("")
     
     report.append("### 3. Lethality Check (Attribute TKOs)")
-    t2_timing = tier2_res['defeat_reasons'].get('timing', 0)
-    t2_posture = tier2_res['defeat_reasons'].get('posture', 0)
-    t2_footwork = tier2_res['defeat_reasons'].get('footwork', 0)
+    t2_reaction = tier2_res['defeat_reasons'].get('reaction', 0)
+    t2_power = tier2_res['defeat_reasons'].get('power', 0)
+    t2_agility = tier2_res['defeat_reasons'].get('agility', 0)
     t2_stamina = tier2_res['defeat_reasons'].get('stamina', 0)
     
     total_t2_losses = sum(tier2_res['defeat_reasons'].values())
     if total_t2_losses > 0:
-        timing_pct = t2_timing / total_t2_losses * 100
-        posture_pct = t2_posture / total_t2_losses * 100
-        footwork_pct = t2_footwork / total_t2_losses * 100
+        reaction_pct = t2_reaction / total_t2_losses * 100
+        power_pct = t2_power / total_t2_losses * 100
+        agility_pct = t2_agility / total_t2_losses * 100
         stamina_pct = t2_stamina / total_t2_losses * 100
     else:
-        timing_pct = posture_pct = footwork_pct = stamina_pct = 0
+        reaction_pct = power_pct = agility_pct = stamina_pct = 0
         
-    report.append(f"- **Timing TKOs (Knockouts)** represent {timing_pct:.1f}% of player defeats. This is due to punches/kicks targeting timing directly.")
-    report.append(f"- **Posture TKOs (Ground Submissions/Throws)** represent {posture_pct:.1f}% of defeats. This is driven by heavy Judo and Wrestling takedowns.")
-    report.append(f"- **Footwork TKOs (Leg/Knee Injury)** represent {footwork_pct:.1f}% of defeats. This is driven by low leg sweep spammers.")
+    report.append(f"- **Reaction TKOs (Concussion KO)** represent {reaction_pct:.1f}% of player defeats. This is due to punches/kicks targeting reaction directly.")
+    report.append(f"- **Power TKOs (Ground Submissions/Throws)** represent {power_pct:.1f}% of defeats. This is driven by heavy Judo and Wrestling takedowns.")
+    report.append(f"- **Agility TKOs (Leg/Knee Injury)** represent {agility_pct:.1f}% of defeats. This is driven by low leg sweep spammers.")
     report.append(f"- **Stamina TKOs (Winded collapse)** represent {stamina_pct:.1f}% of defeats.")
     report.append("- *Balance Verdict*: The new Strike vs. Strike clash resolution rules successfully prevented instant mutual double-KOs (Double TKO rate is close to 0%). Fights last an average of 4-6 rounds, providing a great sweet spot for TTRPG session pacing.")
 

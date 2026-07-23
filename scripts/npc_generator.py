@@ -15,8 +15,13 @@ THUG_NICKNAMES = [
 ]
 
 BOSS_NICKNAMES = [
-    "The Don", "Kingpin", "The Overlord", "Mr. Big", "The Syndicate Lead", "The Warlord", 
+    "The Don", "Kingpin", "Mr. Big", "The Syndicate Lead", "The Warlord", 
     "The Shadow Boss", "The Neon King", "Ringleader", "The Captain", "Iron Fist"
+]
+
+OVERLORD_NICKNAMES = [
+    "The Emperor", "Master Vane", "Grandmaster Chen", "Ironclad Rex", "Warlord Vance",
+    "Apex", "Overlord Kane", "Dragon Head", "Supreme Boss", "The General"
 ]
 
 ENCOUNTERS = {
@@ -26,7 +31,7 @@ ENCOUNTERS = {
         ("Transit Police Patrol", "Active police presence. Brawling is forbidden; combat actions immediately summon police enforcers."),
         ("Local Informant", "A street contact shares rumors. Roll a Cool Check (DC 10) to gain Advantage on the next Subway Station Event roll."),
         ("Safe Alleyway", "A hidden, dry alcove to hide. Players can safely rest here to recover minor attribute damage (+1 to all stats at 1 or higher)."),
-        ("Minor Nuisance", "A single pickpocket (Tier 1 Punk) attempts a grab and run. They flee if the player wins a contested Cool or Timing check."),
+        ("Minor Nuisance", "A single pickpocket (Tier 1 Punk) attempts a grab and run. They flee if the player wins a contested Cool or Reaction check."),
         ("Corner Newsstand", "Commuters reading evening papers. Peaceful safe zone."),
         ("Diner Window Seat", "Warm interior light shining onto the sidewalk. Safe resting spot."),
         ("Off-Duty Brawler", "A retired veteran brawler offering combat advice (grants Advantage on your next stance read check)."),
@@ -34,14 +39,14 @@ ENCOUNTERS = {
     ],
     2: [
         ("Quiet Corridor", "The block is quiet, but shadows flicker in the alleys. No immediate threats."),
-        ("Solitary Lookout", "A single Tier 1 Lookout stands guard. Players can sneak past (contested Timing) or bluff past (contested Cool)."),
-        ("Street Craps Game", "A group of locals gambling. Players can wager 1 Available XP on a single contested Cool check against the dealer. Win to gain +2 XP."),
+        ("Solitary Lookout", "A single Tier 1 Lookout stands guard. Players can sneak past (contested Reaction) or bluff past (contested Cool)."),
+        ("Street Craps Game", "A group of locals gambling. Players can participate by winning a contested Cool check against the dealer to earn +1 XP."),
         ("Foot Patrol", "Two Tier 1 Punks walking the beat. They harass the players unless intimidated by a contested Cool check."),
         ("Drunk Fighter", "A single Tier 2 Thug who is highly intoxicated and looking for a brawl (rolls with Disadvantage)."),
         ("Shakedown", "A single Tier 2 Thug demands a turf toll. Players can fight or bluff past with a contested Cool check."),
         ("Tagging Crew", "Three Tier 1 Punks spray-painting gang slogans. They grow hostile if confronted."),
         ("Narrow Alley Shortcut", "A dark alley starting at Striking Range."),
-        ("Debris Obstruction", "Loose wooden crates; requires a Footwork Check (DC 8) to cross without tripping."),
+        ("Debris Obstruction", "Loose wooden crates; requires an Agility Check (DC 8) to cross without tripping."),
         ("Stolen Vehicle", "A stripped car creating cover in the center of the block.")
     ],
     3: [
@@ -57,7 +62,7 @@ ENCOUNTERS = {
         ("Street Standoff", "A hostile Mob of 3 Punks staring down the block at Outside Range.")
     ],
     4: [
-        ("Fortified Blockade", "Barbwire and wooden crates block the street. Crossing requires a contested Posture check against two Tier 2 Thugs."),
+        ("Fortified Blockade", "Barbwire and wooden crates block the street. Crossing requires a contested Power check against two Tier 2 Thugs."),
         ("Elite Enforcer", "A single Tier 2 Thug who has upgraded one of their style techniques to Mastered Rank 2 (+5) stands guard."),
         ("Warlord Patrol", "Three Tier 2 Thugs patrolling in close coordination."),
         ("The Pack", "A Mob of Punks (Tier 1) led by a Tier 2 Thug enforcer."),
@@ -76,7 +81,7 @@ ENCOUNTERS = {
         ("Death Alley Ambush", "Two Tier 2 Thugs and one Tier 3 Boss ambush the players immediately at Grapple Range."),
         ("The Overlord", "The main Boss of the sector is present with a personal bodyguard of two Tier 2 Thugs."),
         ("Syndicate Warband", "A Mob of 6 Punks led by two Tier 2 Thugs."),
-        ("Heavyweight Champion", "A Tier 3 Boss with maxed Posture and Stamina (4)."),
+        ("Heavyweight Champion", "A Tier 3 Boss with maxed Power and Stamina (4)."),
         ("Iron Gate Trap", "Security gates lock behind the crew; forces a fight to the TKO!"),
         ("Final Showdown", "The Syndicate Leader challenges the crew at Outside Range under glowing neon lights.")
     ]
@@ -133,13 +138,36 @@ def generate_boss():
         "unspent_xp": unspent_xp
     }
 
+def generate_overlord():
+    nickname = random.choice(OVERLORD_NICKNAMES)
+    style_name = random.choice(list(STYLES.keys()))
+    style = STYLES[style_name]
+    full_name = f"Overlord '{nickname}' ({style_name})"
+    
+    attrs = {attr: 4 for attr in ATTRIBUTES}
+    
+    allowed_moves = style["Strikes"] + style["Blocks"] + style["Throws"]
+    selected_moves = random.sample(allowed_moves, min(4, len(allowed_moves)))
+    masteries = {move: 2 for move in selected_moves}
+    
+    return {
+        "name": full_name,
+        "tier": "Tier 4: Syndicate Overlord",
+        "style": style_name,
+        "focus": style["Focus"],
+        "attrs": attrs,
+        "masteries": masteries,
+        "perks": style["Perks"],
+        "unspent_xp": 0
+    }
+
 def print_npc(npc):
     print("-" * 50)
     print(f"Name: {npc['name']}")
     print(f"Tier: {npc['tier']}")
     if "style" in npc:
         print(f"Style: {npc['style']} ({npc['focus']})")
-    print(f"Attributes: T{npc['attrs']['timing']}/P{npc['attrs']['posture']}/F{npc['attrs']['footwork']}/S{npc['attrs']['stamina']}/C{npc['attrs']['cool']}")
+    print(f"Attributes: R{npc['attrs']['reaction']}/P{npc['attrs']['power']}/A{npc['attrs']['agility']}/S{npc['attrs']['stamina']}/C{npc['attrs']['cool']}")
     
     print("Masteries:")
     if not npc["masteries"]:
@@ -198,7 +226,7 @@ def generate_encounter(danger_rank=None):
         mob = {
             "name": "Mob of Punks (3 Members)",
             "tier": "Mob Block (Punks)",
-            "attrs": {"timing": 3, "posture": 3, "footwork": 3, "stamina": 3, "cool": 3},
+            "attrs": {"reaction": 3, "power": 3, "agility": 3, "stamina": 3, "cool": 3},
             "masteries": {},
             "perks": ["Mob Rules: Every 3 damage knocks out 1 punk and reduces all attributes by -1."]
         }
@@ -211,7 +239,7 @@ def generate_encounter(danger_rank=None):
         mob = {
             "name": "Mob of Punks (3 Members)",
             "tier": "Mob Block (Punks) [AMBUSH: Advantage on first round]",
-            "attrs": {"timing": 3, "posture": 3, "footwork": 3, "stamina": 3, "cool": 3},
+            "attrs": {"reaction": 3, "power": 3, "agility": 3, "stamina": 3, "cool": 3},
             "masteries": {},
             "perks": ["Mob Rules: Every 3 damage knocks out 1 punk and reduces all attributes by -1."]
         }
@@ -238,7 +266,7 @@ def generate_encounter(danger_rank=None):
         mob = {
             "name": "The Pack (Mob of 3 Punks)",
             "tier": "Mob Block (Punks)",
-            "attrs": {"timing": 3, "posture": 3, "footwork": 3, "stamina": 3, "cool": 3},
+            "attrs": {"reaction": 3, "power": 3, "agility": 3, "stamina": 3, "cool": 3},
             "masteries": {},
             "perks": ["Mob Rules: Every 3 damage knocks out 1 punk and reduces all attributes by -1."]
         }
@@ -252,14 +280,14 @@ def generate_encounter(danger_rank=None):
         mob1 = {
             "name": "Mob Alpha (3 Punks)",
             "tier": "Mob Block (Punks)",
-            "attrs": {"timing": 3, "posture": 3, "footwork": 3, "stamina": 3, "cool": 3},
+            "attrs": {"reaction": 3, "power": 3, "agility": 3, "stamina": 3, "cool": 3},
             "masteries": {},
             "perks": ["Mob Rules: Every 3 damage knocks out 1 punk and reduces all attributes by -1."]
         }
         mob2 = {
             "name": "Mob Beta (3 Punks)",
             "tier": "Mob Block (Punks)",
-            "attrs": {"timing": 3, "posture": 3, "footwork": 3, "stamina": 3, "cool": 3},
+            "attrs": {"reaction": 3, "power": 3, "agility": 3, "stamina": 3, "cool": 3},
             "masteries": {},
             "perks": ["Mob Rules: Every 3 damage knocks out 1 punk and reduces all attributes by -1."]
         }
@@ -273,7 +301,7 @@ def generate_encounter(danger_rank=None):
         mob = {
             "name": "Bodyguard Mob (3 Punks)",
             "tier": "Mob Block (Punks)",
-            "attrs": {"timing": 3, "posture": 3, "footwork": 3, "stamina": 3, "cool": 3},
+            "attrs": {"reaction": 3, "power": 3, "agility": 3, "stamina": 3, "cool": 3},
             "masteries": {},
             "perks": ["Mob Rules: Every 3 damage knocks out 1 punk and reduces all attributes by -1."]
         }
@@ -285,9 +313,7 @@ def generate_encounter(danger_rank=None):
         npcs.append(generate_thug())
         npcs.append(generate_boss())
     elif title == "The Overlord":
-        boss = generate_boss()
-        boss["name"] = "OVERLORD " + boss["name"]
-        npcs.append(boss)
+        npcs.append(generate_overlord())
         npcs.append(generate_thug())
         npcs.append(generate_thug())
 
@@ -303,6 +329,8 @@ def main():
             print_npc(generate_thug())
         elif arg in ["--boss", "-b"]:
             print_npc(generate_boss())
+        elif arg in ["--overlord", "-o"]:
+            print_npc(generate_overlord())
         elif arg in ["--danger", "-d"]:
             try:
                 rank = int(sys.argv[2])
@@ -314,11 +342,12 @@ def main():
                 print("Usage: ./npc_generator.py --danger <1-5>")
         else:
             print("Options:")
-            print("  --punk   : Generate a Tier 1 Punk/Lookout")
-            print("  --thug   : Generate a Tier 2 Thug")
-            print("  --boss   : Generate a Tier 3 Boss")
-            print("  --danger : Generate an encounter for a specific Danger Rank (1-5)")
-            print("  (no args): Generate a completely random street block encounter")
+            print("  --punk     : Generate a Tier 1 Punk/Lookout")
+            print("  --thug     : Generate a Tier 2 Thug")
+            print("  --boss     : Generate a Tier 3 Boss")
+            print("  --overlord : Generate a Tier 4 Syndicate Overlord")
+            print("  --danger   : Generate an encounter for a specific Danger Rank (1-5)")
+            print("  (no args)  : Generate a completely random street block encounter")
     else:
         generate_encounter()
 

@@ -8,18 +8,16 @@ import time
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from pc_generator import STYLES, ATTRIBUTES, generate_random_character, format_character_sheet
-from npc_generator import generate_punk, generate_thug, generate_boss
+from npc_generator import generate_punk, generate_thug, generate_boss, generate_overlord
 
-# ANSI Color codes for premium terminal look
-C_RED = "\033[91m"
-C_GREEN = "\033[92m"
-C_YELLOW = "\033[93m"
-C_BLUE = "\033[94m"
-C_MAGENTA = "\033[95m"
-C_CYAN = "\033[96m"
-C_WHITE = "\033[97m"
-C_RESET = "\033[0m"
-C_BOLD = "\033[1m"
+# ANSI Color code constants for terminal output
+C_RESET  = "\033[0m"
+C_BOLD   = "\033[1m"
+C_RED    = "\033[31m"
+C_GREEN  = "\033[32m"
+C_YELLOW = "\033[33m"
+C_BLUE   = "\033[34m"
+C_CYAN   = "\033[36m"
 
 # Global logging system
 log_lines = []
@@ -27,7 +25,7 @@ log_lines = []
 def log_print(text="", color=""):
     # Strip ANSI color codes for raw logging
     clean_text = text
-    for ansi in [C_RED, C_GREEN, C_YELLOW, C_BLUE, C_MAGENTA, C_CYAN, C_WHITE, C_RESET, C_BOLD]:
+    for ansi in [C_RED, C_GREEN, C_YELLOW, C_BLUE, C_CYAN, C_RESET, C_BOLD]:
         clean_text = clean_text.replace(ansi, "")
     log_lines.append(clean_text)
     print(color + text + C_RESET)
@@ -59,19 +57,20 @@ class Combatant:
         self.hobbled = 0   # 0 = normal, 1 = Hobbled (-1), 2 = Muay Thai Hobbled (-2)
         self.winded = False # Winded (-1 Stamina)
         
-        # Karate: Kiai Shout once-per-fight tracking
+        # Style perk tracking flags
         self.kiai_used = False
-        # Kung Fu: Chain Strike tracking (did fighter land a strike last round?)
+        self.slip_adv = False
         self.last_round_struck = False
         
         # Ranges: "outside", "striking", or "grapple"
         self.range = "striking"
 
     def is_defeated(self):
-        return (self.attrs["timing"] <= 0 or 
-                self.attrs["posture"] <= 0 or 
-                self.attrs["footwork"] <= 0 or 
-                self.attrs["stamina"] <= 0)
+        return (self.attrs["reaction"] <= 0 or 
+                self.attrs["power"] <= 0 or 
+                self.attrs["agility"] <= 0 or 
+                self.attrs["stamina"] <= 0 or
+                self.attrs["cool"] <= 0)
 
     def print_status(self):
         # Format attributes
@@ -97,10 +96,11 @@ class Combatant:
             status_line += f" Conds: {', '.join(conds)}"
         log_print(status_line)
 
-    def select_action(self, read_opponent_color=None, opponent_down=False):
+    def select_action(self, read_opponent_color=None, eliminate_opponent_color=None, opponent_down=False):
         """
         AI Action Choice logic.
-        If read_opponent_color is provided (e.g. 'red', 'white', or 'black'), select the counter card.
+        If read_opponent_color is provided (Margin 7+ Perfect Read), select the hard counter card.
+        If eliminate_opponent_color is provided (Margin 4-6 Partial Tell), zero out ineffective stances.
         Otherwise, roll based on Style priorities and active conditions.
         """
         if self.stunned:
@@ -111,14 +111,14 @@ class Combatant:
             return "block", sub
 
         if read_opponent_color:
-            if read_opponent_color == "red":
+            if read_opponent_color == "red" or read_opponent_color == "strike":
                 color = "block"
-            elif read_opponent_color == "white":
+            elif read_opponent_color == "white" or read_opponent_color == "block":
                 color = "throw"
             else:
                 color = "strike"
             
-            sub = self._pick_subaction(color, opponent_down)
+            sub = self._pick_technique(color, opponent_down)
             return color, sub
 
         weights = {"strike": 0.34, "block": 0.33, "throw": 0.33}
@@ -143,6 +143,22 @@ class Combatant:
         elif self.style_name == "Taekwondo":
             weights = {"strike": 0.6, "block": 0.4, "throw": 0.0}
 
+        # Partial Tell adjustment: if opponent is NOT taking a color, adjust weights
+        if eliminate_opponent_color:
+            if eliminate_opponent_color == "block":
+                # Opponent is striking or throwing -> favor block (beats strike) or strike (beats throw)
+                weights["throw"] = 0.0
+            elif eliminate_opponent_color == "strike":
+                # Opponent is blocking or throwing -> favor throw (beats block) or strike (beats throw)
+                weights["block"] = 0.0
+            elif eliminate_opponent_color == "throw":
+                # Opponent is striking or blocking -> favor block (beats strike) or throw (beats block)
+                weights["strike"] = 0.0
+            
+            total_w = sum(weights.values())
+            if total_w > 0:
+                for k in weights: weights[k] /= total_w
+
         if self.prone:
             weights["strike"] = 0.0
             total = weights["block"] + weights["throw"]
@@ -160,10 +176,10 @@ class Combatant:
         else:
             color = "throw"
 
-        sub = self._pick_subaction(color, opponent_down)
+        sub = self._pick_technique(color, opponent_down)
         return color, sub
 
-    def _pick_subaction(self, color, opponent_down=False):
+    def _pick_technique(self, color, opponent_down=False):
         if not self.style_name:
             if color == "strike": return "jab"
             if color == "block": return "high guard"
@@ -220,23 +236,23 @@ class Combatant:
         is_nat20 = kept.count(10) >= 2
         return sum(kept), is_nat20
 
-    def calculate_check(self, action, subaction, rps_advantage):
-        attr_name = "timing"
+    def calculate_check(self, action, technique, rps_advantage, opponent_action=None):
+        attr_name = "reaction"
         
-        if subaction in ["jab", "cross", "parry", "clinch"]:
-            attr_name = "timing"
-        elif subaction in ["high kick", "body kick", "push kick", "high guard", "low guard"]:
+        if technique in ["jab", "cross", "hook", "parry", "clinch"]:
+            attr_name = "reaction"
+        elif technique in ["body kick", "high kick"]:
             attr_name = "stamina"
-        elif subaction in ["low kick", "trip", "dodge", "stand up"]:
-            attr_name = "footwork"
-        elif subaction in ["hip throw", "takedown", "ground & pound", "submission hold"]:
-            attr_name = "posture"
-        elif subaction == "taunt":
+        elif technique in ["low kick", "push kick", "trip", "dodge", "stand up"]:
+            attr_name = "agility"
+        elif technique in ["uppercut", "high guard", "low guard", "hip throw", "takedown", "ground & pound", "submission hold"]:
+            attr_name = "power"
+        elif technique == "taunt":
             attr_name = "cool"
 
         attr_val = self.attrs[attr_name]
         
-        mastery_rank = self.masteries.get(subaction, 0)
+        mastery_rank = self.masteries.get(technique, 0)
         mastery_bonus = 0
         if mastery_rank == 1:
             mastery_bonus = 3
@@ -244,8 +260,11 @@ class Combatant:
             mastery_bonus = 5
             
         num_dice = 2
-        if rps_advantage:
+        has_slip_adv = (action == "strike" and getattr(self, "slip_adv", False))
+        if rps_advantage or has_slip_adv:
             num_dice = 3
+            if has_slip_adv:
+                self.slip_adv = False
             
         keep_highest = True
         if self.prone or self.pinned or self.staggered or (self.stunned and action == "block"):
@@ -259,16 +278,22 @@ class Combatant:
         
         # Kung Fu Chain Strike: +2 bonus if landed a strike last round
         chain_bonus = 0
-        if self.style_name == "Kung Fu" and self.last_round_struck and color == "strike":
+        if self.style_name == "Kung Fu" and self.last_round_struck and action == "strike":
             chain_bonus = 2
             flat_mod += chain_bonus
+            
+        # Wrestling Shooter: +2 bonus when shooting a Double Leg Takedown against a Strike
+        shooter_bonus = 0
+        if self.style_name == "Wrestling" and technique == "takedown" and opponent_action == "strike":
+            shooter_bonus = 2
+            flat_mod += shooter_bonus
         
         temp_penalty = 0
-        if attr_name == "footwork" and self.hobbled > 0:
+        if attr_name == "agility" and self.hobbled > 0:
             temp_penalty += self.hobbled
         if attr_name == "stamina" and self.winded:
             temp_penalty += 1
-        if self.shaken and attr_name == "timing":
+        if self.shaken and attr_name == "reaction":
             temp_penalty += 2
             
         flat_mod -= temp_penalty
@@ -284,6 +309,8 @@ class Combatant:
         roll_log = f"{total} ({dice_sum} on dice + {attr_val} {attr_name.upper()} + {mastery_bonus} Mastery"
         if chain_bonus > 0:
             roll_log += f" + {chain_bonus} Chain Strike"
+        if shooter_bonus > 0:
+            roll_log += f" + {shooter_bonus} Shooter"
         if temp_penalty > 0:
             roll_log += f" - {temp_penalty} Status"
         roll_log += f", {adv_text})"
@@ -306,8 +333,8 @@ def run_fight(p1, p2, should_write=False):
             "strikes": 0,
             "blocks": 0,
             "throws": 0,
-            "damage_dealt": {"timing": 0, "posture": 0, "footwork": 0, "stamina": 0, "cool": 0},
-            "damage_taken": {"timing": 0, "posture": 0, "footwork": 0, "stamina": 0, "cool": 0},
+            "damage_dealt": {"reaction": 0, "power": 0, "agility": 0, "stamina": 0, "cool": 0},
+            "damage_taken": {"reaction": 0, "power": 0, "agility": 0, "stamina": 0, "cool": 0},
             "reads_won": 0,
             "crits": 0
         },
@@ -317,8 +344,8 @@ def run_fight(p1, p2, should_write=False):
             "strikes": 0,
             "blocks": 0,
             "throws": 0,
-            "damage_dealt": {"timing": 0, "posture": 0, "footwork": 0, "stamina": 0, "cool": 0},
-            "damage_taken": {"timing": 0, "posture": 0, "footwork": 0, "stamina": 0, "cool": 0},
+            "damage_dealt": {"reaction": 0, "power": 0, "agility": 0, "stamina": 0, "cool": 0},
+            "damage_taken": {"reaction": 0, "power": 0, "agility": 0, "stamina": 0, "cool": 0},
             "reads_won": 0,
             "crits": 0
         }
@@ -338,21 +365,34 @@ def run_fight(p1, p2, should_write=False):
         log_print("-" * 55)
         
         # --- PHASE 1: READING THE STANCE (Telegraphing) ---
-        p1_read_success = False
-        p2_read_success = False
+        p1_read_level = "none" # "none", "partial", or "perfect"
+        p2_read_level = "none"
         
         if not p1.stunned and not p2.stunned:
-            p1_roll = p1.roll_dice(2)[0] + max(p1.attrs["timing"], p1.attrs["cool"])
-            p2_roll = p2.roll_dice(2)[0] + max(p2.attrs["timing"], p2.attrs["cool"])
+            p1_roll = p1.roll_dice(2)[0] + max(p1.attrs["reaction"], p1.attrs["cool"])
+            p2_roll = p2.roll_dice(2)[0] + max(p2.attrs["reaction"], p2.attrs["cool"])
             
-            if p1_roll > p2_roll:
-                p1_read_success = True
+            diff = p1_roll - p2_roll
+            margin = abs(diff)
+            
+            if diff >= 4:
                 metrics["p1"]["reads_won"] += 1
-                log_print(f"-> {C_GREEN}{p1.name} reads {p2.name}'s stance!{C_RESET} (Roll: {p1_roll} vs {p2_roll})")
-            elif p2_roll > p1_roll:
-                p2_read_success = True
+                if margin >= 7:
+                    p1_read_level = "perfect"
+                    log_print(f"-> {C_GREEN}{p1.name} gets a PERFECT READ on {p2.name}'s stance!{C_RESET} (Roll: {p1_roll} vs {p2_roll}, Margin: {margin})")
+                else:
+                    p1_read_level = "partial"
+                    log_print(f"-> {C_GREEN}{p1.name} spots a PARTIAL TELL on {p2.name}'s stance!{C_RESET} (Roll: {p1_roll} vs {p2_roll}, Margin: {margin})")
+            elif diff <= -4:
                 metrics["p2"]["reads_won"] += 1
-                log_print(f"-> {C_GREEN}{p2.name} reads {p1.name}'s stance!{C_RESET} (Roll: {p2_roll} vs {p1_roll})")
+                if margin >= 7:
+                    p2_read_level = "perfect"
+                    log_print(f"-> {C_GREEN}{p2.name} gets a PERFECT READ on {p1.name}'s stance!{C_RESET} (Roll: {p2_roll} vs {p1_roll}, Margin: {margin})")
+                else:
+                    p2_read_level = "partial"
+                    log_print(f"-> {C_GREEN}{p2.name} spots a PARTIAL TELL on {p1.name}'s stance!{C_RESET} (Roll: {p2_roll} vs {p1_roll}, Margin: {margin})")
+            else:
+                log_print(f"-> Body language unreadable (Roll: {p1_roll} vs {p2_roll}, Margin: {margin})")
         
         # --- PHASE 2: COMMIT & REVEAL ---
         p1_color, p1_sub = None, None
@@ -361,12 +401,24 @@ def run_fight(p1, p2, should_write=False):
         p1_down = p1.prone or p1.pinned
         p2_down = p2.prone or p2.pinned
 
-        if p1_read_success:
+        if p1_read_level == "perfect":
             p2_color, p2_sub = p2.select_action(opponent_down=p1_down)
             p1_color, p1_sub = p1.select_action(read_opponent_color=p2_color, opponent_down=p2_down)
-        elif p2_read_success:
+        elif p2_read_level == "perfect":
             p1_color, p1_sub = p1.select_action(opponent_down=p2_down)
             p2_color, p2_sub = p2.select_action(read_opponent_color=p1_color, opponent_down=p1_down)
+        elif p1_read_level == "partial":
+            p2_color, p2_sub = p2.select_action(opponent_down=p1_down)
+            other_colors = [c for c in ["strike", "block", "throw"] if c != p2_color]
+            p1_elim = random.choice(other_colors)
+            log_print(f"   -> {p1.name} deduces {p2.name} is NOT choosing {p1_elim.upper()}.")
+            p1_color, p1_sub = p1.select_action(eliminate_opponent_color=p1_elim, opponent_down=p2_down)
+        elif p2_read_level == "partial":
+            p1_color, p1_sub = p1.select_action(opponent_down=p2_down)
+            other_colors = [c for c in ["strike", "block", "throw"] if c != p1_color]
+            p2_elim = random.choice(other_colors)
+            log_print(f"   -> {p2.name} deduces {p1.name} is NOT choosing {p2_elim.upper()}.")
+            p2_color, p2_sub = p2.select_action(eliminate_opponent_color=p2_elim, opponent_down=p1_down)
         else:
             p1_color, p1_sub = p1.select_action(opponent_down=p2_down)
             p2_color, p2_sub = p2.select_action(opponent_down=p1_down)
@@ -398,8 +450,8 @@ def run_fight(p1, p2, should_write=False):
             p2_advantage = True
 
         # --- PHASE 4: ROLL & RESOLVE ---
-        p1_total, p1_log, p1_attr, p1_nat20 = p1.calculate_check(p1_color, p1_sub, p1_advantage)
-        p2_total, p2_log, p2_attr, p2_nat20 = p2.calculate_check(p2_color, p2_sub, p2_advantage)
+        p1_total, p1_log, p1_attr, p1_nat20 = p1.calculate_check(p1_color, p1_sub, p1_advantage, opponent_action=p2_color)
+        p2_total, p2_log, p2_attr, p2_nat20 = p2.calculate_check(p2_color, p2_sub, p2_advantage, opponent_action=p1_color)
         
         log_print(f"  {p1.name} rolls: {p1_log}")
         log_print(f"  {p2.name} rolls: {p2_log}")
@@ -563,9 +615,10 @@ def run_fight(p1, p2, should_write=False):
                 log_print(f"   {C_YELLOW}[Karate Kiai Shout]{C_RESET} {winner.name} lets out a devastating KIAI! (DC 12 Cool check for {loser.name})")
                 if kiai_roll < 12:
                     loser.attrs["cool"] = max(0, loser.attrs["cool"] - 1)
+                    loser.staggered = True
                     metrics[w_key]["damage_dealt"]["cool"] += 1
                     metrics[l_key]["damage_taken"]["cool"] += 1
-                    log_print(f"   ->{loser.name} fails! Suffers 1 COOL damage! (New: {loser.attrs['cool']})")
+                    log_print(f"   -> {loser.name} fails! Suffers 1 COOL damage AND is STAGGERED! (New: {loser.attrs['cool']})")
                 else:
                     log_print(f"   -> {loser.name} steels their nerves (rolled {kiai_roll} vs DC 12).")
 
@@ -573,34 +626,28 @@ def run_fight(p1, p2, should_write=False):
         elif w_color == "block":
             log_print(f"   {winner.name} successfully defends using {w_sub}.")
             if w_sub == "parry" and winner.style_name == "Judo" and l_color == "strike":
-                log_print(f"   {C_GREEN}[Judo Kuzushi]{C_RESET} {winner.name} parried a strike! Free throw attempt!")
-                t_roll = winner.roll_dice(2) + winner.attrs["posture"]
-                d_roll = loser.roll_dice(2) + loser.attrs["footwork"]
+                log_print(f"   {C_GREEN}[Judo Kuzushi]{C_RESET} {winner.name} attempts a Sweeping Reversal!")
+                t_roll = winner.roll_dice(2)[0] + winner.attrs["agility"]
+                d_roll = loser.roll_dice(2)[0] + loser.attrs["agility"]
                 if t_roll > d_roll:
-                    log_print(f"   -> Sweep projection success! {loser.name} is thrown to the ground!")
-                    loser.prone = True
-                    loser.attrs["posture"] = max(0, loser.attrs["posture"] - 2)
-                    metrics[w_key]["damage_dealt"]["posture"] += 2
-                    metrics[l_key]["damage_taken"]["posture"] += 2
-                else:
-                    log_print("   -> Loser retains their footing.")
-            elif w_sub == "dodge" and winner.style_name == "Boxing" and l_color == "strike":
-                log_print(f"   {C_GREEN}[Boxing Slip & Counter]{C_RESET} {winner.name} dodged! Next strike has advantage.")
-            
-            # Kung Fu Flowing Redirect: Parry a strike -> free Trip/Sweep
-            if w_sub == "parry" and winner.style_name == "Kung Fu" and l_color == "strike":
-                log_print(f"   {C_GREEN}[Kung Fu Flowing Redirect]{C_RESET} {winner.name} parried and flows into a sweep!")
-                t_roll = winner.roll_dice(2)[0] + winner.attrs["footwork"]
-                d_roll = loser.roll_dice(2)[0] + loser.attrs["footwork"]
-                if t_roll > d_roll:
-                    log_print(f"   -> Sweep success! {loser.name} is swept off their feet!")
+                    log_print(f"   -> Reversal success! {loser.name} is swept off their feet!")
                     loser.prone = True
                     sweep_dmg = 2
-                    loser.attrs["footwork"] = max(0, loser.attrs["footwork"] - sweep_dmg)
-                    metrics[w_key]["damage_dealt"]["footwork"] += sweep_dmg
-                    metrics[l_key]["damage_taken"]["footwork"] += sweep_dmg
+                    loser.attrs["agility"] = max(0, loser.attrs["agility"] - sweep_dmg)
+                    metrics[w_key]["damage_dealt"]["agility"] += sweep_dmg
+                    metrics[l_key]["damage_taken"]["agility"] += sweep_dmg
                 else:
                     log_print(f"   -> {loser.name} keeps their balance.")
+            
+            if w_sub == "dodge" and winner.style_name == "Boxing" and l_color == "strike":
+                winner.slip_adv = True
+                log_print(f"   {C_GREEN}[Boxing Slip & Counter]{C_RESET} {winner.name} dodged! Next Strike has Advantage.")
+            
+            # Kung Fu Flowing Redirect: Parry a strike -> Trapping hands (Stagger target + Advantage on next Strike)
+            if w_sub == "parry" and winner.style_name == "Kung Fu" and l_color == "strike":
+                loser.staggered = True
+                winner.slip_adv = True
+                log_print(f"   {C_GREEN}[Kung Fu Flowing Redirect]{C_RESET} {winner.name} trapped opponent's limbs! {loser.name} is STAGGERED and next Strike gains Advantage.")
                 
             if w_sub == "stand up" and winner.prone:
                 log_print(f"   {winner.name} stands back up.")
@@ -617,19 +664,19 @@ def run_fight(p1, p2, should_write=False):
                 loser.prone = True
                 dmg = 2
                 if crit: dmg += 1
-                loser.attrs["footwork"] = max(0, loser.attrs["footwork"] - dmg)
-                metrics[w_key]["damage_dealt"]["footwork"] += dmg
-                metrics[l_key]["damage_taken"]["footwork"] += dmg
-                log_print(f"   {loser.name} takes {dmg} FOOTWORK damage.")
+                loser.attrs["agility"] = max(0, loser.attrs["agility"] - dmg)
+                metrics[w_key]["damage_dealt"]["agility"] += dmg
+                metrics[l_key]["damage_taken"]["agility"] += dmg
+                log_print(f"   {loser.name} takes {dmg} AGILITY damage.")
             elif w_sub == "hip throw":
                 log_print(f"   {winner.name} throws {loser.name} over their shoulder!")
                 loser.prone = True
                 dmg = 3
                 if crit: dmg += 1
-                loser.attrs["posture"] = max(0, loser.attrs["posture"] - dmg)
-                metrics[w_key]["damage_dealt"]["posture"] += dmg
-                metrics[l_key]["damage_taken"]["posture"] += dmg
-                log_print(f"   {loser.name} takes {dmg} POSTURE damage.")
+                loser.attrs["power"] = max(0, loser.attrs["power"] - dmg)
+                metrics[w_key]["damage_dealt"]["power"] += dmg
+                metrics[l_key]["damage_taken"]["power"] += dmg
+                log_print(f"   {loser.name} takes {dmg} POWER damage.")
                 if crit:
                     log_print(f"   {loser.name} is STUNNED by the impact!")
                     loser.stunned = True
@@ -638,10 +685,10 @@ def run_fight(p1, p2, should_write=False):
                 loser.prone = True
                 dmg = 3
                 if crit: dmg += 1
-                loser.attrs["posture"] = max(0, loser.attrs["posture"] - dmg)
-                metrics[w_key]["damage_dealt"]["posture"] += dmg
-                metrics[l_key]["damage_taken"]["posture"] += dmg
-                log_print(f"   {loser.name} takes {dmg} POSTURE damage.")
+                loser.attrs["power"] = max(0, loser.attrs["power"] - dmg)
+                metrics[w_key]["damage_dealt"]["power"] += dmg
+                metrics[l_key]["damage_taken"]["power"] += dmg
+                log_print(f"   {loser.name} takes {dmg} POWER damage.")
                 if winner.style_name == "Wrestling":
                     log_print(f"   {C_GREEN}[Wrestling Ground Control]{C_RESET} opponent is PINNED on the canvas!")
                     loser.pinned = True
@@ -682,21 +729,21 @@ def run_fight(p1, p2, should_write=False):
     write_metrics_report(p1, p2, metrics, match_result, should_write=should_write)
 
 def resolve_hit(attacker, move, target, damage, crit, metrics, att_key, def_key):
-    target_attr = "timing"
+    target_attr = "reaction"
     if move in ["jab", "cross", "high kick"]:
-        target_attr = "timing"
+        target_attr = "reaction"
     elif move == "hook":
-        target_attr = "stamina" if target.attrs["stamina"] <= target.attrs["posture"] else "posture"
+        target_attr = "stamina" if target.attrs["stamina"] <= target.attrs["power"] else "power"
     elif move == "uppercut":
-        target_attr = "posture"
+        target_attr = "power"
     elif move in ["body kick", "push kick"]:
         target_attr = "stamina"
     elif move == "low kick":
-        target_attr = "footwork"
+        target_attr = "agility"
     elif move == "taunt":
         target_attr = "cool"
     elif move == "ground & pound":
-        target_attr = "posture" if target.attrs["posture"] <= target.attrs["stamina"] else "stamina"
+        target_attr = "power" if target.attrs["power"] <= target.attrs["stamina"] else "stamina"
 
     # Deal damage
     target.attrs[target_attr] = max(0, target.attrs[target_attr] - damage)
@@ -708,14 +755,14 @@ def resolve_hit(attacker, move, target, damage, crit, metrics, att_key, def_key)
     if move == "low kick":
         penalty = 2 if attacker.style_name == "Muay Thai" else 1
         target.hobbled = penalty
-        log_print(f"   -> {target.name} is HOBBLED (-{penalty} Footwork rolls next round)")
+        log_print(f"   -> {target.name} is HOBBLED (-{penalty} Agility rolls next round)")
     elif move == "body kick":
         target.winded = True
         log_print(f"   -> {target.name} is WINDED (-1 Stamina rolls next round)")
     elif move == "taunt":
         if target.attrs["cool"] <= 0:
             target.shaken = True
-            log_print(f"   -> {target.name} is SHAKEN! (Cool reduced to 0. Timings suffer -2; perks suspended)")
+            log_print(f"   -> {target.name} is SHAKEN! (Cool reduced to 0. Reactions suffer -2; perks suspended)")
 
     if crit and move == "high kick":
         log_print(f"   -> {target.name} is STUNNED by the massive blow!")
@@ -735,13 +782,13 @@ def write_metrics_report(p1, p2, metrics, match_result, should_write=False):
     log_print(f"  Actions:  {p1_stats['strikes']} Strikes | {p1_stats['blocks']} Blocks | {p1_stats['throws']} Throws")
     log_print(f"  Reads:    {p1_stats['reads_won']} Stance Reads Won")
     log_print(f"  Crits:    {p1_stats['crits']} Critical Hits Landed")
-    log_print(f"  Damage Dealt: T:{p1_stats['damage_dealt']['timing']} P:{p1_stats['damage_dealt']['posture']} F:{p1_stats['damage_dealt']['footwork']} S:{p1_stats['damage_dealt']['stamina']} C:{p1_stats['damage_dealt']['cool']}")
+    log_print(f"  Damage Dealt: R:{p1_stats['damage_dealt']['reaction']} P:{p1_stats['damage_dealt']['power']} A:{p1_stats['damage_dealt']['agility']} S:{p1_stats['damage_dealt']['stamina']} C:{p1_stats['damage_dealt']['cool']}")
     
     log_print(f"\n{C_BOLD}Fighter: {p2.name} ({p2.style_name or 'Brawler'}){C_RESET}")
     log_print(f"  Actions:  {p2_stats['strikes']} Strikes | {p2_stats['blocks']} Blocks | {p2_stats['throws']} Throws")
     log_print(f"  Reads:    {p2_stats['reads_won']} Stance Reads Won")
     log_print(f"  Crits:    {p2_stats['crits']} Critical Hits Landed")
-    log_print(f"  Damage Dealt: T:{p2_stats['damage_dealt']['timing']} P:{p2_stats['damage_dealt']['posture']} F:{p2_stats['damage_dealt']['footwork']} S:{p2_stats['damage_dealt']['stamina']} C:{p2_stats['damage_dealt']['cool']}")
+    log_print(f"  Damage Dealt: R:{p2_stats['damage_dealt']['reaction']} P:{p2_stats['damage_dealt']['power']} A:{p2_stats['damage_dealt']['agility']} S:{p2_stats['damage_dealt']['stamina']} C:{p2_stats['damage_dealt']['cool']}")
     
     # Generate Markdown File Content
     md = []
@@ -760,9 +807,9 @@ def write_metrics_report(p1, p2, metrics, match_result, should_write=False):
     md.append(f"| **Throws Declared** | {p1_stats['throws']} | {p2_stats['throws']} |")
     md.append(f"| **Stance Reads Won** | {p1_stats['reads_won']} | {p2_stats['reads_won']} |")
     md.append(f"| **Critical Hits Landed** | {p1_stats['crits']} | {p2_stats['crits']} |")
-    md.append(f"| **Timing Damage Dealt** | {p1_stats['damage_dealt']['timing']} | {p2_stats['damage_dealt']['timing']} |")
-    md.append(f"| **Posture Damage Dealt** | {p1_stats['damage_dealt']['posture']} | {p2_stats['damage_dealt']['posture']} |")
-    md.append(f"| **Footwork Damage Dealt** | {p1_stats['damage_dealt']['footwork']} | {p2_stats['damage_dealt']['footwork']} |")
+    md.append(f"| **Reaction Damage Dealt** | {p1_stats['damage_dealt']['reaction']} | {p2_stats['damage_dealt']['reaction']} |")
+    md.append(f"| **Power Damage Dealt** | {p1_stats['damage_dealt']['power']} | {p2_stats['damage_dealt']['power']} |")
+    md.append(f"| **Agility Damage Dealt** | {p1_stats['damage_dealt']['agility']} | {p2_stats['damage_dealt']['agility']} |")
     md.append(f"| **Stamina Damage Dealt** | {p1_stats['damage_dealt']['stamina']} | {p2_stats['damage_dealt']['stamina']} |")
     md.append(f"| **Cool Damage Dealt** | {p1_stats['damage_dealt']['cool']} | {p2_stats['damage_dealt']['cool']} |")
     md.append("\n---\n")
@@ -823,8 +870,9 @@ def main():
     print("  1. Tier 1 Punk / Lookout")
     print("  2. Tier 2 Standard Thug")
     print("  3. Tier 3 Syndicate Boss")
+    print("  4. Tier 4 Syndicate Overlord")
     try:
-        opp_choice = input("Select opponent tier (1-3, default 2): ").strip()
+        opp_choice = input("Select opponent tier (1-4, default 2): ").strip()
     except (KeyboardInterrupt, SystemExit):
         sys.exit(0)
 
@@ -832,6 +880,8 @@ def main():
         npc_data = generate_punk()
     elif opp_choice == "3":
         npc_data = generate_boss()
+    elif opp_choice == "4":
+        npc_data = generate_overlord()
     else:
         npc_data = generate_thug()
 

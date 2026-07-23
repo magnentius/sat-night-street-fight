@@ -3,7 +3,7 @@ import sys
 import os
 import random
 
-# Core definitions for styles and their allowed sub-actions
+# Core definitions for styles and their allowed techniques
 STYLES = {
     "Boxing": {
         "Focus": "Punches & Head Movement",
@@ -11,7 +11,7 @@ STYLES = {
         "Blocks": ["high guard", "parry", "dodge"],
         "Throws": ["clinch"],
         "Perks": [
-            "**Slip & Counter**: Defending with Dodge allows free Hook or Uppercut counter next round.",
+            "**Slip & Counter**: Successfully defending with Dodge/Evasion grants Advantage (3d10) on your next Strike action next round.",
             "**Iron Chin**: High Guard mitigates +1 damage against Punches (total 3 damage)."
         ]
     },
@@ -21,8 +21,8 @@ STYLES = {
         "Blocks": ["high guard", "parry"],
         "Throws": ["clinch"],
         "Perks": [
-            "**Thai Clinch**: While clinching, Knee strikes (Timing-based) deal 3 damage to Timing or Stamina.",
-            "**Heavy Leg Kicks**: Low Kicks deal 2 Footwork damage and apply a severe Hobbled status condition (-2 penalty next round)."
+            "**Thai Clinch**: Unlocks Clinch Knee (Reaction-based, 3 damage to Reaction or Stamina) usable while holding a Clinch.",
+            "**Heavy Leg Kicks**: Low Kicks deal 2 Agility damage and apply a severe Hobbled status condition (-2 penalty next round)."
         ]
     },
     "Judo": {
@@ -41,7 +41,7 @@ STYLES = {
         "Blocks": ["high guard", "low guard"],
         "Throws": ["clinch", "trip", "takedown", "submission hold"],
         "Perks": [
-            "**Shooter**: Double Leg Takedowns gain Advantage against opponents in a High Guard.",
+            "**Shooter**: Double Leg Takedowns can shoot from Striking Range (no Clinch needed) and gain +2 bonus vs Strikes.",
             "**Ground Control**: Winning a Grapple Struggle (Black vs Black) automatically knocks the opponent prone and pins them."
         ]
     },
@@ -52,17 +52,17 @@ STYLES = {
         "Throws": [],
         "Perks": [
             "**Ikken Hissatsu (One Strike, One Kill)**: Critical Hits deal an additional +1 attribute damage (total +2 bonus on crits).",
-            "**Kiai Shout**: Once per fight, after a successful Strike, defender must pass DC 12 Cool check or suffer 1 Cool damage."
+            "**Kiai Shout**: Once per fight, after a successful Strike, defender must pass DC 12 Cool check or suffer 1 Cool damage AND Staggered."
         ]
     },
     "Kung Fu": {
-        "Focus": "Flowing Combos & Redirection",
+        "Focus": "Flowing Combos & Trapping Hands",
         "Strikes": ["jab", "cross", "low kick", "high kick", "push kick"],
         "Blocks": ["parry", "dodge"],
         "Throws": ["trip"],
         "Perks": [
             "**Chain Strike**: If you landed a Strike last round, your next Strike gains a +2 bonus.",
-            "**Flowing Redirect**: Successfully Parrying a Strike lets you immediately execute a free Trip/Sweep as a reaction."
+            "**Flowing Redirect**: Successfully Parrying a Strike inflicts Staggered and grants Advantage (3d10) on your next Strike."
         ]
     },
     "Taekwondo": {
@@ -72,12 +72,12 @@ STYLES = {
         "Throws": [],
         "Perks": [
             "**Spinning Kicks**: High Kicks gain a +2 bonus if performed immediately following a successful Push Kick (Teep).",
-            "**Outfighting**: Evasion/Dodge actions gain a +2 bonus if you are outside of Clinch Range."
+            "**Outside Spacing**: Evasion/Dodge actions gain a +2 bonus if you are at Outside Range."
         ]
     }
 }
 
-ATTRIBUTES = ["timing", "posture", "footwork", "stamina", "cool"]
+ATTRIBUTES = ["reaction", "power", "agility", "stamina", "cool"]
 
 def print_header(title):
     print("=" * 60)
@@ -101,7 +101,7 @@ def generate_random_character(name=None):
         "Boxing": [
             {
                 "name": "Classic Slugger",
-                "attrs": ["timing", "stamina", "posture"],
+                "attrs": ["reaction", "stamina", "power"],
                 "moves_priority": [
                     ("hook", 2),       # Primary attack (Mastered)
                     ("dodge", 1),      # Primary defense (Trained)
@@ -112,7 +112,7 @@ def generate_random_character(name=None):
             },
             {
                 "name": "The Showman (Cool-Focused)",
-                "attrs": ["cool", "timing", "stamina"],
+                "attrs": ["cool", "reaction", "stamina"],
                 "moves_priority": [
                     ("taunt", 2),      # Master mental damage (Mastered)
                     ("dodge", 1),      # Composure defense (Trained)
@@ -125,7 +125,7 @@ def generate_random_character(name=None):
         "Muay Thai": [
             {
                 "name": "Classic Clincher",
-                "attrs": ["stamina", "timing", "footwork"],
+                "attrs": ["stamina", "reaction", "agility"],
                 "moves_priority": [
                     ("low kick", 2),   # Primary attack (Mastered)
                     ("clinch", 1),     # Set up Thai Clinch knees (Trained)
@@ -136,7 +136,7 @@ def generate_random_character(name=None):
             },
             {
                 "name": "The Intimidator (Cool-Focused)",
-                "attrs": ["cool", "stamina", "timing"],
+                "attrs": ["cool", "stamina", "reaction"],
                 "moves_priority": [
                     ("taunt", 2),      # Master mental pressure (Mastered)
                     ("clinch", 1),     # Force grapple (Trained)
@@ -149,7 +149,7 @@ def generate_random_character(name=None):
         "Judo": [
             {
                 "name": "Classic Kuzushi Thrower",
-                "attrs": ["posture", "timing", "cool"],
+                "attrs": ["power", "reaction", "cool"],
                 "moves_priority": [
                     ("hip throw", 2),  # Primary projection (Mastered)
                     ("parry", 1),      # Trigger Kuzushi reaction (Trained)
@@ -160,7 +160,7 @@ def generate_random_character(name=None):
             },
             {
                 "name": "The Stoic Master (Cool-Focused)",
-                "attrs": ["cool", "posture", "timing"],
+                "attrs": ["cool", "power", "reaction"],
                 "moves_priority": [
                     ("taunt", 2),      # Mental pressure (Mastered)
                     ("hip throw", 1),  # Retaliatory throw (Trained)
@@ -173,7 +173,7 @@ def generate_random_character(name=None):
         "Wrestling": [
             {
                 "name": "Classic Takedown Dominator",
-                "attrs": ["posture", "stamina", "cool"],
+                "attrs": ["power", "stamina", "cool"],
                 "moves_priority": [
                     ("takedown", 2),   # Primary power takedown (Mastered)
                     ("submission hold", 1), # Tap-out submission (Trained)
@@ -184,7 +184,7 @@ def generate_random_character(name=None):
             },
             {
                 "name": "The Ring Warlord (Cool-Focused)",
-                "attrs": ["cool", "posture", "stamina"],
+                "attrs": ["cool", "power", "stamina"],
                 "moves_priority": [
                     ("taunt", 2),      # Demoralize opponent (Mastered)
                     ("takedown", 1),   # Close the show (Trained)
@@ -197,7 +197,7 @@ def generate_random_character(name=None):
         "Karate": [
             {
                 "name": "Classic Point Fighter",
-                "attrs": ["timing", "posture", "stamina"],
+                "attrs": ["reaction", "power", "stamina"],
                 "moves_priority": [
                     ("cross", 2),      # Primary precision strike (Mastered)
                     ("parry", 1),      # Disciplined defense (Trained)
@@ -208,7 +208,7 @@ def generate_random_character(name=None):
             },
             {
                 "name": "The Sensei (Cool-Focused)",
-                "attrs": ["cool", "timing", "posture"],
+                "attrs": ["cool", "reaction", "power"],
                 "moves_priority": [
                     ("taunt", 2),      # Kiai intimidation (Mastered)
                     ("cross", 1),      # Precision strike (Trained)
@@ -221,7 +221,7 @@ def generate_random_character(name=None):
         "Kung Fu": [
             {
                 "name": "Classic Chain Striker",
-                "attrs": ["timing", "footwork", "stamina"],
+                "attrs": ["reaction", "agility", "stamina"],
                 "moves_priority": [
                     ("jab", 2),        # Fast combo starter (Mastered)
                     ("dodge", 1),      # Flowing evasion (Trained)
@@ -232,7 +232,7 @@ def generate_random_character(name=None):
             },
             {
                 "name": "The Philosopher (Cool-Focused)",
-                "attrs": ["cool", "timing", "footwork"],
+                "attrs": ["cool", "reaction", "agility"],
                 "moves_priority": [
                     ("taunt", 2),      # Mental pressure (Mastered)
                     ("parry", 1),      # Flowing redirect (Trained)
@@ -245,7 +245,7 @@ def generate_random_character(name=None):
         "Taekwondo": [
             {
                 "name": "Classic Outfighting Kicker",
-                "attrs": ["footwork", "timing", "stamina"],
+                "attrs": ["agility", "reaction", "stamina"],
                 "moves_priority": [
                     ("dodge", 2),      # Master outfighting evasion (Mastered)
                     ("push kick", 1),  # Set up spinning kicks (Trained)
@@ -255,7 +255,7 @@ def generate_random_character(name=None):
             },
             {
                 "name": "The Flashy Showman (Cool-Focused)",
-                "attrs": ["cool", "footwork", "timing"],
+                "attrs": ["cool", "agility", "reaction"],
                 "moves_priority": [
                     ("taunt", 2),      # Trash talk (Mastered)
                     ("dodge", 1),      # Flashy defense (Trained)
@@ -314,14 +314,18 @@ def generate_random_character(name=None):
 
     return name, style_name, arch["name"], attrs, masteries, xp
 
-def format_character_sheet(name, style_name, attrs, masteries, unspent_xp, archetype_name=None):
+def format_character_sheet(name, style_name, attrs, masteries, unspent_xp, archetype_name=None, secondary_style=None, secondary_perk=None):
     style = STYLES[style_name]
     sheet = []
     sheet.append(f"# Character Sheet: {name}")
+    style_str = f"**Style**: {style_name}"
+    if secondary_style:
+        style_str += f" / {secondary_style} (Cross-Trained)"
     if archetype_name:
-        sheet.append(f"**Style**: {style_name} — Archetype: {archetype_name} (*{style['Focus']}*)")
+        style_str += f" — Archetype: {archetype_name} (*{style['Focus']}*)"
     else:
-        sheet.append(f"**Style**: {style_name} (*{style['Focus']}*)")
+        style_str += f" (*{style['Focus']}*)"
+    sheet.append(style_str)
     spent_xp = 50 - unspent_xp
     sheet.append(f"**Character Rank**: {spent_xp} (Total Spent XP — Unlocks 3rd Key Slot at Rank 60)")
     sheet.append(f"**Available XP (Bank)**: {unspent_xp} XP\n")
@@ -333,15 +337,19 @@ def format_character_sheet(name, style_name, attrs, masteries, unspent_xp, arche
     
     sheet.append("## Technique Masteries")
     if not masteries:
-        sheet.append("*   *None (All sub-actions are Untrained Rank 0)*")
+        sheet.append("*   *None (All techniques are Untrained Rank 0)*")
     for move, rank in masteries.items():
         rank_text = "Trained (Rank 1, +3)" if rank == 1 else "Mastered (Rank 2, +5)"
         sheet.append(f"*   **{move.title()}**: {rank_text}")
     sheet.append("")
     
     sheet.append("## Style Perks")
+    sheet.append(f"### Primary ({style_name}):")
     for perk in style["Perks"]:
         sheet.append(f"*   {perk}")
+    if secondary_style and secondary_perk:
+        sheet.append(f"### Secondary Cross-Training ({secondary_style}):")
+        sheet.append(f"*   {secondary_perk}")
     sheet.append("")
 
     sheet.append("## Active XP Keys (Select 2 at Creation)")

@@ -13,7 +13,7 @@
 *   **No Turn Waiting — Simultaneous Stance Mind Games**:
     Combat uses a simultaneous blind-reveal card system (**Strike beats Throw, Block beats Strike, Throw beats Block**). You secret-commit your stance at the same time as your opponent. Win the counter match to gain **Advantage** ($3\text{d}10$) and interrupt your opponent's move before it even lands!
 *   **Direct Attribute Damage (Feel Every Hit)**:
-    Forget abstract hitpoints. Attacks deal direct damage to your four core physical **Attributes** (**Timing**, **Posture**, **Footwork**, **Stamina**). As you take head strikes, body blows, and leg sweeps, your combat rolls degrade in real-time. If any attribute hits 0, you suffer an immediate TKO!
+    Forget abstract hitpoints. Attacks deal direct damage to your four core physical **Attributes** (**Agility**, **Power**, **Reaction**, **Stamina**). As you take head strikes, body blows, and leg sweeps, your combat rolls degrade in real-time. If any attribute hits 0, you suffer an immediate TKO!
 *   **Roleplay-Driven Character Growth (XP Keys)**:
     Fighters don't level up by killing monsters for flat XP—you earn XP by acting out your brawler motivations (**XP Keys**). Earn XP by defending dojo pride, protecting your turf, honoring street codes, or holding grudges. Trigger dramatic **Buyoffs** when your character evolves to claim a +3 XP bonus and choose a new key!
 *   **7 Authentic Martial Arts Styles**:
