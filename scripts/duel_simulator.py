@@ -59,6 +59,11 @@ class Combatant:
         self.hobbled = 0   # 0 = normal, 1 = Hobbled (-1), 2 = Muay Thai Hobbled (-2)
         self.winded = False # Winded (-1 Stamina)
         
+        # Karate: Kiai Shout once-per-fight tracking
+        self.kiai_used = False
+        # Kung Fu: Chain Strike tracking (did fighter land a strike last round?)
+        self.last_round_struck = False
+        
         # Ranges: "outside", "striking", or "grapple"
         self.range = "striking"
 
@@ -123,14 +128,18 @@ class Combatant:
             weights = {"strike": 0.6, "block": 0.3, "throw": 0.1}
         elif self.style_name == "Judo":
             if opponent_down:
-                weights = {"strike": 0.6, "block": 0.3, "throw": 0.1}
+                weights = {"strike": 0.45, "block": 0.1, "throw": 0.45}
             else:
                 weights = {"strike": 0.1, "block": 0.4, "throw": 0.5}
         elif self.style_name == "Wrestling":
             if opponent_down:
-                weights = {"strike": 0.7, "block": 0.2, "throw": 0.1}
+                weights = {"strike": 0.45, "block": 0.1, "throw": 0.45}
             else:
                 weights = {"strike": 0.3, "block": 0.3, "throw": 0.4}
+        elif self.style_name == "Karate":
+            weights = {"strike": 0.5, "block": 0.4, "throw": 0.1}
+        elif self.style_name == "Kung Fu":
+            weights = {"strike": 0.5, "block": 0.4, "throw": 0.1}
         elif self.style_name == "Taekwondo":
             weights = {"strike": 0.6, "block": 0.4, "throw": 0.0}
 
@@ -190,7 +199,9 @@ class Combatant:
             return random.choice(moves) if moves else "high guard"
             
         else: # throw
-            moves = style["Throws"]
+            moves = list(style["Throws"])
+            if not opponent_down and "submission hold" in moves:
+                moves.remove("submission hold")
             if not moves: return "clinch"
             favored = [m for m in moves if self.masteries.get(m, 0) > 0]
             if favored and random.random() < 0.7:
@@ -218,7 +229,7 @@ class Combatant:
             attr_name = "stamina"
         elif subaction in ["low kick", "trip", "dodge", "stand up"]:
             attr_name = "footwork"
-        elif subaction in ["hip throw", "takedown", "dirty punch", "ground & pound"]:
+        elif subaction in ["hip throw", "takedown", "ground & pound", "submission hold"]:
             attr_name = "posture"
         elif subaction == "taunt":
             attr_name = "cool"
@@ -246,6 +257,12 @@ class Combatant:
         
         flat_mod = attr_val + mastery_bonus
         
+        # Kung Fu Chain Strike: +2 bonus if landed a strike last round
+        chain_bonus = 0
+        if self.style_name == "Kung Fu" and self.last_round_struck and color == "strike":
+            chain_bonus = 2
+            flat_mod += chain_bonus
+        
         temp_penalty = 0
         if attr_name == "footwork" and self.hobbled > 0:
             temp_penalty += self.hobbled
@@ -265,6 +282,8 @@ class Combatant:
             adv_text = "DISADV"
             
         roll_log = f"{total} ({dice_sum} on dice + {attr_val} {attr_name.upper()} + {mastery_bonus} Mastery"
+        if chain_bonus > 0:
+            roll_log += f" + {chain_bonus} Chain Strike"
         if temp_penalty > 0:
             roll_log += f" - {temp_penalty} Status"
         roll_log += f", {adv_text})"
@@ -393,6 +412,10 @@ def run_fight(p1, p2, should_write=False):
         p2.hobbled = 0
         p1.winded = False
         p2.winded = False
+        
+        # Track Kung Fu Chain Strike: record whether each fighter landed a strike this round
+        p1_struck_this_round = False
+        p2_struck_this_round = False
 
         # Apply Momentum Surge for Nat 20s
         for ftr, nat in [(p1, p1_nat20), (p2, p2_nat20)]:
@@ -414,11 +437,14 @@ def run_fight(p1, p2, should_write=False):
                 first, first_sub, first_tot, first_nat, first_key = p2, p2_sub, p2_total, p2_nat20, "p2"
                 second, second_sub, second_tot, second_nat, second_key = p1, p1_sub, p1_total, p1_nat20, "p1"
 
-            # First strike lands
             first_dmg = 1 if first_sub in ["jab", "taunt"] else (3 if first_sub in ["uppercut", "high kick", "body kick"] else 2)
             first_crit = first_nat or ((first_tot - second_tot) >= 5)
             if first_crit:
                 first_dmg += 1
+                # Karate Ikken Hissatsu: extra +1 on crits
+                if first.style_name == "Karate":
+                    first_dmg += 1
+                    log_print(f"   {C_RED}[Karate Ikken Hissatsu]{C_RESET} Extra +1 damage on critical!")
                 metrics[first_key]["crits"] += 1
                 log_print(f"   {C_RED}{C_BOLD}*** {first.name} LANDS A CRITICAL STRIKE! ***{C_RESET}")
 
@@ -432,10 +458,22 @@ def run_fight(p1, p2, should_write=False):
                 second_crit = second_nat or ((second_tot - first_tot) >= 5)
                 if second_crit:
                     second_dmg += 1
+                    # Karate Ikken Hissatsu: extra +1 on crits
+                    if second.style_name == "Karate":
+                        second_dmg += 1
+                        log_print(f"   {C_RED}[Karate Ikken Hissatsu]{C_RESET} Extra +1 damage on critical!")
                     metrics[second_key]["crits"] += 1
                     log_print(f"   {C_RED}{C_BOLD}*** {second.name} LANDS A CRITICAL STRIKE! ***{C_RESET}")
 
                 resolve_hit(second, second_sub, first, second_dmg, second_crit, metrics, second_key, first_key)
+            
+            # Track strike landing for both fighters in a trade
+            if first == p1:
+                p1_struck_this_round = True
+                if not second.is_defeated(): p2_struck_this_round = True
+            else:
+                p2_struck_this_round = True
+                if not second.is_defeated(): p1_struck_this_round = True
 
             continue
 
@@ -492,6 +530,10 @@ def run_fight(p1, p2, should_write=False):
                 
             if crit:
                 base_dmg += 1
+                # Karate Ikken Hissatsu: extra +1 on crits
+                if winner.style_name == "Karate":
+                    base_dmg += 1
+                    log_print(f"   {C_RED}[Karate Ikken Hissatsu]{C_RESET} Extra +1 damage on critical!")
                 
             if l_color == "block":
                 # Block mitigation
@@ -509,6 +551,23 @@ def run_fight(p1, p2, should_write=False):
                     resolve_hit(winner, w_sub, loser, net_dmg, crit, metrics, w_key, l_key)
             else:
                 resolve_hit(winner, w_sub, loser, base_dmg, crit, metrics, w_key, l_key)
+            
+            # Track strike landing for Chain Strike
+            if winner == p1: p1_struck_this_round = True
+            else: p2_struck_this_round = True
+            
+            # Karate Kiai Shout: once-per-fight Cool attack after landing a strike
+            if winner.style_name == "Karate" and not winner.kiai_used and not loser.is_defeated():
+                winner.kiai_used = True
+                kiai_roll = winner.roll_dice(2)[0] + winner.attrs["cool"]
+                log_print(f"   {C_YELLOW}[Karate Kiai Shout]{C_RESET} {winner.name} lets out a devastating KIAI! (DC 12 Cool check for {loser.name})")
+                if kiai_roll < 12:
+                    loser.attrs["cool"] = max(0, loser.attrs["cool"] - 1)
+                    metrics[w_key]["damage_dealt"]["cool"] += 1
+                    metrics[l_key]["damage_taken"]["cool"] += 1
+                    log_print(f"   ->{loser.name} fails! Suffers 1 COOL damage! (New: {loser.attrs['cool']})")
+                else:
+                    log_print(f"   -> {loser.name} steels their nerves (rolled {kiai_roll} vs DC 12).")
 
         # 2. Resolve Block (Parry/Dodge)
         elif w_color == "block":
@@ -527,6 +586,21 @@ def run_fight(p1, p2, should_write=False):
                     log_print("   -> Loser retains their footing.")
             elif w_sub == "dodge" and winner.style_name == "Boxing" and l_color == "strike":
                 log_print(f"   {C_GREEN}[Boxing Slip & Counter]{C_RESET} {winner.name} dodged! Next strike has advantage.")
+            
+            # Kung Fu Flowing Redirect: Parry a strike -> free Trip/Sweep
+            if w_sub == "parry" and winner.style_name == "Kung Fu" and l_color == "strike":
+                log_print(f"   {C_GREEN}[Kung Fu Flowing Redirect]{C_RESET} {winner.name} parried and flows into a sweep!")
+                t_roll = winner.roll_dice(2)[0] + winner.attrs["footwork"]
+                d_roll = loser.roll_dice(2)[0] + loser.attrs["footwork"]
+                if t_roll > d_roll:
+                    log_print(f"   -> Sweep success! {loser.name} is swept off their feet!")
+                    loser.prone = True
+                    sweep_dmg = 2
+                    loser.attrs["footwork"] = max(0, loser.attrs["footwork"] - sweep_dmg)
+                    metrics[w_key]["damage_dealt"]["footwork"] += sweep_dmg
+                    metrics[l_key]["damage_taken"]["footwork"] += sweep_dmg
+                else:
+                    log_print(f"   -> {loser.name} keeps their balance.")
                 
             if w_sub == "stand up" and winner.prone:
                 log_print(f"   {winner.name} stands back up.")
@@ -571,10 +645,22 @@ def run_fight(p1, p2, should_write=False):
                 if winner.style_name == "Wrestling":
                     log_print(f"   {C_GREEN}[Wrestling Ground Control]{C_RESET} opponent is PINNED on the canvas!")
                     loser.pinned = True
+            elif w_sub == "submission hold":
+                log_print(f"   {winner.name} locks {loser.name} in a Submission Hold!")
+                dmg = 3
+                if crit: dmg += 1
+                loser.attrs["stamina"] = max(0, loser.attrs["stamina"] - dmg)
+                metrics[w_key]["damage_dealt"]["stamina"] += dmg
+                metrics[l_key]["damage_taken"]["stamina"] += dmg
+                log_print(f"   {loser.name} takes {dmg} STAMINA damage from choke/joint pressure!")
 
         # Clear stun duration
         if p1.stunned and winner == p1: p1.stunned = False
         if p2.stunned and winner == p2: p2.stunned = False
+        
+        # Update Kung Fu Chain Strike tracking for next round
+        p1.last_round_struck = p1_struck_this_round
+        p2.last_round_struck = p2_struck_this_round
         
         time.sleep(0.5)
 
@@ -597,7 +683,7 @@ def run_fight(p1, p2, should_write=False):
 
 def resolve_hit(attacker, move, target, damage, crit, metrics, att_key, def_key):
     target_attr = "timing"
-    if move in ["jab", "cross", "high kick", "dirty punch"]:
+    if move in ["jab", "cross", "high kick"]:
         target_attr = "timing"
     elif move == "hook":
         target_attr = "stamina" if target.attrs["stamina"] <= target.attrs["posture"] else "posture"

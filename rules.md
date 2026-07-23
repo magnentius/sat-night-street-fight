@@ -29,7 +29,7 @@
 To build a fighter, follow these three simple steps:
 
 ### 1. Choose a Martial Arts Style
-Select **one** Martial Arts Style (Boxing, Muay Thai, Judo, Wrestling, or Taekwondo). 
+Select **one** Martial Arts Style (Boxing, Muay Thai, Judo, Wrestling, Karate, Kung Fu, or Taekwondo). 
 *   This grants you your Style Perks and dictates which sub-actions you are allowed to perform (see **Martial Arts Styles** below).
 
 ### 2. Spend Starting XP
@@ -145,7 +145,7 @@ Characters can adopt a specific Martial Arts Style, which dictates their availab
 *   **Allowed Actions**:
     *   *Strikes*: Jab, Ground & Pound (only vs. Prone/Pinned targets).
     *   *Blocks*: High Guard, Parry (No Low Guard or Dodge).
-    *   *Throws*: Clinch/Grab, Trip/Sweep, Hip/Shoulder Throw.
+    *   *Throws*: Clinch/Grab, Trip/Sweep, Hip/Shoulder Throw, Submission Hold (only vs. Prone/Pinned targets).
 *   **Style Perks**:
     *   **Kuzushi (Off-Balance)**: If you successfully parry a Strike (White vs. Red), you can immediately attempt a Hip/Shoulder Throw or Trip/Sweep as a free reaction check.
     *   **Sweeping Reversal**: Your Trip/Sweep gains Advantage against opponents performing a High Kick.
@@ -153,17 +153,37 @@ Characters can adopt a specific Martial Arts Style, which dictates their availab
 ### 4. Wrestling (Ground Dominance)
 *   **Focus**: Clinches & Power Takedowns.
 *   **Allowed Actions**:
-    *   *Strikes*: Jab, Dirty Punch, Ground & Pound (only vs. Prone/Pinned targets).
+    *   *Strikes*: Jab, Ground & Pound (only vs. Prone/Pinned targets).
     *   *Blocks*: High Guard, Low Guard (No Parry or Dodge).
-    *   *Throws*: Clinch/Grab, Trip/Sweep, Takedown (Double Leg).
+    *   *Throws*: Clinch/Grab, Trip/Sweep, Takedown (Double Leg), Submission Hold (only vs. Prone/Pinned targets).
 *   **Style Perks**:
     *   **Shooter**: Double Leg Takedowns gain Advantage against opponents in a High Guard.
     *   **Ground Control**: Winning a Grapple Struggle (Black vs. Black) automatically knocks the opponent prone and pins them, preventing them from choosing a Strike next turn.
 
-### 5. Taekwondo / Karate (Long-Range Kicking)
+### 5. Karate (The Way of the Empty Hand)
+*   **Focus**: Precision Strikes & Iron Discipline.
+*   **Allowed Actions**:
+    *   *Strikes*: Jab, Cross, Hook, Low Kick, High Kick, Push Kick (Teep).
+    *   *Blocks*: High Guard, Parry (No Low Guard or Dodge).
+    *   *Throws*: None.
+*   **Style Perks**:
+    *   **Ikken Hissatsu (One Strike, One Kill)**: When you land a Critical Hit (margin $\ge 5$ or Natural 20), the attack deals an additional $+1$ attribute damage on top of the normal critical bonus (for a total of $+2$ bonus damage on crits).
+    *   **Kiai Shout**: Once per fight, after landing a successful Strike, you may let out a devastating Kiai — the defender must pass a **DC 12 Cool check** or suffer **1 Cool damage** (psychological shock).
+
+### 6. Kung Fu (The Martial Way)
+*   **Focus**: Flowing Combos & Redirection.
+*   **Allowed Actions**:
+    *   *Strikes*: Jab, Cross, Low Kick, High Kick, Push Kick (Teep).
+    *   *Blocks*: Parry, Dodge/Evasion (No High Guard or Low Guard).
+    *   *Throws*: Trip/Sweep only (No Clinch, Hip Throw, or Takedown).
+*   **Style Perks**:
+    *   **Chain Strike**: If you successfully landed a Strike last round, your next Strike this round gains a $+2$ bonus (representing flowing combo sequences).
+    *   **Flowing Redirect**: When you successfully Parry a Strike, you may immediately execute a free Trip/Sweep as a reaction (representing Wing Chun trapping hands flowing into a leg sweep).
+
+### 7. Taekwondo (The Way of the Foot and Fist)
 *   **Focus**: Agile Footwork & High Kicks.
 *   **Allowed Actions**:
-    *   *Strikes*: Jab, Cross, and all Kicks.
+    *   *Strikes*: Jab, Cross, and all Kicks (Low, Body, High, Push).
     *   *Blocks*: High Guard, Dodge/Evasion (No Low Guard or Parry).
     *   *Throws*: None.
 *   **Style Perks**:
@@ -209,7 +229,6 @@ Strikes aim to inflict damage and interrupt throws.
 
 #### C. Special Strikes
 *   **Taunt**: A verbal or physical psychological mock. Takes the place of an **Assault Stance (Strike / Red)** action. Governed by the **Cool** attribute. Deals no physical damage, but a successful check inflicts **1 Cool damage** on the target.
-*   **Dirty Punch**: Heavy overhand punch used to close the distance. Governed by **Posture** (using forward momentum). Deals **Timing** damage. *(Only allowed for Wrestlers).*
 *   **Ground & Pound**: Striking a downed opponent on the canvas. Governed by **Posture** or **Timing**. Deals **Posture** or **Stamina** damage. Can only be selected against **Prone** or **Pinned** targets. *(Allowed for Wrestling and Judo).*
 
 ---
@@ -232,6 +251,7 @@ Throws aim to bypass blocks, control the opponent, and force them to the ground.
 *   **Trip / Sweep**: Quick attack on the opponent's base/balance. Fast speed, low damage. Knocks opponent prone. Especially effective against High Guards.
 *   **Hip / Shoulder Throw**: High-impact projection throw. Moderate speed, high damage. Knocks the opponent prone and stuns them for a turn.
 *   **Takedown (Double Leg)**: Power drive to force the opponent down. Bypasses High Guards entirely, but highly vulnerable to fast Strikes like Uppercuts or Jabs.
+*   **Submission Hold**: Joint lock or chokehold applied on the mat. Governed by **Posture**. Deals High Impact (3 damage) to **Stamina** (choke/joint pressure). Can only be selected against **Prone** or **Pinned** targets. *(Allowed for Wrestling and Judo).*
 
 ---
 
@@ -255,15 +275,15 @@ When an attack connects, it deals direct damage to a specific attribute based on
 > [!NOTE]
 > The **governing attribute** (listed in the Attribute Mapping table) is the attribute the *attacker* rolls to execute the action. The **attribute damage** type (listed below) is the attribute the *defender* loses on a successful hit.
 
-*   **Timing Damage** (Head & Face strikes): Jab, Cross, High Kick, Dirty Punch.
+*   **Timing Damage** (Head & Face strikes): Jab, Cross, High Kick.
 *   **Posture Damage** (Core/Structure strikes & slams): Uppercut, Hip/Shoulder Throw, Ground & Pound (can also target Stamina).
 *   **Footwork Damage** (Leg strikes & sweeps): Low Kick, Trip/Sweep, Takedown.
-*   **Stamina Damage** (Wind/lung blows): Hook (can also target Posture), Body Kick, Push Kick (Teep), Ground & Pound (can also target Posture).
+*   **Stamina Damage** (Wind/lung blows & chokes): Hook (can also target Posture), Body Kick, Push Kick (Teep), Ground & Pound (can also target Posture), Submission Hold.
 
 #### Base Damage by Impact Level:
 *   **Low Impact (1 damage)**: Jab.
-*   **Medium Impact (2 damage)**: Cross, Hook, Low Kick, Push Kick (Teep), Trip/Sweep, Dirty Punch, Ground & Pound.
-*   **High Impact (3 damage)**: Uppercut, Body Kick, High Kick, Hip/Shoulder Throw, Takedown (Double Leg).
+*   **Medium Impact (2 damage)**: Cross, Hook, Low Kick, Push Kick (Teep), Trip/Sweep, Ground & Pound.
+*   **High Impact (3 damage)**: Uppercut, Body Kick, High Kick, Hip/Shoulder Throw, Takedown (Double Leg), Submission Hold.
 *   *Note: Successful Throws also knock the target **Prone**.*
 
 #### Success Modifier
@@ -529,7 +549,7 @@ Rather than flat combat XP, **Saturday Night Street Fight** uses **XP Keys**. Ke
 ### 3. The Martial Arts XP Keys List
 
 #### A. Key of Dojo Pride (Style Honor)
-*Your character lives to prove that their martial arts style (Boxing, Judo, Muay Thai, Wrestling, Taekwondo) is superior to all others.*
+*Your character lives to prove that their martial arts style (Boxing, Judo, Karate, Kung Fu, Muay Thai, Wrestling, Taekwondo) is superior to all others.*
 *   **1 XP**: Defeat an opponent who practices a different martial arts style in a 1v1 duel.
 *   **2 XP**: Defeat a rival Tier 3 Boss who publicly mocks or discredits your style.
 *   **Buyoff / Counter**: Publicly admit that another style is superior to yours or abandon your primary style. *(Gain +3 XP, remove Key).*

@@ -16,8 +16,8 @@
     Forget abstract hitpoints. Attacks deal direct damage to your four core physical **Attributes** (**Timing**, **Posture**, **Footwork**, **Stamina**). As you take head strikes, body blows, and leg sweeps, your combat rolls degrade in real-time. If any attribute hits 0, you suffer an immediate TKO!
 *   **Roleplay-Driven Character Growth (XP Keys)**:
     Fighters don't level up by killing monsters for flat XP—you earn XP by acting out your brawler motivations (**XP Keys**). Earn XP by defending dojo pride, protecting your turf, honoring street codes, or holding grudges. Trigger dramatic **Buyoffs** when your character evolves to claim a +3 XP bonus and choose a new key!
-*   **Authentic Martial Arts Mastery**:
-    Specialize in Boxing, Muay Thai, Judo, Wrestling, or Taekwondo. Master iconic techniques and unleash game-changing style perks like Boxer's *Slip & Counter*, Muay Thai's *Thai Clinch*, Judo's *Kuzushi Reversals*, and Wrestler's *Ground Control*.
+*   **7 Authentic Martial Arts Styles**:
+    Specialize in Boxing, Muay Thai, Judo, Wrestling, Karate, Kung Fu, or Taekwondo. Master iconic techniques and unleash game-changing style perks like Boxer's *Slip & Counter*, Muay Thai's *Thai Clinch*, Judo's *Kuzushi Reversals*, Wrestler's *Ground Control*, Karate's *Ikken Hissatsu* (one-strike kill crits), and Kung Fu's *Chain Strike* combos.
 
 ---
 

@@ -29,7 +29,7 @@ STYLES = {
         "Focus": "Redirection & High-Impact Throws",
         "Strikes": ["jab", "ground & pound"],
         "Blocks": ["high guard", "parry"],
-        "Throws": ["clinch", "trip", "hip throw"],
+        "Throws": ["clinch", "trip", "hip throw", "submission hold"],
         "Perks": [
             "**Kuzushi (Off-Balance)**: Successfully parrying a strike lets you immediately attempt a Hip Throw or Trip as a free reaction check.",
             "**Sweeping Reversal**: Trip/Sweep gains Advantage against opponents performing a High Kick."
@@ -37,12 +37,32 @@ STYLES = {
     },
     "Wrestling": {
         "Focus": "Clinches & Power Takedowns",
-        "Strikes": ["jab", "dirty punch", "ground & pound"],
+        "Strikes": ["jab", "ground & pound"],
         "Blocks": ["high guard", "low guard"],
-        "Throws": ["clinch", "trip", "takedown"],
+        "Throws": ["clinch", "trip", "takedown", "submission hold"],
         "Perks": [
             "**Shooter**: Double Leg Takedowns gain Advantage against opponents in a High Guard.",
             "**Ground Control**: Winning a Grapple Struggle (Black vs Black) automatically knocks the opponent prone and pins them."
+        ]
+    },
+    "Karate": {
+        "Focus": "Precision Strikes & Iron Discipline",
+        "Strikes": ["jab", "cross", "hook", "low kick", "high kick", "push kick"],
+        "Blocks": ["high guard", "parry"],
+        "Throws": [],
+        "Perks": [
+            "**Ikken Hissatsu (One Strike, One Kill)**: Critical Hits deal an additional +1 attribute damage (total +2 bonus on crits).",
+            "**Kiai Shout**: Once per fight, after a successful Strike, defender must pass DC 12 Cool check or suffer 1 Cool damage."
+        ]
+    },
+    "Kung Fu": {
+        "Focus": "Flowing Combos & Redirection",
+        "Strikes": ["jab", "cross", "low kick", "high kick", "push kick"],
+        "Blocks": ["parry", "dodge"],
+        "Throws": ["trip"],
+        "Perks": [
+            "**Chain Strike**: If you landed a Strike last round, your next Strike gains a +2 bonus.",
+            "**Flowing Redirect**: Successfully Parrying a Strike lets you immediately execute a free Trip/Sweep as a reaction."
         ]
     },
     "Taekwondo": {
@@ -156,7 +176,7 @@ def generate_random_character(name=None):
                 "attrs": ["posture", "stamina", "cool"],
                 "moves_priority": [
                     ("takedown", 2),   # Primary power takedown (Mastered)
-                    ("dirty punch", 1), # Neutral strike option (Trained)
+                    ("submission hold", 1), # Tap-out submission (Trained)
                     ("clinch", 1),     # Close distance (Trained)
                     ("ground & pound", 1), # Exploit down position (Trained)
                     ("low guard", 1)   # Keep base low (Trained)
@@ -168,9 +188,57 @@ def generate_random_character(name=None):
                 "moves_priority": [
                     ("taunt", 2),      # Demoralize opponent (Mastered)
                     ("takedown", 1),   # Close the show (Trained)
-                    ("dirty punch", 1), # Strike threat (Trained)
+                    ("submission hold", 1), # Tap-out submission (Trained)
                     ("ground & pound", 1), # Exploit pin position (Trained)
                     ("takedown", 2)    # Master takedown (Mastered)
+                ]
+            }
+        ],
+        "Karate": [
+            {
+                "name": "Classic Point Fighter",
+                "attrs": ["timing", "posture", "stamina"],
+                "moves_priority": [
+                    ("cross", 2),      # Primary precision strike (Mastered)
+                    ("parry", 1),      # Disciplined defense (Trained)
+                    ("high kick", 1),  # Head kick threat (Trained)
+                    ("jab", 1),        # Fast setup strike (Trained)
+                    ("parry", 2)       # Master parry (Mastered)
+                ]
+            },
+            {
+                "name": "The Sensei (Cool-Focused)",
+                "attrs": ["cool", "timing", "posture"],
+                "moves_priority": [
+                    ("taunt", 2),      # Kiai intimidation (Mastered)
+                    ("cross", 1),      # Precision strike (Trained)
+                    ("parry", 1),      # Counter defense (Trained)
+                    ("hook", 1),       # Body shot (Trained)
+                    ("cross", 2)       # Master cross (Mastered)
+                ]
+            }
+        ],
+        "Kung Fu": [
+            {
+                "name": "Classic Chain Striker",
+                "attrs": ["timing", "footwork", "stamina"],
+                "moves_priority": [
+                    ("jab", 2),        # Fast combo starter (Mastered)
+                    ("dodge", 1),      # Flowing evasion (Trained)
+                    ("push kick", 1),  # Distance control (Trained)
+                    ("cross", 1),      # Follow-up strike (Trained)
+                    ("dodge", 2)       # Master evasion (Mastered)
+                ]
+            },
+            {
+                "name": "The Philosopher (Cool-Focused)",
+                "attrs": ["cool", "timing", "footwork"],
+                "moves_priority": [
+                    ("taunt", 2),      # Mental pressure (Mastered)
+                    ("parry", 1),      # Flowing redirect (Trained)
+                    ("jab", 1),        # Fast strike (Trained)
+                    ("trip", 1),       # Sweep follow-up (Trained)
+                    ("parry", 2)       # Master parry (Mastered)
                 ]
             }
         ],
@@ -295,8 +363,8 @@ def interactive_generation(should_write=False):
     
     while True:
         try:
-            choice = int(input("\nSelect style (1-5): "))
-            if 1 <= choice <= 5:
+            choice = int(input(f"\nSelect style (1-{len(styles_list)}): "))
+            if 1 <= choice <= len(styles_list):
                 style_name = styles_list[choice - 1]
                 break
         except ValueError:

@@ -22,6 +22,9 @@ This guide provides the Game Master (GM) with setting guidelines, environmental 
 
 ## The Setting: 1975 Urban Decay
 
+> *"In the midst of chaos, there is also opportunity."* — Sun Tzu
+
+
 The setting is inspired by 1970s New York City—a blighted, financially broken metropolis during the mid-1970s. 
 *   **The Vibe**: Steam rising from manholes, cracked asphalt, flickering neon signs, graffiti-covered subway cars, piles of uncollected garbage, and yellow cabs splashing through puddles under broken streetlights.
 *   **The Conflict**: Power vacuums, street gangs defending blocks, turf wars, corrupt officials, and neighborhoods left to fend for themselves.
@@ -29,6 +32,9 @@ The setting is inspired by 1970s New York City—a blighted, financially broken 
 ---
 
 ## Subway Traversal (The Station Crawl)
+
+> *"Notice that the stiffest tree is most easily cracked, while the bamboo or willow survives by bending with the wind."* — Bruce Lee
+
 
 Fighters move through the blighted city by riding the subway line. Traveling from neighborhood to neighborhood is a dangerous journey where every stop brings new threats.
 
@@ -100,6 +106,9 @@ graph TD
 
 ## Block Generation System
 
+> *"The general who wins the battle makes many calculations in his temple before the battle is fought."* — Sun Tzu
+
+
 To generate the block where a fight takes place, the GM rolls on the following tables to create a distinct intersection, populate it with businesses, and add environmental hazards.
 
 ### Step 1: Street Name Generator (Roll $2\text{d}10$ four times)
@@ -163,6 +172,9 @@ These hazards add mechanical friction to the brawls.
 ---
 
 ## Block Danger Ranks & Encounters
+
+> *"The ultimate weapon in any fight is a person's courage and composure."* — Joe Lewis *(1970s World Karate Champion)*
+
 
 Every block in the city has a **Danger Rank** from **1 to 5** that reflects the presence of hostile gang control. When players arrive at a block, the GM determines the Danger Rank and rolls a **$1\text{d}10$** on the corresponding table below to generate the encounter:
 
@@ -235,6 +247,9 @@ Every block in the city has a **Danger Rank** from **1 to 5** that reflects the 
 
 ## Encounter Building & Starting Range Matrix
 
+> *"If you know the enemy and know yourself, you need not fear the result of a hundred battles."* — Sun Tzu
+
+
 When building a street encounter or resolving a random event during the Street Crawl, combine the **Threat Tier** with the **Environmental Starting Range Table**:
 
 ### 1. Threat Tier & XP Budget
@@ -260,6 +275,9 @@ If a party successfully ambushes an enemy (or gets ambushed):
 
 ## Encounter Disposition (Reaction Roll)
 
+> *"To know oneself is to study oneself in action with another person."* — Bruce Lee
+
+
 When players encounter a new gang, mob of punks, or street NPC during a Street Crawl (or exiting a subway station), the GM or lead player rolls **$2\text{d}10 + \text{Cool}$** to determine the group's initial reaction, demeanor, and threat level:
 
 | $2\text{d}10 + \text{Cool}$ Total | Initial Disposition | Narrative & Tactical Outcome |
@@ -273,6 +291,9 @@ When players encounter a new gang, mob of punks, or street NPC during a Street C
 ---
 
 ## NPC Stats & Threat Tiers
+
+> *"There are no tough guys in the world. Just guys who haven't met someone who can beat 'em."* — Cus D'Amato
+
 
 Not everyone on the streets is a martial arts master. The GM populates blocks with three distinct tiers of opponents.
 
@@ -300,6 +321,9 @@ Gang leaders, legendary street fighters, or elite enforcers.
 
 ## Group Combat Rules
 
+> *"Do not allow yourself to be cornered or surrounded. Constant movement is survival."* — Chuck Norris
+
+
 Use these rules when players are outnumbered or coordinating with allies.
 
 ### 1. Mob Punk Rules (Exclusive to Tier 1 Gangs)
@@ -321,6 +345,9 @@ If a fighter is double-teamed by multiple opponents:
 ---
 
 ## The Saturday Night Soundtrack (1970s Playlist)
+
+> *"Rhythm is everything in fighting. Every move you make starts with your heart, and that's in rhythm or you're in trouble."* — Sugar Ray Robinson
+
 
 To set the mood at your table, roll a **$1\text{d}10$** on the tables below to select a track during session exploration or brawls:
 
