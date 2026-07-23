@@ -27,7 +27,7 @@
 > *"I fear not the man who has practiced 10,000 kicks once, but I fear the man who has practiced one kick 10,000 times."* — Bruce Lee
 
 
-To build a fighter, follow these three simple steps:
+To build a fighter, follow these four simple steps:
 
 ### 1. Choose a Martial Arts Style
 Select **one** Martial Arts Style (Boxing, Muay Thai, Judo, Wrestling, Karate, Kung Fu, or Taekwondo). 
@@ -54,6 +54,12 @@ Select **2 Keys** from [The Martial Arts XP Keys System](#3-the-martial-arts-xp-
 *   **XP & Advancement**: Keys drive your character advancement and award Experience Points (XP) during play whenever your fighter fulfills their motivations or overcomes personal obstacles.
 *   **Key Slots**: Starting at **Rank 50 (Martial Disciple / Street Soldier)**, you have 2 active Key slots. (Reaching **Rank 60** permanently unlocks your 3rd active Key slot).
 
+### 4. Choose Name & Rank Title Focus
+Give your brawler a unique street name and select your starting **Rank Title Focus** at Rank 50:
+*   **Martial Focus Title**: **Martial Disciple** (for traditionalists, dojo disciples, and martial purists).
+*   **Street Focus Title**: **Street Soldier** (for gang enforcers, street brawlers, and neighborhood defenders).
+*   *Progression*: As your character spends XP and advances in rank, your rank title upgrades automatically (e.g. Rank 60 *Martial Adept* or *Turf Enforcer*; Rank 150 *Master* or *Original Gangster*; Rank 200+ *Grandmaster* or *Street Legend*). See [Character Rank Achievements & Milestones](#2-character-rank-achievements--milestones).
+
 ---
 
 ### Fighter Creation Example
@@ -65,6 +71,7 @@ A Boxer starts with Agility 2, Power 2, Reaction 2, Stamina 2, Cool 2. They buil
 *   **Step 3: Choose 2 Keys**:
     *   *Key of Dojo Pride* (Defeat rival styles in 1v1 duels for 1 XP).
     *   *Key of Turf Loyalty* (Defend home block or transit safe house for 1 XP).
+*   **Step 4: Name & Title Focus**: "Jack 'Iron Jab' Mercer", Rank 50 Title Focus: **Street Soldier**.
 *   **Remaining XP**: 2 XP unspent (saved for campaign play).
 
 ---
