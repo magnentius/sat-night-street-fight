@@ -666,3 +666,43 @@ Upon reaching **Rank 200+** and mastering every technique across both your Prima
 *   **1 XP**: Offer tactical advice or spend a 10-minute short rest conditioning a companion.
 *   **2 XP**: Save a companion from taking a severe attribute TKO (0) by placing yourself directly in harm's way.
 *   **Buyoff / Counter**: Abandon your student/protégé in the middle of a brawl to save yourself. *(Gain +3 XP, remove Key).*
+
+---
+
+## 13. Quick Reference Glossary & Index
+
+### 13.1 Status Conditions Glossary
+
+| Condition | Mechanical Effect | Duration | Quick Reference |
+| :--- | :--- | :--- | :---: |
+| 🦵 **Hobbled** | Inflicts **Disadvantage on Agility Stance Checks** (*Dodge, Low Kick, Trip, Stand Up*). | Lasts for 1 Stance Check. | [Go to Rule](#96-hobbled) |
+| 🫁 **Winded** | Inflicts **Disadvantage on Stamina & Power Stance Checks** (*High Kick, Body Kick, Throws, Takedowns, Clinch*). | Lasts for 1 Stance Check. | [Go to Rule](#97-winded) |
+| 🧠 **Shaken** | Inflicts **Disadvantage on Reaction Stance Checks & Non-Combat Checks**; suspends precision perks (*Slip & Counter, Kuzushi*). | Lasts for 1 Stance Check. | [Go to Rule](#95-shaken) |
+| 💫 **Stunned** | Mind dazed; can only cover up via High Guard or Low Guard ($2\text{d}10$ neutral roll). Cannot attack. | Lasts for 1 Stance Check. | [Go to Rule](#94-stunned) |
+| 💥 **Staggered** | Unsteady footing; next incoming strike gains Advantage ($3\text{d}10$). | Lasts until next incoming attack. | [Go to Rule](#93-staggered) |
+| 🤸 **Prone** | Knocked to the ground. Must pass $2\text{d}10$ neutral Stand Up check (Win/Tie = Stand Up). | Until successful Stand Up roll. | [Go to Rule](#91-prone) |
+| 🤼 **Pinned** | Trapped under opponent. Must pass $2\text{d}10$ escape check (Win = Stand Up, Tie = Prone). | Until successful Escape roll. | [Go to Rule](#92-pinned) |
+
+### 13.2 Dice Mechanics & Action Checks Glossary
+
+| Term | Definition & Tabletop Impact | Quick Reference |
+| :--- | :--- | :---: |
+| 🎲 **Advantage** | Roll $3\text{d}10$ and sum the 2 highest dice. Rolled in Dominant Stance or exploiting vulnerabilities. | [Go to Rule](#3-action-roll-resolution--modifiers) |
+| 🎲 **Disadvantage** | Roll $3\text{d}10$ and sum the 2 lowest dice. Rolled in Exposed Stance or under status penalties. | [Go to Rule](#3-action-roll-resolution--modifiers) |
+| 🎯 **Stance Check** | Main action check declared each exchange (*Punches, Kicks, Guards, Throws, Evading, Standing Up*). | [Go to Rule](#72-the-3-action-check-types) |
+| ⚡ **Perk Reaction Check** | Immediate triggered check granted by style perks (*Judo Kuzushi, Karate Kiai Shout*). | [Go to Rule](#72-the-3-action-check-types) |
+| ⛰️ **Environmental Check** | Non-combat check rolled against fixed Target DCs (*DC 10 Easy, DC 12 Medium, DC 15 Hard, DC 18 Very Hard, DC 20 Impossible*). | [Go to Rule](#72-the-3-action-check-types) |
+| 💀 **Natural 20 (Overkill)** | Rolling double 10s on action dice. Automatic Critical Hit ($+1$ damage) + Momentum Surge. | [Go to Rule](#3-action-roll-resolution--modifiers) |
+| ⚡ **Momentum Surge** | Instantly restores $+1$ Stamina or $+1$ Cool upon rolling a Natural 20. | [Go to Rule](#3-action-roll-resolution--modifiers) |
+
+### 13.3 Damage, Hospitalization & Character Advancement Glossary
+
+| Term | Definition & Tabletop Impact | Quick Reference |
+| :--- | :--- | :---: |
+| 🚑 **TKO (Technical Knockout)** | 1–3 physical attributes reduced to 0. Fighter is incapacitated and requires Hospital Admittance. | [Go to Rule](#102-hospital-recovery--triage-clock) |
+| 🏥 **Admittance Check** | Cool Check (DC 12 — Medium) to get admitted to ER triage within 24 Hours (max 2 attempts, 12 hrs per check). | [Go to Rule](#102-hospital-recovery--triage-clock) |
+| 🩺 **Discharge Check** | Power Check (DC 15 — Hard) after 1 week bed rest per 0 attribute. Failure permanently reduces Max Attribute Cap by $-1$. | [Go to Rule](#102-hospital-recovery--triage-clock) |
+| ☠️ **Street Death** | Character Death resulting from failing both ER admittance checks or 4 physical attributes zeroed simultaneously. | [Go to Rule](#102-hospital-recovery--triage-clock) |
+| 🏆 **Character Rank** | Total spent XP. Governs dual martial/street rank titles and milestone unlocks (*Rank 50, 60, 150, 200+*). | [Go to Rule](#2-character-rank-achievements--milestones) |
+| 🔑 **XP Keys** | Character motivation drivers awarding 1–2 XP per encounter and +3 XP lump sums on Key Buyoffs. | [Go to Rule](#3-the-martial-arts-xp-keys-system) |
+| ☯️ **Dual Style Mastery** | Rank 200+ Grandmaster perk. Elevates Secondary Style to Primary, activating all 4 style perks + 2nd Master Achievement. | [Go to Rule](#b-grandmaster-rank-rank-200-grandmaster--street-legend) |
