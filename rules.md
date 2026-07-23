@@ -92,25 +92,25 @@ Each technique is governed by a specific Attribute representing the physical cap
 | Martial Technique | Governing Attribute | Action Stance | Description |
 | :--- | :--- | :--- | :--- |
 | **Jab** | **Reaction** | Strike | Speed and reaction-based entry. |
-| **Cross** | **Power** | Strike | Strong power structure and weight transfer. |
-| **Hook** | **Reaction** | Strike | Precise flanking angle and rapid delivery. |
-| **Uppercut** | **Stamina** | Strike | Heavy vertical launch requiring cardiorespiratory power. |
+| **Cross** | **Reaction** | Strike | Straight rear punch delivered with alignment and timing. |
+| **Hook** | **Reaction** | Strike | Flanking angle punch targeting sightline and reaction. |
+| **Uppercut** | **Power** | Strike | Explosive vertical power punch delivering upward momentum. |
 | **Low Kick** | **Agility** | Strike | Quick leg sweep/strike using lower-body agility. |
-| **Body Kick** | **Stamina** | Strike | Heavy body strike draining target's wind. |
+| **Body Kick** | **Stamina** | Strike | Heavy torso strike draining target's wind. |
 | **High Kick** | **Stamina** | Strike | High-impact flexibility and explosive stamina. |
-| **Push Kick (Teep)** | **Agility** | Strike | Spacing, agility, and foot placement. |
+| **Push Kick (Teep)** | **Agility** | Strike | Spacing thrust, agility, and foot placement. |
 | **Taunt** | **Cool** | Strike | Verbal or physical psychological mock. |
+| **Ground & Pound** | **Power** | Strike | Heavy top-control striking on a downed opponent. |
+| **High Guard** | **Power** | Block | Standing upper-body power structure and stance. |
+| **Low Guard** | **Power** | Block | Crouching posture and lower-body stability base. |
+| **Parry** | **Reaction** | Block | Hand deflection and reaction timing. |
+| **Dodge / Evasion** | **Agility** | Block | Lateral footwork and evasive movement using agility. |
+| **Stand Up** | **Agility** | Block | Recovering footwork from Prone stance using agility. |
+| **Clinch / Grab** | **Reaction** | Throw | Securing collars or wrists with rapid reflexes. |
+| **Trip / Sweep** | **Agility** | Throw | Leg hook and agility footwork sweep. |
+| **Hip / Shoulder Throw** | **Power** | Throw | Redirection lift using hips and structural power. |
+| **Takedown (Double Leg)** | **Power** | Throw | Explosive double-leg drive and penetration slam. |
 | **Submission Hold** | **Power** | Throw | Joint lock or chokehold applied on a Prone/Pinned target. |
-| **Ground & Pound** | **Power** | Strike | Striking a downed opponent on the canvas using power leverage. |
-| **High Guard** | **Power** | Block | Standing power structure and stance. |
-| **Low Guard** | **Power** | Block | Crouching lower-body stability. |
-| **Parry** | **Reaction** | Block | Precise reaction timing of deflection. |
-| **Dodge / Evasion** | **Agility** | Block | Moving the body out of range using agility. |
-| **Stand Up** | **Agility** | Block | Attempt to stand up from Prone stance using agility. |
-| **Clinch / Grab** | **Reaction** | Throw | Catching/securing limbs with rapid reaction. |
-| **Trip / Sweep** | **Agility** | Throw | Precise agility foot placement and sweep. |
-| **Hip / Shoulder Throw** | **Stamina** | Throw | High-exertion lift via mechanical leverage. |
-| **Takedown (Double Leg)** | **Stamina** | Throw | Power drive and penetration step. |
 
 ---
 
