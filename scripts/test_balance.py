@@ -205,7 +205,7 @@ def simulate_single_fight(p1_data, p2_data):
 
 def sim_resolve_hit(attacker, move, target, damage, crit):
     target_attr = "timing"
-    if move in ["jab", "cross", "high kick", "dirty punch"]:
+    if move in ["jab", "cross", "high kick"]:
         target_attr = "timing"
     elif move == "hook":
         target_attr = "stamina" if target.attrs["stamina"] <= target.attrs["posture"] else "posture"

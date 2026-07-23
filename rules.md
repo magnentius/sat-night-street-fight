@@ -99,7 +99,7 @@ Each sub-action is governed by a specific Attribute representing the physical ca
 | **High Kick** | **Stamina** | Strike | High-impact flexibility and explosive power. |
 | **Push Kick (Teep)** | **Footwork** | Strike | Spacing and foot placement. |
 | **Taunt** | **Cool** | Strike | Verbal or physical psychological mock. |
-| **Dirty Punch** | **Posture** | Strike | Heavy overhand punch used to close the distance. |
+| **Submission Hold** | **Posture** | Throw | Joint lock or chokehold applied on a Prone/Pinned target. |
 | **Ground & Pound** | **Posture** | Strike | Striking a downed opponent on the canvas. |
 | **High Guard** | **Posture** | Block | Standing structure and stance. |
 | **Low Guard** | **Posture** | Block | Crouching stability. |
